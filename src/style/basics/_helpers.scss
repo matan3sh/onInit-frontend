@@ -1,0 +1,46 @@
+// Backgrounds
+.bg {
+  &-primary {
+    @include set-background($primary-color);
+  }
+  &-light {
+    @include set-background($light-color);
+    border: #ccc 1px solid;
+  }
+  &-dark {
+    @include set-background($dark-color);
+  }
+  &-success {
+    @include set-background($success-color);
+  }
+  &-danger {
+    @include set-background($danger-color);
+  }
+  &-white {
+    @include set-background(#fff);
+    border: #ccc 1px solid;
+  }
+}
+
+.item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: $primary-color;
+  margin-bottom: 0.5rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.right {
+  float: right;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem !important;
+}

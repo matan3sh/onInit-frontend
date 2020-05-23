@@ -1,0 +1,63 @@
+.grid-review {
+  display: grid;
+  grid-template-columns: 1fr 0.2fr;
+  grid-gap: 0rem;
+}
+
+.rating-badge {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bolder;
+  height: 60px;
+  width: 120px;
+  border-radius: 50px;
+  background-color: $primary-color;
+  background-image: linear-gradient(315deg, #e09082 0%, $primary-color 74%);
+}
+
+.card-review {
+  padding: 0.2rem;
+  border: #ccc 1px double;
+  margin: 1rem 0;
+  border-radius: 15px;
+  background: #fff;
+  border-top: solid 5px lighten($dark-color, 70%);
+  border-bottom: solid 5px #ccc;
+}
+
+.add-review-card {
+  padding: 2rem;
+  border: #ccc 1px double;
+  margin: 1rem 0;
+  border-radius: 15px;
+  background: #fff;
+  border-top: solid 5px lighten($dark-color, 70%);
+  border-bottom: solid 5px #ccc;
+}
+
+.review-left {
+  border-right: #ccc 1px dotted;
+}
+
+.avatar-review {
+  width: 50px;
+}
+
+.dot-review {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  border: #ccc 1px double;
+  background-color: $dark-color;
+  color: #fff;
+  height: 20px;
+  width: 40px;
+  border-radius: 5px;
+}

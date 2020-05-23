@@ -1,0 +1,14 @@
+.form-message {
+  font-size: 10px;
+  padding-top: 0;
+}
+.form-message.valid {
+  color: $success-color;
+}
+.form-message.invalid {
+  color: $danger-color;
+}
+
+.has-error {
+  border: 1px solid $danger-color !important;
+}

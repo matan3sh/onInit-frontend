@@ -1,0 +1,33 @@
+// Setup
+@import 'setup/variables.scss';
+@import 'setup/functions.scss';
+@import 'setup/mixins.scss';
+@import 'setup/typography.scss';
+
+// Basic
+@import 'basics/base.scss';
+@import 'basics/form.scss';
+@import 'basics/text.scss';
+@import 'basics/img.scss';
+@import 'basics/layout.scss';
+@import 'basics/badges.scss';
+@import 'basics/helpers.scss';
+@import 'basics/buttons.scss';
+@import 'basics/alerts.scss';
+@import 'basics/stars.scss';
+
+// Components
+@import 'components/navbar.scss';
+@import 'components/search.scss';
+@import 'components/tabs.scss';
+@import 'components/pictures.scss';
+@import 'components/course.scss';
+@import 'components/error.scss';
+@import 'components/home.scss';
+
+// Pages
+@import 'pages/landing.scss';
+@import 'pages/profile.scss';
+@import 'pages/profiles.scss';
+@import 'pages/review.scss';
+@import 'pages/user.scss';
