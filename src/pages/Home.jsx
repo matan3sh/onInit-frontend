@@ -15,7 +15,7 @@ class Home extends React.Component {
         <section className='landing'>
           <div className='dark-overlay'>
             <div className='landing-inner'>
-              <h1 className='x-large'>Courses Group</h1>
+              <h1 className='x-large'>You can make a change</h1>
               <p className='lead'>It's time to take your career right</p>
               <div className='search'>
                 <div className='form-group'>
@@ -44,7 +44,9 @@ class Home extends React.Component {
             ></path>
           </svg>
         </section>
-        <h2 className=' text-primary flex-center'>Our Pupolar Courses</h2>
+        <h2 className=' text-primary flex-center title-header'>
+          Our Pupolar Courses
+        </h2>
         {courses && (
           <div className='flex-center'>
             <div className='grid-3 my-2'>

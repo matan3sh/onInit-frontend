@@ -1,5 +1,6 @@
 .card-container {
   position: relative;
+  top: -70px;
 }
 
 .card-container .home-card {
@@ -7,7 +8,7 @@
   max-width: 300px;
   height: 120px;
   background: #fff;
-  margin: 30px 10px;
+  margin: 20px 10px;
   padding: 20px 15px;
   display: flex;
   flex-direction: column;
@@ -18,7 +19,7 @@
 }
 
 .card-container .home-card:hover {
-  height: 160px;
+  height: 155px;
 }
 
 .card-container .home-card .imgBx {
@@ -50,7 +51,7 @@
 .card-container .home-card:hover .content {
   visibility: visible;
   opacity: 1;
-  margin-top: -85px;
+  margin-top: -90px;
   transition-delay: 0.1s;
 }
 
@@ -58,4 +59,9 @@
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.title-header {
+  position: relative;
+  top: -80px;
 }
