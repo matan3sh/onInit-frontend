@@ -1,8 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../components/Shared/Error';
+
+import { login } from '../store/actions/authActions'
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -11,7 +14,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required('Must enter a password'),
 });
 
-export const Login = () => {
+const Login = ({ login, history }) => {
   return (
     <section className='form-container'>
       <h1 className='large text-primary'>Login</h1>
@@ -23,7 +26,8 @@ export const Login = () => {
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           setSubmitting(true);
-          console.log(values);
+          login(values)
+          history.push('/')
         }}
       >
         {({
@@ -78,3 +82,13 @@ export const Login = () => {
     </section>
   );
 };
+
+const mapStateToProps = state => ({ 
+  loggedInUser: state.auth.loggedInUser
+ })
+
+const mapDispatchToProps = {
+  login
+} 
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

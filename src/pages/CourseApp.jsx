@@ -2,15 +2,21 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { loadCourses } from '../store/actions/courseActions';
+import { setUser } from '../store/actions/authActions';
+import userService from '../services/userService'
 
 import { Loader } from '../components/Layout/Loader';
 import { CourseList } from '../components/Course/CourseList';
 import { CategoryFilter } from '../components/Course/Filter/CategoryFilter';
 
+
 class CourseApp extends Component {
   state = { filterBy: '' };
 
   componentDidMount() {
+    const loggedInUser = userService.getLoggedInUser()
+    if(loggedInUser) setUser(loggedInUser)
+    
     setTimeout(() => {
       if (this.props.location === null)
         this.props.loadCourses(this.state.filterBy);
