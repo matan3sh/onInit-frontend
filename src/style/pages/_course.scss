@@ -1,0 +1,84 @@
+.course-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem;
+}
+
+.course-details-header {
+  margin-left: 50px;
+  font-family: Lato-Bold;
+}
+
+.school-img {
+  position: relative;
+  top: 15px;
+  padding: 0;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  width: 70px;
+  height: 45px;
+}
+
+.course-details-right {
+  // border: #ccc 1px dotted;
+  border-radius: 5px;
+  padding: 1rem;
+  height: 42rem;
+}
+
+.course-details-right-title {
+  font-size: 26px !important;
+}
+
+.course-details-description,
+.course-details-info {
+  margin-top: 1rem;
+  color: rgb(87, 87, 87);
+}
+
+.course-details-description h5 {
+  font-family: Lato-Bold;
+  color: $primary-color;
+}
+
+.course-details-contact-info {
+  // border: #ccc 1px dotted;
+  border-radius: 5px;
+}
+
+.contact-info-position {
+  position: relative;
+  top: 40px;
+}
+
+.course-tag-info {
+  background: #ccc;
+  color: $dark-color;
+  border-radius: 5px;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  outline: none;
+  transition: all 0.2s ease-in;
+}
+
+.map {
+  width: 50%;
+  border-radius: 10px;
+}
+
+.school-grid {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  grid-gap: 0.5rem;
+  padding: 1rem;
+  // border: #ccc 1px dotted;
+  border-radius: 5px;
+}
+
+.about-school-img {
+  display: flex;
+  margin: 30px 0;
+  width: 100%;
+  width: 150px;
+}

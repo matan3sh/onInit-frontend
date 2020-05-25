@@ -24,3 +24,9 @@ export function saveCourse(course) {
       .then((savedCourse) => dispatch({ type, payload: savedCourse }));
   };
 }
+
+export function setLocation(location) {
+  return (dispatch) => {
+    dispatch({ type: 'SET_LOCATION', payload: location });
+  };
+}

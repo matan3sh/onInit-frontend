@@ -1,8 +1,7 @@
 // Search box
 .search {
   display: grid;
-  grid-template-columns: 2fr 0.5fr;
-  grid-gap: 0.5rem;
+  grid-template-columns: 2fr 0.1fr;
   z-index: 2;
   input[type='text'] {
     display: block;

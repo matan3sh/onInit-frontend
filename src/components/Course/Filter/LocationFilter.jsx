@@ -10,7 +10,7 @@ export default class LocationFilter extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.onFilterBy(this.state.location);
+    this.props.onFilterByLocation(this.state.location);
   };
 
   render() {

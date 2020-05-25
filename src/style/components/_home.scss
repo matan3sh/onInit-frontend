@@ -6,10 +6,10 @@
 .card-container .home-card {
   position: relative;
   max-width: 300px;
-  height: 120px;
+  height: 160px;
   background: #fff;
   margin: 20px 10px;
-  padding: 20px 15px;
+  padding: 20px 10px;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -18,17 +18,14 @@
   transition: 0.3s ease-in-out;
 }
 
-.card-container .home-card:hover {
-  height: 155px;
-}
-
 .card-container .home-card .imgBx {
   position: relative;
   width: 220px;
   height: 220px;
   top: -70px;
-  left: 13px;
+  left: 0px;
   z-index: 1;
+  filter: brightness(65%);
 }
 
 .card-container .home-card .imgBx img {
@@ -40,7 +37,7 @@
 .card-container .home-card .content {
   position: relative;
   margin-top: -130px;
-  padding: 10px 15px;
+  padding: 10px 0px;
   text-align: center;
   color: #111;
   visibility: hidden;
@@ -48,11 +45,19 @@
   transition: 0.3s ease-in-out;
 }
 
-.card-container .home-card:hover .content {
+.card-container .home-card .content {
   visibility: visible;
   opacity: 1;
   margin-top: -90px;
   transition-delay: 0.1s;
+}
+
+.card-title {
+  color: #fff;
+  position: relative;
+  top: -25px;
+  left: -20px;
+  z-index: 2;
 }
 
 .wave {
@@ -64,4 +69,5 @@
 .title-header {
   position: relative;
   top: -80px;
+  text-align: left;
 }

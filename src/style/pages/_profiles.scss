@@ -1,5 +1,25 @@
-.profiles {
+// .profiles {
+//   display: grid;
+//   grid-template-columns: 0.8fr 2fr;
+//   grid-gap: 1rem;
+// }
+
+.course-card {
+  position: relative;
+  top: -80px;
+  left: 10px;
+  color: #fff;
+}
+
+.round-img {
+  border-radius: 5%;
+  width: 270px;
+  height: 200px;
+  filter: brightness(60%);
+}
+
+.courses-grid {
   display: grid;
-  grid-template-columns: 0.8fr 2fr;
-  grid-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0rem;
 }

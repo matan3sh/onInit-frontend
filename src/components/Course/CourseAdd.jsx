@@ -14,6 +14,7 @@ const validationSchema = Yup.object().shape({
   category: Yup.string().required('Must pick a category'),
   description: Yup.string()
     .min(24, 'Must have at least 24 characters')
+    .max(415, 'Must be shorter then 415 characters')
     .required('Must describe the course in detail'),
   imgCover: Yup.string()
     .url('Must be valid URL')
@@ -127,6 +128,8 @@ const CourseAdd = ({ saveCourse }) => {
               acceptGi,
             },
             images: [firstImg, secondImg, thirdImg, fourthImg],
+            reviews: [],
+            rating: '',
           };
           saveCourse(course);
           resetForm();
@@ -179,7 +182,7 @@ const CourseAdd = ({ saveCourse }) => {
                   <option value='Design'>Design</option>
                   <option value='Ecommerce'>Ecommerce</option>
                   <option value='Economy'>Economy</option>
-                  <option value='Grpahic'>Grpahic</option>
+                  <option value='Graphics'>Graphics</option>
                   <option value='Management'>Management</option>
                   <option value='Programming'>Programming</option>
                 </select>
@@ -352,7 +355,7 @@ const CourseAdd = ({ saveCourse }) => {
                 <input
                   type='number'
                   name='duration'
-                  placeholder='Duration By Minutes'
+                  placeholder='Duration By Hours'
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.duration}

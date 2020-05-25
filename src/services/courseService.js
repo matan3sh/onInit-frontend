@@ -11,10 +11,12 @@ export default {
 };
 
 function query(filterBy) {
-  console.log(filterBy);
-  if (!filterBy) filterBy = '';
+  var query = {};
+  if (!filterBy) filterBy = {};
+  if (filterBy.byLocation) query = { location: filterBy.byLocation };
+  if (filterBy.byCategory) query = { category: filterBy.byCategory };
   return axios
-    .get(BASE_URL, { params: { q: filterBy } })
+    .get(BASE_URL, { params: query })
     .then((res) => res.data)
     .then((courses) => {
       gCourses = courses;

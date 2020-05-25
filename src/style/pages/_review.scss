@@ -1,7 +1,6 @@
 .grid-review {
   display: grid;
   grid-template-columns: 1fr 0.2fr;
-  grid-gap: 0rem;
 }
 
 .rating-badge {
@@ -20,14 +19,16 @@
   background-image: linear-gradient(315deg, #e09082 0%, $primary-color 74%);
 }
 
+.grid-card-review {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+}
+
 .card-review {
   padding: 0.2rem;
-  border: #ccc 1px double;
+  border-top: #eee 1px double;
   margin: 1rem 0;
-  border-radius: 15px;
   background: #fff;
-  border-top: solid 5px lighten($dark-color, 70%);
-  border-bottom: solid 5px #ccc;
 }
 
 .add-review-card {
@@ -40,24 +41,34 @@
   border-bottom: solid 5px #ccc;
 }
 
-.review-left {
-  border-right: #ccc 1px dotted;
-}
-
 .avatar-review {
-  width: 50px;
+  width: 35px;
+  border-radius: 15px;
 }
 
 .dot-review {
-  text-align: center;
+  text-align: left;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  position: relative;
   border: #ccc 1px double;
   background-color: $dark-color;
   color: #fff;
-  height: 20px;
-  width: 40px;
+  height: 10px;
+  width: 20px;
   border-radius: 5px;
+}
+
+.content-card-wrapper {
+  display: flex;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+input[type='radio'] {
+  display: none;
 }

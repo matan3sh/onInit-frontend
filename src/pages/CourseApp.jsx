@@ -5,21 +5,38 @@ import { loadCourses } from '../store/actions/courseActions';
 
 import { Loader } from '../components/Layout/Loader';
 import { CourseList } from '../components/Course/CourseList';
-import CategoryFilter from '../components/Course/Filter/CategoryFilter';
-import LocationFilter from '../components/Course/Filter/LocationFilter';
-import RatingPriceFilter from '../components/Course/Filter/RatingPriceFilter';
+import { CategoryFilter } from '../components/Course/Filter/CategoryFilter';
 
 class CourseApp extends Component {
   state = { filterBy: '' };
 
   componentDidMount() {
-    setTimeout(() => this.props.loadCourses(this.state.filterBy), 1000);
+    setTimeout(() => {
+      if (this.props.location === null)
+        this.props.loadCourses(this.state.filterBy);
+      else {
+        const location = { byLocation: this.props.location };
+        this.props.loadCourses(location);
+      }
+    }, 1000);
   }
 
-  onFilterBy = (filterBy) => {
-    this.setState({ filterBy }, () =>
-      this.props.loadCourses(this.state.filterBy)
-    );
+  onShowAll = () => {
+    this.props.loadCourses();
+  };
+
+  onFilterByLocation = (filterBy) => {
+    this.setState({ filterBy }, () => {
+      const location = { byLocation: filterBy };
+      this.props.loadCourses(location);
+    });
+  };
+
+  onFilterByCategory = (filterBy) => {
+    this.setState({ filterBy }, () => {
+      const category = { byCategory: filterBy };
+      this.props.loadCourses(category);
+    });
   };
 
   render() {
@@ -29,22 +46,19 @@ class CourseApp extends Component {
         {!courses.length ? (
           <Loader />
         ) : (
-          <>
+          <div className='container'>
             <p className='lead'>
               <i className='fab fa-connectdevelop' /> Browse and connect with
               courses
             </p>
-            <CategoryFilter />
-            <div className='profiles'>
-              <div className='left-side'>
-                <LocationFilter onFilterBy={this.onFilterBy} />
-                <RatingPriceFilter />
-              </div>
-              <div className='right-side'>
-                <CourseList courses={courses} />
-              </div>
+            <CategoryFilter
+              onFilterByCategory={this.onFilterByCategory}
+              onShowAll={this.onShowAll}
+            />
+            <div className='grid-1'>
+              <CourseList courses={courses} />
             </div>
-          </>
+          </div>
         )}
       </section>
     );
@@ -53,6 +67,7 @@ class CourseApp extends Component {
 
 const mapStateToProps = (state) => ({
   courses: state.courseApp.courses,
+  location: state.courseApp.location,
 });
 
 const mapDispatchToProps = {

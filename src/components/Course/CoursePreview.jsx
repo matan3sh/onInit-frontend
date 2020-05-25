@@ -4,29 +4,23 @@ import ReviewRate from './Review/ReviewRate';
 
 export const CoursePreview = ({ course }) => {
   return (
-    <div className='profile bg-light'>
-      <div className='grid-1'>
-        <div>
-          <h3>{course.name}</h3>
-          <h4 className='text-grey'>{course.school.name}</h4>
-          <p>{course.location}</p>
-        </div>
-        <img className='round-img' src={course.imgCover} alt='' />
+    <Link to={`/${course._id}`}>
+      <img className='round-img' src={course.imgCover} alt='' />
+      <div className='course-card'>
+        <h3 className='text-mid'>{course.name}</h3>
+        <p className='text-small'>{course.location}</p>
         {course.rating && course.reviews ? (
           <>
-            <p className='dot'>{course.rating}</p>
-            <ReviewRate rate={(course.rating * 100) / 5} />
-            <p className='text-small text-grey'>
-              ({course.reviews.length} reviews)
-            </p>
+            <ReviewRate rate={(course.rating * 100) / 5} />{' '}
+            <span className='text-mid'>{course.rating}</span>
+            <span className='text-small' style={{ marginLeft: '0.2rem' }}>
+              ({course.reviews.length})
+            </span>
           </>
         ) : (
           <p className='text-small text-grey'> No Reviews Yet</p>
         )}
       </div>
-      <Link to={`/course/${course._id}`}>
-        <button className='btn btn-primary view-btn'>View</button>
-      </Link>
-    </div>
+    </Link>
   );
 };

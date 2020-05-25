@@ -15,6 +15,7 @@ const validationSchema = Yup.object().shape({
   category: Yup.string().required('Must pick a category'),
   description: Yup.string()
     .min(24, 'Must have at least 24 characters')
+    .max(415, 'Must be shorter then 415 characters')
     .required('Must describe the course in detail'),
   imgCover: Yup.string()
     .url('Must be valid URL')
@@ -139,6 +140,7 @@ class CourseEdit extends React.Component {
                   nextCourse,
                   price,
                   rating: this.props.rating,
+                  reviews: this.props.reviews,
                   benefits: {
                     housing,
                     jobAssistance,
@@ -202,7 +204,7 @@ class CourseEdit extends React.Component {
                         <option value='Design'>Design</option>
                         <option value='Ecommerce'>Ecommerce</option>
                         <option value='Economy'>Economy</option>
-                        <option value='Grpahic'>Grpahic</option>
+                        <option value='Grpahic'>Graphics</option>
                         <option value='Management'>Management</option>
                         <option value='Programming'>Programming</option>
                       </select>

@@ -4,6 +4,7 @@ import moment from 'moment';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../../Shared/Error';
+import { FaStar } from 'react-icons/fa';
 
 import ReviewRate from './ReviewRate';
 
@@ -15,7 +16,7 @@ const validationSchema = Yup.object().shape({
 });
 
 export class ReviewPreview extends React.Component {
-  state = { isEdit: false };
+  state = { isEdit: false, rating: this.props.review.rate };
 
   onEdit = () => {
     this.setState(({ isEdit }) => ({ isEdit: !isEdit }));
@@ -24,13 +25,12 @@ export class ReviewPreview extends React.Component {
   render() {
     const { review, onDelete, onEdit } = this.props;
     return (
-      <div className='card-review grid-mid-hald'>
+      <div className='card-review grid-card-review'>
         <div className='review-left text-center'>
           <img
             className='avatar-review'
             src={review.byUser.avatar}
             alt='user-avatar'
-            style={{ width: '50px' }}
           />
           <div>{review.byUser.username}</div>
           <div className='text-grey'>
@@ -38,22 +38,10 @@ export class ReviewPreview extends React.Component {
               {moment(review.createdAt).fromNow()}
             </p>
           </div>
-          <p className='dot-review' style={{ fontSize: '14px' }}>
-            {review.rate}
-          </p>
-          <ReviewRate rate={(100 / 5) * `${review.rate}`} />
-          <div className='my-1 flex-center'>
-            <button className='btn' onClick={this.onEdit}>
-              <i className='fas fa-edit'></i>
-            </button>
-            <button className='btn' onClick={() => onDelete(review)}>
-              <i className='fas fa-trash-alt'></i>
-            </button>
-          </div>
         </div>
         {this.state.isEdit ? (
           <Formik
-            initialValues={{ msg: review.msg, rate: review.rate }}
+            initialValues={{ msg: review.msg, rate: this.state.rating }}
             validationSchema={validationSchema}
             onSubmit={(values, { setSubmitting }) => {
               const { _id, byUser } = this.props.review;
@@ -63,7 +51,7 @@ export class ReviewPreview extends React.Component {
                 _id,
                 byUser,
                 msg: values.msg,
-                rate: values.rate,
+                rate: this.state.rating,
                 createdAt: Date.now(),
               };
               onEdit(updatedReview);
@@ -87,42 +75,73 @@ export class ReviewPreview extends React.Component {
                   <textarea
                     type='text'
                     name='msg'
-                    rows='6'
+                    rows='3'
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.msg}
                     className={touched.msg && errors.msg ? 'has-error' : null}
                   />
                   <Error touched={touched.msg} message={errors.msg} />
-                  <dir className='flex-center'>
-                    <p style={{ marginBottom: '0px' }} className='lead'>
-                      {values.rate}
-                    </p>
-                    <input
-                      type='range'
-                      name='rate'
-                      min='1'
-                      max='5'
-                      step='0.1'
-                      style={{ width: '30%' }}
-                      value={values.rate}
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                    />
-                  </dir>
-                  <button
-                    type='submit'
-                    className='btn btn-dark my-1'
-                    disabled={isSubmitting}
-                  >
-                    Save
-                  </button>
+                  <div>
+                    <button
+                      onClick={() => this.setState({ isEdit: false })}
+                      className='btn my-1'
+                    >
+                      <i className='fas fa-arrow-left'></i>
+                    </button>
+                    <button
+                      type='submit'
+                      className='btn btn-primary'
+                      disabled={isSubmitting}
+                    >
+                      Save
+                    </button>
+                    {[...Array(5)].map((star, index) => {
+                      const ratingValue = index + 1;
+                      return (
+                        <label key={index}>
+                          <input
+                            type='radio'
+                            name='rating'
+                            value={ratingValue}
+                            onClick={() =>
+                              this.setState({ rating: ratingValue })
+                            }
+                          />
+                          <FaStar
+                            className='star'
+                            color={
+                              ratingValue <= this.state.rating
+                                ? '#ffc107'
+                                : '#e4e5e9'
+                            }
+                            size={25}
+                          />
+                        </label>
+                      );
+                    })}
+                  </div>
                 </div>
               </form>
             )}
           </Formik>
         ) : (
           <div className='grid-1'>
+            <div style={{ float: 'right' }}>
+              <button className='badge bg-light pointer' onClick={this.onEdit}>
+                <i className='fas fa-edit'></i>
+              </button>
+              <button
+                className='badge bg-light pointer'
+                onClick={() => onDelete(review)}
+              >
+                <i className='fas fa-trash '></i>
+              </button>
+            </div>
+            <div className='content-card-wrapper'>
+              <ReviewRate rate={(100 / 5) * `${review.rate}`} />{' '}
+              <span style={{ marginLeft: '5px' }}>{review.rate}</span>
+            </div>
             <div>{review.msg}</div>
           </div>
         )}

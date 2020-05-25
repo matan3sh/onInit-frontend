@@ -2,9 +2,9 @@
 .container {
   max-width: $max-width;
   margin: auto;
-  overflow: hidden;
+  // overflow: hidden;
   padding: 0 2rem;
-  margin-top: 5.5rem;
+  margin-top: 0rem;
 }
 
 /* Grid */
@@ -23,6 +23,12 @@
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+
+.grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 2rem;
 }
 

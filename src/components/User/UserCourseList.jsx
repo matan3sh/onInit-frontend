@@ -14,7 +14,7 @@ export const UserCourseList = ({ courses }) => {
       </thead>
       <tbody>
         {courses.map((course) => (
-          <UserCoursePreview course={course} />
+          <UserCoursePreview key={course._id} course={course} />
         ))}
       </tbody>
     </table>
