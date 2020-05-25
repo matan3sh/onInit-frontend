@@ -5,7 +5,7 @@ import { ToastContainer, Zoom } from 'react-toastify';
 import store from './store/store';
 
 import Hero from './components/Layout/Hero';
-import { Navbar } from './components/Layout/Navbar';
+import Navbar from './components/Layout/Navbar';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import CourseApp from './pages/CourseApp';

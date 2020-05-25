@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { logout } from '../../store/actions/authActions';
 
-export const Navbar = () => {
+const Navbar = ({ loggedInUser, logout }) => {
   return (
     <nav className='navbar'>
       <h1>
@@ -10,22 +12,44 @@ export const Navbar = () => {
         </NavLink>
       </h1>
       <ul>
-        <li>
-          <NavLink to='/user/id' exact activeClassName='nav-active'>
-            Profile
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/signup' exact activeClassName='nav-active'>
-            Signup
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/login' exact activeClassName='nav-active'>
-            Login
-          </NavLink>
-        </li>
+        {loggedInUser ? (
+          <>
+            <li>
+              <NavLink to='/user/id' exact activeClassName='nav-active'>
+                Hello, {loggedInUser.username}
+              </NavLink>
+            </li>
+            <li className='text-white'>
+              <a href='/#' className='pointer' onClick={() => logout()}>
+                Logout
+              </a>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <NavLink to='/signup' exact activeClassName='nav-active'>
+                Signup
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to='/login' exact activeClassName='nav-active'>
+                Login
+              </NavLink>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );
 };
+
+const mapStateToProps = (state) => ({
+  loggedInUser: state.auth.loggedInUser,
+});
+
+const mapDispatchToProps = {
+  logout,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
