@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../components/Shared/Error';
+import { signup } from '../store/actions/authActions'
+
 
 const validationSchema = Yup.object().shape({
   username: Yup.string()
@@ -22,7 +25,7 @@ const validationSchema = Yup.object().shape({
   ),
 });
 
-export const Signup = ({ history }) => {
+const Signup = ({ signup, history }) => {
   return (
     <section className='form-container'>
       <h1 className='large text-primary'>Sign Up</h1>
@@ -38,7 +41,7 @@ export const Signup = ({ history }) => {
         }}
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          // signup(values);
+          signup(values);
           history.push('/');
         }}
       >
@@ -127,3 +130,11 @@ export const Signup = ({ history }) => {
     </section>
   );
 };
+
+const mapStateToProps = state => ({ 
+  loggedInUser: state.auth.loggedInUser
+ })
+
+const mapDispatchToProps = { signup }
+
+export default connect(mapStateToProps,mapDispatchToProps)(Signup)

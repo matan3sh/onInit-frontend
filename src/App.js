@@ -6,8 +6,8 @@ import store from './store/store';
 
 import Hero from './components/Layout/Hero';
 import { Navbar } from './components/Layout/Navbar';
-import { Login } from './pages/Login';
-import { Signup } from './pages/Signup';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import CourseApp from './pages/CourseApp';
 import CourseAdd from './components/Course/CourseAdd';
 import CourseEdit from './components/Course/CourseEdit';
