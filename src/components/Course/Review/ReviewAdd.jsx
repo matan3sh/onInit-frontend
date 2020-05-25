@@ -59,7 +59,7 @@ class ReviewAdd extends React.Component {
                 draggable: true,
                 position: toast.POSITION.TOP_CENTER,
               });
-              this.setState({ addReview: false });
+              this.setState({ addReview: false, rating: 1 });
               onUpdateReviews();
               resetForm();
             }}
