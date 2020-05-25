@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import Error from '../components/Shared/Error';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -17,9 +18,24 @@ export const Login = () => {
       <p className='lead'>
         <i className='fas fa-user'></i> Sign into your account
       </p>
-      <Formik initialValues={{ email: '', password: '' }}>
-        {({ values, errors, touched, handleChange, handleBlur }) => (
-          <form className='form'>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={validationSchema}
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          setSubmitting(true);
+          console.log(values);
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+        }) => (
+          <form className='form' onSubmit={handleSubmit}>
             <div className='form-group'>
               <input
                 name='email'
@@ -28,30 +44,36 @@ export const Login = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.email}
+                className={touched.email && errors.email ? 'has-error' : null}
               />
+              <Error touched={touched.email} message={errors.email} />
             </div>
             <div className='form-group'>
               <input
                 name='password'
                 type='password'
                 placeholder='Password'
-                minlength='6'
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.password}
+                className={
+                  touched.password && errors.password ? 'has-error' : null
+                }
               />
+              <Error touched={touched.password} message={errors.password} />
             </div>
-            <button type='submit' className='btn btn-primary'>
+            <button
+              type='submit'
+              className='btn btn-primary'
+              disabled={isSubmitting}
+            >
               Login
             </button>
           </form>
         )}
       </Formik>
       <p className='my-1'>
-        Don't have an account?{' '}
-        <Link to='/signup' exact>
-          Sign Up
-        </Link>
+        Don't have an account? <Link to='/signup'>Sign Up</Link>
       </p>
     </section>
   );
