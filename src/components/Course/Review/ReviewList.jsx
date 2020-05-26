@@ -68,7 +68,11 @@ class ReviewList extends React.Component {
                 <ReviewAdd onUpdateReviews={this.onUpdateReviews} />
               </div>
               <div>
-                <div className='rating-badge'>{course.rating}</div>
+                {course.reviews.length === 0 ? (
+                  ''
+                ) : (
+                  <div className='rating-badge'>{course.rating}</div>
+                )}
               </div>
             </div>
             {course.reviews ? (

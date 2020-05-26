@@ -8,7 +8,7 @@ export const CoursePreview = ({ course }) => {
       <img className='round-img' src={course.imgCover} alt='' />
       <div className='course-card'>
         <h3 className='text-mid'>{course.name}</h3>
-        <p className='text-small'>{course.location}</p>
+        <p className='text-small'>{course.location.address}</p>
         {course.rating && course.reviews ? (
           <>
             <ReviewRate rate={(course.rating * 100) / 5} />{' '}
@@ -18,7 +18,10 @@ export const CoursePreview = ({ course }) => {
             </span>
           </>
         ) : (
-          <p className='text-small text-grey'> No Reviews Yet</p>
+          <>
+            <ReviewRate rate={0} />{' '}
+            <span className='text-white text-small'>(0)</span>
+          </>
         )}
       </div>
     </Link>
