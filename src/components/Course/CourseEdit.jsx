@@ -20,7 +20,6 @@ const validationSchema = Yup.object().shape({
   imgCover: Yup.string()
     .url('Must be valid URL')
     .required('Must have image cover at the top of course profile'),
-  location: Yup.string().required('Must enter course location'),
   phone: Yup.string().required('Must enter course phone number'),
   email: Yup.string()
     .email('Must be a valid email address')
@@ -43,6 +42,8 @@ const validationSchema = Yup.object().shape({
 });
 
 class CourseEdit extends React.Component {
+  state = { location: null };
+
   componentDidMount() {
     const { id } = this.props.match.params;
     setTimeout(() => this.props.loadCourse(id), 1000);
@@ -66,7 +67,6 @@ class CourseEdit extends React.Component {
                 category: course.category,
                 description: course.description,
                 imgCover: course.imgCover,
-                location: course.location,
                 phone: course.phone,
                 email: course.email,
                 website: course.website,
@@ -96,7 +96,6 @@ class CourseEdit extends React.Component {
                   schoolImg,
                   category,
                   imgCover,
-                  location,
                   email,
                   phone,
                   website,
@@ -132,15 +131,15 @@ class CourseEdit extends React.Component {
                     img: schoolImg,
                   },
                   imgCover,
-                  location,
+                  location: this.props.course.location,
                   email,
                   phone,
                   website,
                   duration,
                   nextCourse,
                   price,
-                  rating: this.props.rating,
-                  reviews: this.props.reviews,
+                  rating: this.props.course.rating,
+                  reviews: this.props.course.reviews,
                   benefits: {
                     housing,
                     jobAssistance,
@@ -251,28 +250,6 @@ class CourseEdit extends React.Component {
                         touched={touched.imgCover}
                         message={errors.imgCover}
                       />
-                    </div>
-                    <div className='form-group'>
-                      <input
-                        type='text'
-                        name='location'
-                        placeholder='Location'
-                        onBlur={handleBlur}
-                        onChange={handleChange}
-                        value={values.location}
-                        className={
-                          touched.location && errors.location
-                            ? 'has-error'
-                            : null
-                        }
-                      />
-                      <Error
-                        touched={touched.location}
-                        message={errors.location}
-                      />
-                      <small className='form-text'>
-                        Enter course city and country, separated by comma
-                      </small>
                     </div>
                   </div>
                   <div className='contact my-1'>

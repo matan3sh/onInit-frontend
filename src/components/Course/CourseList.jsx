@@ -3,7 +3,7 @@ import { CoursePreview } from './CoursePreview.jsx';
 
 export const CourseList = ({ courses }) => {
   return (
-    <div className='courses-grid my-1'>
+    <div className='courses-grid'>
       {courses.map((course) => (
         <CoursePreview key={course._id} course={course} />
       ))}

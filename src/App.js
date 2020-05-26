@@ -13,6 +13,7 @@ import CourseAdd from './components/Course/CourseAdd';
 import CourseEdit from './components/Course/CourseEdit';
 import CourseDetail from './pages/CourseDetail';
 import UserProfile from './pages/UserProfile';
+import { Maps } from './components/Map/Maps';
 
 import './style/style.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -31,9 +32,10 @@ function App() {
           />
           <Switch>
             <Route exact path='/' component={CourseApp} />
+            <Route exact path='/map' component={Maps} />
             <Route exact path='/user/:id' component={UserProfile} />
             <Route exact path='/edit/:id' component={CourseEdit} />
-            <Route exact path='/:user/add' component={CourseAdd} />
+            <Route exact path='/add' component={CourseAdd} />
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/:id' component={CourseDetail} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Maps } from '../../Map/Maps';
 import Moment from 'react-moment';
 
 export const CourseAbout = ({ course }) => {
@@ -36,7 +37,7 @@ export const CourseAbout = ({ course }) => {
           </h5>
 
           <p>
-            <i className='fas fa-map-marker-alt'></i> {course.location}
+            <i className='fas fa-map-marker-alt'></i> {course.location.address}
           </p>
           <p>
             {' '}
@@ -64,11 +65,12 @@ export const CourseAbout = ({ course }) => {
             </Moment>
           </p>
         </div>
-        <img
+        {/* <img
           src='https://cdn.filestackcontent.com/qfzkumr0RE27pdC8tqeH'
           alt=''
           className='map my-1'
-        />
+        /> */}
+        <Maps location={course.location} />
       </div>
       <div>
         <img

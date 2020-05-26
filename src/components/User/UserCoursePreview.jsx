@@ -7,7 +7,7 @@ export const UserCoursePreview = ({ course }) => {
       <td>{course.name}</td>
       <td className='hide-sm'>{course.school.name}</td>
       <td className='hide-sm'>{course.nextCourse}</td>
-      <Link to={`/course/edit/${course._id}`} exact>
+      <Link to={`/edit/${course._id}`} exact>
         <button className='btn'>Update</button>
       </Link>
       <button className='btn'>Delete</button>

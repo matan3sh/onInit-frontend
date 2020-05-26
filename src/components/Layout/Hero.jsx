@@ -1,4 +1,5 @@
 import React from 'react';
+import RatingFilter from '../Course/Filter/RatingFilter';
 
 class Hero extends React.Component {
   render() {
@@ -9,6 +10,7 @@ class Hero extends React.Component {
             <div className='landing-inner'>
               <h1 className='x-large'>You can make a change</h1>
               <p className='lead'>It's time to take your career right</p>
+              {/* <RatingFilter /> */}
               <div className='search'>
                 <form className='flex-center'>
                   <div className='form-group'>
