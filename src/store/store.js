@@ -3,11 +3,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import courseReducer from './reducers/courseReducer';
-import authReducer from './reducers/authReducer'
+import authReducer from './reducers/authReducer';
+import enrollReducer from './reducers/enrollReducer';
 
 const rootReducer = combineReducers({
   courseApp: courseReducer,
-  auth: authReducer
+  auth: authReducer,
+  enrolls: enrollReducer,
 });
 
 const store = createStore(
