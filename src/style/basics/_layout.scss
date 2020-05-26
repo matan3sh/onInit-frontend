@@ -66,3 +66,11 @@
 .display-flex {
   display: flex;
 }
+
+.block-center {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}

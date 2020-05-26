@@ -14,6 +14,7 @@ import CourseEdit from './components/Course/CourseEdit';
 import CourseDetail from './pages/CourseDetail';
 import UserProfile from './pages/UserProfile';
 import { Maps } from './components/Map/Maps';
+import { Footer } from './components/Layout/Footer';
 
 import './style/style.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -40,6 +41,7 @@ function App() {
             <Route exact path='/login' component={Login} />
             <Route exact path='/:id' component={CourseDetail} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     </Provider>

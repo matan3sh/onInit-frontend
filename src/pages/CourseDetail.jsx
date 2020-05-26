@@ -6,7 +6,7 @@ import { loadCourse } from '../store/actions/courseActions';
 import { Loader } from '../components/Layout/Loader';
 
 import { CourseHeader } from '../components/Course/Detail/CourseHeader';
-import { CourseAbout } from '../components/Course/Detail/CourseAbout';
+import CourseAbout from '../components/Course/Detail/CourseAbout';
 import { CourseSchool } from '../components/Course/Detail/CourseSchool';
 import { CourseGallery } from '../components/Course/Detail/CourseGallery';
 import ReviewList from '../components/Course/Review/ReviewList';

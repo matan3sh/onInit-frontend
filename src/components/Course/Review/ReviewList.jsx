@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { loadCourse, saveCourse } from '../../../store/actions/courseActions';
 import { Loader } from '../../Layout/Loader';
 
-import { ReviewPreview } from './ReviewPreview';
+import ReviewPreview from './ReviewPreview';
 import ReviewAdd from './ReviewAdd';
 
 class ReviewList extends React.Component {

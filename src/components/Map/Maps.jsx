@@ -41,7 +41,7 @@ export const Maps = ({ location }) => {
       </h1>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={10}
+        zoom={12}
         center={{ lat: location.lat, lng: location.lng }}
         options={options}
       ></GoogleMap>

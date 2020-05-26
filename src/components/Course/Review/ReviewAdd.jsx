@@ -29,7 +29,7 @@ class ReviewAdd extends React.Component {
   };
 
   render() {
-    const { course, saveCourse, onUpdateReviews } = this.props;
+    const { course, saveCourse, onUpdateReviews, loggedInUser } = this.props;
     return (
       <div className='grid-1'>
         {this.state.addReview ? (
@@ -37,15 +37,26 @@ class ReviewAdd extends React.Component {
             initialValues={{ msg: '' }}
             validationSchema={validationSchema}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              setSubmitting(true);
-              const review = {
-                _id: makeId(),
-                byUser: {
+              var sendByUser = {};
+              if (loggedInUser !== null) {
+                console.log(loggedInUser);
+                sendByUser = {
+                  _id: loggedInUser._id,
+                  username: loggedInUser.username,
+                  avatar: loggedInUser.avatar,
+                };
+              } else {
+                sendByUser = {
                   _id: makeId(),
                   username: 'Guest_User',
                   avatar:
                     'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png',
-                },
+                };
+              }
+              setSubmitting(true);
+              const review = {
+                _id: makeId(),
+                byUser: sendByUser,
                 msg: values.msg,
                 rate: this.state.rating,
                 createdAt: Date.now(),
@@ -143,6 +154,7 @@ class ReviewAdd extends React.Component {
 const mapStateToProps = (state) => {
   return {
     course: state.courseApp.course,
+    loggedInUser: state.auth.loggedInUser,
   };
 };
 

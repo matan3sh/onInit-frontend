@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import moment from 'moment';
 import { Formik } from 'formik';
@@ -15,7 +16,7 @@ const validationSchema = Yup.object().shape({
     .required('Must write yout opinion'),
 });
 
-export class ReviewPreview extends React.Component {
+class ReviewPreview extends React.Component {
   state = { isEdit: false, rating: this.props.review.rate };
 
   onEdit = () => {
@@ -23,7 +24,7 @@ export class ReviewPreview extends React.Component {
   };
 
   render() {
-    const { review, onDelete, onEdit } = this.props;
+    const { review, onDelete, onEdit, loggedInUser } = this.props;
     return (
       <div className='card-review grid-card-review'>
         <div className='review-left text-center'>
@@ -128,15 +129,22 @@ export class ReviewPreview extends React.Component {
         ) : (
           <div className='grid-1'>
             <div style={{ float: 'right' }}>
-              <button className='badge bg-light pointer' onClick={this.onEdit}>
-                <i className='fas fa-edit'></i>
-              </button>
-              <button
-                className='badge bg-light pointer'
-                onClick={() => onDelete(review)}
-              >
-                <i className='fas fa-trash '></i>
-              </button>
+              {loggedInUser !== null && loggedInUser._id === review.byUser._id && (
+                <>
+                  <button
+                    className='badge bg-light pointer'
+                    onClick={this.onEdit}
+                  >
+                    <i className='fas fa-edit'></i>
+                  </button>
+                  <button
+                    className='badge bg-light pointer'
+                    onClick={() => onDelete(review)}
+                  >
+                    <i className='fas fa-trash '></i>
+                  </button>
+                </>
+              )}
             </div>
             <div className='content-card-wrapper'>
               <ReviewRate rate={(100 / 5) * `${review.rate}`} />{' '}
@@ -149,3 +157,11 @@ export class ReviewPreview extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    loggedInUser: state.auth.loggedInUser,
+  };
+};
+
+export default connect(mapStateToProps, null)(ReviewPreview);
