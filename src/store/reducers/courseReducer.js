@@ -2,6 +2,7 @@ const initialState = {
   courses: [],
   course: null,
   location: null,
+  name: null
 };
 
 export default function courseReducer(state = initialState, action) {
@@ -32,6 +33,11 @@ export default function courseReducer(state = initialState, action) {
       return {
         ...state,
         location: action.payload,
+      };
+    case 'SET_NAME':
+      return {
+        ...state,
+        name: action.payload,
       };
     default:
       return state;

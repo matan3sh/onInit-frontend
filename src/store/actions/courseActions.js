@@ -30,3 +30,9 @@ export function setLocation(location) {
     dispatch({ type: 'SET_LOCATION', payload: location });
   };
 }
+
+export function setName(name) {
+  return (dispatch) => {
+    dispatch({ type: 'SET_NAME', payload: name });
+  };
+}

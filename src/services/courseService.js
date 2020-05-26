@@ -15,6 +15,7 @@ function query(filterBy) {
   if (!filterBy) filterBy = {};
   if (filterBy.byLocation) query = { location: filterBy.byLocation };
   if (filterBy.byCategory) query = { category: filterBy.byCategory };
+  if (filterBy.byName) query = { name: filterBy.byName };
   return axios
     .get(BASE_URL, { params: query })
     .then((res) => res.data)
