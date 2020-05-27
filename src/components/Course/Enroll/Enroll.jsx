@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { toast } from 'react-toastify';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -20,7 +21,13 @@ const validationSchema = Yup.object().shape({
   phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
 });
 
-export const Enroll = ({ enroll, onClose, loggedInUser, course }) => {
+export const Enroll = ({
+  enroll,
+  onClose,
+  loggedInUser,
+  course,
+  onSumbitEnroll,
+}) => {
   return (
     <Modal
       isOpen={enroll}
@@ -64,7 +71,29 @@ export const Enroll = ({ enroll, onClose, loggedInUser, course }) => {
               validationSchema={validationSchema}
               onSubmit={(values, { setSubmitting, resetForm }) => {
                 setSubmitting(true);
-                console.log(values);
+                const enroll = {
+                  user: {
+                    _id: loggedInUser._id,
+                    username: loggedInUser.username,
+                    fullName: values.fullName,
+                    email: values.email,
+                    phone: values.phone,
+                  },
+                  course: {
+                    _id: course._id,
+                    name: course.name,
+                    category: course.category,
+                    openAt: course.nextCourse,
+                  },
+                  ownedUserId: course.addByUser._id,
+                  isConfirm: false,
+                };
+                toast('The registration was successful', {
+                  className: 'custom-toast',
+                  draggable: true,
+                  position: toast.POSITION.TOP_CENTER,
+                });
+                onSumbitEnroll(enroll);
               }}
             >
               {({
