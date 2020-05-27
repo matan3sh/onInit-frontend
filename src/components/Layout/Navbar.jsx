@@ -15,7 +15,11 @@ const Navbar = ({ loggedInUser, logout }) => {
         {loggedInUser ? (
           <>
             <li>
-              <NavLink to='/user/id' exact activeClassName='nav-active'>
+              <NavLink
+                to={`/user/${loggedInUser._id}`}
+                exact
+                activeClassName='nav-active'
+              >
                 Hello, {loggedInUser.username}
               </NavLink>
             </li>

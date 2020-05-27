@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Enroll } from '../Enroll/Enroll';
+import { saveEnroll } from '../../../store/actions/enrollActions';
 import { Maps } from '../../Map/Maps';
 import Moment from 'react-moment';
 
@@ -18,6 +19,12 @@ class CourseAbout extends React.Component {
     this.setState({ enroll: false });
   };
 
+  onSumbitEnroll = (enroll) => {
+    this.setState({ enroll: false });
+    console.log(enroll);
+    this.props.saveEnroll(enroll);
+  };
+
   render() {
     const { course, loggedInUser } = this.props;
     const { enroll } = this.state;
@@ -29,6 +36,7 @@ class CourseAbout extends React.Component {
             course={course}
             onClose={this.onClose}
             loggedInUser={loggedInUser}
+            onSumbitEnroll={this.onSumbitEnroll}
           />
         )}
         <div className='flex'>
@@ -133,4 +141,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(CourseAbout);
+const mapDispatchToProps = {
+  saveEnroll,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CourseAbout);
