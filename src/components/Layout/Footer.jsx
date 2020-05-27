@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
-    <div className='footer-wrapper'>
+    <div className='footer-wrapper container'>
       <div className='line'></div>
       <img
         src='https://res.cloudinary.com/dwymjj6rm/image/upload/v1590511620/onInit/img/footerImg.jpg'

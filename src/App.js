@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ToastContainer, Zoom } from 'react-toastify';
 import store from './store/store';
 
-import Hero from './components/Layout/Hero';
 import Navbar from './components/Layout/Navbar';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -24,25 +23,18 @@ function App() {
     <Provider store={store}>
       <Router>
         <Navbar />
-        <Hero />
-        <div className='container'>
-          <ToastContainer
-            draggable={false}
-            transition={Zoom}
-            autoClose={5000}
-          />
-          <Switch>
-            <Route exact path='/' component={CourseApp} />
-            <Route exact path='/map' component={Maps} />
-            <Route exact path='/user/:id' component={UserProfile} />
-            <Route exact path='/edit/:id' component={CourseEdit} />
-            <Route exact path='/add' component={CourseAdd} />
-            <Route exact path='/signup' component={Signup} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/:id' component={CourseDetail} />
-          </Switch>
-          <Footer />
-        </div>
+        <ToastContainer draggable={false} transition={Zoom} autoClose={5000} />
+        <Switch>
+          <Route exact path='/' component={CourseApp} />
+          <Route exact path='/map' component={Maps} />
+          <Route exact path='/user/:id' component={UserProfile} />
+          <Route exact path='/edit/:id' component={CourseEdit} />
+          <Route exact path='/add' component={CourseAdd} />
+          <Route exact path='/signup' component={Signup} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/:id' component={CourseDetail} />
+        </Switch>
+        <Footer />
       </Router>
     </Provider>
   );

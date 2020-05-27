@@ -1,11 +1,14 @@
 // Landing
 .landing {
   position: relative;
-  background: linear-gradient(180deg, #008aff, #ff137d),
-    url('../assets/img/showcase.jpg') no-repeat center center/cover;
-  background-blend-mode: screen;
-  height: 40vh;
+  // background: linear-gradient(180deg, #fff, $primary-color),
+  //   url('https://images.pexels.com/photos/4065578/pexels-photo-4065578.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1250.0&sharp=30&w=5000%205000w%22')
+  //     no-repeat center center/cover;
+  background-blend-mode: saturation;
+  height: 70vh;
   z-index: 0;
+  background-attachment: fixed !important;
+  background-position: 0px bottom !important;
   &-inner {
     color: #fff;
     height: 80%;
@@ -29,5 +32,46 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+// Hero Detail
+.landing-detail {
+  position: relative;
+  background: linear-gradient(180deg, #fff, $primary-color),
+    url('../assets/img/showcase.jpg') no-repeat center center/cover;
+  background-blend-mode: saturation;
+  height: 40vh;
+  z-index: 0;
+  background-attachment: fixed !important;
+  background-position: 0px center;
+  background-position-y: -200px;
+  &-inner {
+    color: #fff;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    a {
+      width: 30%;
+    }
+  }
+}
+
+.landing-detail img {
+  background-blend-mode: saturation;
+}
+
+.dark-overlay-detail {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }

@@ -4,7 +4,10 @@ export const CategoryFilter = ({ onFilterByCategory, onShowAll }) => {
   return (
     <div>
       <div className='form-group text-center'>
-        <div className='filter btn-light pointer' onClick={() => onShowAll()}>
+        <div
+          className='filter btn-light pointer bg-primary'
+          onClick={() => onShowAll()}
+        >
           All
         </div>
         <div

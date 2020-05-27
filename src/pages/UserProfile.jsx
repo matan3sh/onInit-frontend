@@ -7,6 +7,7 @@ import { loadEnrolls, saveEnroll } from '../store/actions/enrollActions';
 import { toast } from 'react-toastify';
 
 import { Loader } from '../components/Layout/Loader';
+import Hero from '../components/Layout/Hero';
 import UserCourseList from '../components/User/UserCourseList';
 import UserEnrollList from '../components/User/UserEnrollList';
 import UserEnrollManageList from '../components/User/UserEnrollManageList';
@@ -47,7 +48,7 @@ class UserProfile extends Component {
 
   onConfirmEnroll = (enroll) => {
     let updatedEnroll = { ...enroll, isConfirm: true };
-    saveEnroll(updatedEnroll);
+    this.props.saveEnroll(updatedEnroll);
     toast('Enroll successfully confirmed', {
       className: 'custom-toast',
       draggable: true,
@@ -60,10 +61,11 @@ class UserProfile extends Component {
     const { manageCourses, manageEnrolls, myEnrolls } = this.state;
     return (
       <section>
+        <Hero />
         {loggedInUser === null ? (
           <h1>You are not authorized</h1>
         ) : (
-          <>
+          <div className='container'>
             <h1 className='large text-primart'>User Profile</h1>
             <p className='lead'>
               <i className='fas fa-user'></i> Welcome{' '}
@@ -122,7 +124,7 @@ class UserProfile extends Component {
                 )}
               </>
             )}
-          </>
+          </div>
         )}
       </section>
     );

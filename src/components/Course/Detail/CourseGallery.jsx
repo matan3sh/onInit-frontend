@@ -3,12 +3,12 @@ import React from 'react';
 export class CourseGallery extends React.Component {
   state = {
     images: [
-      'https://source.unsplash.com/user/emilep',
-      'https://source.unsplash.com/user/markusspiske',
-      'https://source.unsplash.com/user/ffstop',
-      'https://source.unsplash.com/user/emilep',
+      this.props.course.images[0],
+      this.props.course.images[1],
+      this.props.course.images[2],
+      this.props.course.images[3],
     ],
-    mainImage: 'https://source.unsplash.com/user/clemhlrdt',
+    mainImage: this.props.course.imgCover,
     fadeClass: '',
   };
 

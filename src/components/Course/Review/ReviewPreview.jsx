@@ -148,7 +148,6 @@ class ReviewPreview extends React.Component {
             </div>
             <div className='content-card-wrapper'>
               <ReviewRate rate={(100 / 5) * `${review.rate}`} />{' '}
-              <span style={{ marginLeft: '5px' }}>{review.rate}</span>
             </div>
             <div>{review.msg}</div>
           </div>

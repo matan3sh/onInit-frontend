@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Hero from '../components/Layout/Hero';
+
 import { connect } from 'react-redux';
 import { loadCourses } from '../store/actions/courseActions';
 import { setUser } from '../store/actions/authActions';
@@ -24,12 +26,11 @@ class CourseApp extends Component {
         const location = { byLocation: this.props.location };
         this.props.loadCourses(location);
       }
-      if (this.props.name === null)
-          this.props.loadCourses(this.state.filterBy);
+      if (this.props.name === null) this.props.loadCourses(this.state.filterBy);
       else {
-          const name = { byName: this.props.name };
-          this.props.loadCourses(name);
-        }  
+        const name = { byName: this.props.name };
+        this.props.loadCourses(name);
+      }
     }, 1000);
   }
 
@@ -55,13 +56,14 @@ class CourseApp extends Component {
     this.setState({ filterBy }, () => {
       const name = { byName: filterBy };
       this.props.loadCourses(name);
-    })
-  }
+    });
+  };
 
   render() {
-    const { courses } = this.props;
+    const { courses, loggedInUser } = this.props;
     return (
       <section>
+        <Hero />
         {!courses.length ? (
           <Loader />
         ) : (
@@ -78,7 +80,7 @@ class CourseApp extends Component {
               onShowAll={this.onShowAll}
             />
             <div className='grid-1'>
-              <CourseList courses={courses} />
+              <CourseList courses={courses} loggedInUser={loggedInUser} />
             </div>
           </div>
         )}
@@ -90,7 +92,8 @@ class CourseApp extends Component {
 const mapStateToProps = (state) => ({
   courses: state.courseApp.courses,
   location: state.courseApp.location,
-  name: state.courseApp.name
+  name: state.courseApp.name,
+  loggedInUser: state.auth.loggedInUser,
 });
 
 const mapDispatchToProps = {

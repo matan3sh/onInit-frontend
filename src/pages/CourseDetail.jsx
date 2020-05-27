@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { loadCourse } from '../store/actions/courseActions';
 import { Loader } from '../components/Layout/Loader';
+import HeroDetail from '../components/Layout/HeroDetail';
 
 import { CourseHeader } from '../components/Course/Detail/CourseHeader';
 import CourseAbout from '../components/Course/Detail/CourseAbout';
@@ -20,26 +21,29 @@ class CourseDetail extends Component {
   render() {
     const { course } = this.props;
     return (
-      <section>
+      <>
         {course === null ? (
           <Loader />
         ) : (
           <>
-            <Link to='/' className='btn my-1'>
-              Back To Courses
-            </Link>
-            <div className='course-details-grid'>
-              <div className='my-1'>
-                <CourseHeader course={course} />
-                <CourseGallery />
+            <HeroDetail course={course} />
+            <section className='container'>
+              <Link to='/' className='btn my-1'>
+                Back To Courses
+              </Link>
+              <div className='course-details-grid'>
+                <div className='my-1'>
+                  <CourseHeader course={course} />
+                  <CourseGallery course={course} />
+                </div>
+                <CourseAbout course={course} />
               </div>
-              <CourseAbout course={course} />
-            </div>
-            <CourseSchool course={course} />
-            <ReviewList />
+              <CourseSchool course={course} />
+              <ReviewList />
+            </section>
           </>
         )}
-      </section>
+      </>
     );
   }
 }

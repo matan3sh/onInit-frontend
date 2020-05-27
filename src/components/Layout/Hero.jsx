@@ -2,17 +2,35 @@ import React from 'react';
 import RatingFilter from '../Course/Filter/RatingFilter';
 
 class Hero extends React.Component {
+  state = {
+    images: [
+      'https://images.pexels.com/photos/1230302/pexels-photo-1230302.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      'https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      'https://images.pexels.com/photos/1252399/pexels-photo-1252399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      'https://images.pexels.com/photos/547116/pexels-photo-547116.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      'https://images.pexels.com/photos/258036/pexels-photo-258036.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      'https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    ],
+  };
   render() {
+    var bg = this.state.images[
+      Math.floor(Math.random() * this.state.images.length)
+    ];
     return (
       <>
-        <section className='landing'>
+        <section
+          className='landing'
+          style={{
+            background: `url(${bg}) no-repeat center center/cover`,
+          }}
+        >
           <div className='dark-overlay'>
             <div className='landing-inner'>
-              <h1 className='x-large'>You can make a change</h1>
-              <p className='lead'>It's time to take your career right</p>
+              <h1 className='x-large'>It's Time To Make A Change</h1>
+              <p className='lead'>Let's Start The Journey With Us</p>
               {/* <RatingFilter /> */}
               <div className='search'>
-                <form className='flex-center'>
+                <form>
                   <div className='form-group'>
                     <input
                       type='text'
@@ -22,15 +40,12 @@ class Hero extends React.Component {
                       // onChange={this.onChange}
                     />
                   </div>
-                  <div className='form-group'>
-                    <button
-                      type='submit'
-                      href='register.html'
-                      className='btn btn-primary btn-block mx-1'
-                    >
-                      Search
-                    </button>
-                  </div>
+                  <span className='pointer'>
+                    <i
+                      className='fas fa-search fa-2x'
+                      style={{ color: '#ccc' }}
+                    ></i>
+                  </span>
                 </form>
               </div>
             </div>

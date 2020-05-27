@@ -8,7 +8,7 @@ export const UserEnrollPreview = ({ enroll }) => {
       <td className='hide-sm'>{enroll.course.category}</td>
       <td className='hide-sm'>{enroll.course.openAt}</td>
       <td className='hide-sm'>
-        {enroll.status ? (
+        {enroll.isConfirm ? (
           <span className='badge bg-success'>Confirm</span>
         ) : (
           <span className='badge bg-danger'>Pending</span>

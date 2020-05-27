@@ -1,11 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReviewRate from './Review/ReviewRate';
+import Slider from 'react-slick';
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  className: 'round-img slides',
+};
 
 export const CoursePreview = ({ course }) => {
+  const imags = [course.imgCover, ...course.images];
   return (
     <Link to={`/${course._id}`}>
-      <img className='round-img' src={course.imgCover} alt='' />
+      <Slider {...settings}>
+        {imags.map((img, index) => (
+          <img className='round-img' src={img} alt='' key={index} />
+        ))}
+      </Slider>
       <div className='course-card'>
         <h3 className='text-mid'>{course.name}</h3>
         <p className='text-small'>{course.location.address}</p>

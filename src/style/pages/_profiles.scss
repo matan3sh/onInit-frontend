@@ -1,20 +1,69 @@
 .course-card {
   position: relative;
-  top: -80px;
-  left: 10px;
-  color: #fff;
-  height: 20px;
+  padding: 0.1rem 1rem;
+  top: 0px;
+  left: 0px;
+  color: #333;
+  background-color: #fff;
+  // height: 50px;
+  margin-bottom: 1rem;
 }
 
 .round-img {
   border-radius: 5%;
   width: 270px;
   height: 200px;
-  filter: brightness(60%);
+  filter: brightness(90%);
+}
+
+.round-img:hover {
+  &.slides .slick-prev,
+  &.slides .slick-next {
+    opacity: 1;
+    cursor: pointer;
+  }
 }
 
 .courses-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 0rem;
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  opacity: 0;
+}
+
+.slides {
+  position: relative;
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+.slides .slick-prev {
+  left: -5px;
+}
+
+.slides .slick-next {
+  right: 5%;
+}
+
+.grid-course-card {
+  display: grid;
+  grid-template-columns: 1fr 0.3fr;
+}
+
+.like-in-card {
+  position: relative;
+  top: 20px;
+  left: -20px;
 }

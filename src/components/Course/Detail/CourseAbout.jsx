@@ -51,18 +51,14 @@ class CourseAbout extends React.Component {
           {loggedInUser === null ? (
             <div className='grid-1'>
               <Link to={'/login'}>
-                <button className='btn btn-dark'>You need to login</button>
+                <button className='btn btn-dark'>Login First</button>
               </Link>
-              <p>you need to login</p>
             </div>
           ) : (
             <button className='btn btn-dark' onClick={this.onEnroll}>
               Enroll Now
             </button>
           )}
-          {/* <button className='btn btn-dark' onClick={this.onEnroll}>
-            Enroll Now
-          </button> */}
         </div>
         <div className='course-details-description'>
           <h5 className='text-mid'>Description</h5>
@@ -71,7 +67,7 @@ class CourseAbout extends React.Component {
         <div className='flex my-1'>
           <p>
             <span className='text-bold text-primary'>Price:</span>{' '}
-            {course.price} ₪
+            {course.price} $
           </p>
           <p>
             <span className='text-bold text-primary'>Duration:</span>{' '}
@@ -104,11 +100,6 @@ class CourseAbout extends React.Component {
               </Moment>
             </p>
           </div>
-          {/* <img
-            src='https://cdn.filestackcontent.com/qfzkumr0RE27pdC8tqeH'
-            alt=''
-            className='map my-1'
-          /> */}
           <Maps location={course.location} />
         </div>
         <div>
