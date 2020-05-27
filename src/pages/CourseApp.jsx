@@ -34,10 +34,6 @@ class CourseApp extends Component {
     }, 1000);
   }
 
-  onShowAll = () => {
-    this.props.loadCourses();
-  };
-
   onFilterByLocation = (filterBy) => {
     this.setState({ filterBy }, () => {
       const location = { byLocation: filterBy };
@@ -46,6 +42,10 @@ class CourseApp extends Component {
   };
 
   onFilterByCategory = (filterBy) => {
+    if (filterBy === 'All') {
+      this.props.loadCourses();
+      return;
+    }
     this.setState({ filterBy }, () => {
       const category = { byCategory: filterBy };
       this.props.loadCourses(category);
@@ -75,10 +75,7 @@ class CourseApp extends Component {
             {/* <NameFilter
             onFilterByName={this.onFilterByName}
             /> */}
-            <CategoryFilter
-              onFilterByCategory={this.onFilterByCategory}
-              onShowAll={this.onShowAll}
-            />
+            <CategoryFilter onFilterByCategory={this.onFilterByCategory} />
             <div className='grid-1'>
               <CourseList courses={courses} loggedInUser={loggedInUser} />
             </div>
