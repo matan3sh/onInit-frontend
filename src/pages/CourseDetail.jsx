@@ -28,7 +28,7 @@ class CourseDetail extends Component {
           <>
             <HeroDetail course={course} />
             <section className='container'>
-              <Link to='/' className='btn my-1'>
+              <Link to='/course' className='btn my-1'>
                 Back To Courses
               </Link>
               <div className='course-details-grid'>

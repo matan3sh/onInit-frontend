@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { UserEnrollManagePreview } from './UserEnrollManagePreview';
 
-const UserCourseList = ({ enrolls, loggedInUser, onConfirmEnroll }) => {
+const UserEnrollManageList = ({ enrolls, loggedInUser, onConfirmEnroll }) => {
   return (
     <>
       {loggedInUser === null ? (
@@ -21,7 +21,7 @@ const UserCourseList = ({ enrolls, loggedInUser, onConfirmEnroll }) => {
           </thead>
           <tbody>
             {enrolls.map((enroll) =>
-              enroll.ownedUserId === loggedInUser._id ? (
+              enroll.ownedUserId === loggedInUser._id && !enroll.isConfirm ? (
                 <UserEnrollManagePreview
                   key={enroll._id}
                   enroll={enroll}
@@ -44,4 +44,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(UserCourseList);
+export default connect(mapStateToProps, null)(UserEnrollManageList);

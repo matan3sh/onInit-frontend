@@ -10,7 +10,7 @@ import { setUser } from '../store/actions/authActions';
 import authService from '../services/authService';
 
 import { Loader } from '../components/Layout/Loader';
-import { CourseList } from '../components/Course/CourseList';
+import { CourseListHome } from '../components/Course/CourseListHome';
 
 class Home extends Component {
   state = { filterBy: '' };
@@ -40,18 +40,12 @@ class Home extends Component {
                 <i className='fab fa-connectdevelop' /> Recently Viewed
               </p>
               <Link to='/course'>
-                <p className='mb-1 text-bold'>See More ></p>
+                <p className='mb-1 text-bold text-grey'>See More ></p>
               </Link>
             </div>
             <div className='grid-1'>
-              <CourseList
-                courses={courses.slice(0, 4)}
-                loggedInUser={loggedInUser}
-              />
-              <p className='lead text-bold my-1'>
-                {' '}
-                <i className='fas fa-chalkboard-teacher' /> Our Script
-              </p>
+              <CourseListHome courses={courses} loggedInUser={loggedInUser} />
+              <p className='lead text-bold my-1'> Journey to Success</p>
               <HomeGuide />
             </div>
           </div>
@@ -63,8 +57,6 @@ class Home extends Component {
 
 const mapStateToProps = (state) => ({
   courses: state.courseApp.courses,
-  location: state.courseApp.location,
-  name: state.courseApp.name,
   loggedInUser: state.auth.loggedInUser,
 });
 

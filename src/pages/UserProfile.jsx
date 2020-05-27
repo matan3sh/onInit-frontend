@@ -7,7 +7,7 @@ import { loadEnrolls, saveEnroll } from '../store/actions/enrollActions';
 import { toast } from 'react-toastify';
 
 import { Loader } from '../components/Layout/Loader';
-import Hero from '../components/Layout/Hero';
+import HomeHero from '../components/Home/HomeHero';
 import UserCourseList from '../components/User/UserCourseList';
 import UserEnrollList from '../components/User/UserEnrollList';
 import UserEnrollManageList from '../components/User/UserEnrollManageList';
@@ -61,29 +61,55 @@ class UserProfile extends Component {
     const { manageCourses, manageEnrolls, myEnrolls } = this.state;
     return (
       <section>
-        <Hero />
+        <HomeHero />
         {loggedInUser === null ? (
           <h1>You are not authorized</h1>
         ) : (
           <div className='container'>
-            <h1 className='large text-primart'>User Profile</h1>
+            <Link to='/course' className='btn my-1'>
+              Back To Courses
+            </Link>
+            <h1 className='large text-primary'>User Profile</h1>
             <p className='lead'>
               <i className='fas fa-user'></i> Welcome{' '}
               <span className='text-primary'>{loggedInUser.username}</span>
             </p>
-            <div className='dash-buttons'>
-              <a href='/#' className='btn'>
+            <div className='dash-buttons my-1'>
+              <button className='btn'>
                 <i className='fas fa-user-circle text-primary'></i> Edit Profile
-              </a>
-              <button className='btn' onClick={this.onManageCourses}>
-                <i className='fab fa-black-tie text-primary'></i> Manage Courses
               </button>
-              <button className='btn' onClick={this.onManageEnrolls}>
-                <i className='fab fa-black-tie text-primary'></i> Manage Enrolls
+              <button
+                className={`btn ${manageCourses ? 'btn-primary' : ''}`}
+                onClick={this.onManageCourses}
+              >
+                <i
+                  className={`fab fa-black-tie ${
+                    manageCourses ? 'text-light' : 'text-primary'
+                  }`}
+                ></i>{' '}
+                Manage Courses
               </button>
-              <button className='btn' onClick={this.onMyEnrolls}>
-                <i className='fas fa-graduation-cap text-primary'></i> My
-                Enrolls
+              <button
+                className={`btn ${manageEnrolls ? 'btn-primary' : ''}`}
+                onClick={this.onManageEnrolls}
+              >
+                <i
+                  className={`fab fa-black-tie ${
+                    manageEnrolls ? 'text-light' : 'text-primary'
+                  }`}
+                ></i>{' '}
+                Manage Enrolls
+              </button>
+              <button
+                className={`btn ${myEnrolls ? 'btn-primary' : ''}`}
+                onClick={this.onMyEnrolls}
+              >
+                <i
+                  className={`fas fa-graduation-cap ${
+                    myEnrolls ? 'text-light' : 'text-primary'
+                  }`}
+                ></i>{' '}
+                My Enrolls
               </button>
             </div>
             {manageCourses && (

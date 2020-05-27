@@ -16,6 +16,9 @@
   &-danger {
     @include set-background($danger-color);
   }
+  &-grey {
+    @include set-background($grey-color);
+  }
   &-white {
     @include set-background(#fff);
     border: #ccc 1px solid;
