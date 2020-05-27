@@ -4,7 +4,6 @@ export class CourseGallery extends React.Component {
   state = {
     images: [
       this.props.course.imgCover,
-      ,
       this.props.course.images[1],
       this.props.course.images[2],
       this.props.course.images[3],

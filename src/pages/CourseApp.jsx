@@ -10,7 +10,7 @@ import authService from '../services/authService';
 import { Loader } from '../components/Layout/Loader';
 import { CourseList } from '../components/Course/CourseList';
 import { CategoryFilter } from '../components/Course/Filter/CategoryFilter';
-import NameFilter from '../components/Course/Filter/NameFilter';
+// import NameFilter from '../components/Course/Filter/NameFilter';
 
 class CourseApp extends Component {
   state = { filterBy: '' };

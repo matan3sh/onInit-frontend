@@ -4,6 +4,11 @@ import { NavLink } from 'react-router-dom';
 import { logout } from '../../store/actions/authActions';
 
 const Navbar = ({ loggedInUser, logout }) => {
+  window.addEventListener('scroll', function () {
+    var navbar = document.querySelector('.navbar');
+    navbar.classList.toggle('sticky', window.scrollY > 250);
+  });
+
   return (
     <nav className='navbar'>
       <h1>
@@ -28,6 +33,9 @@ const Navbar = ({ loggedInUser, logout }) => {
                 Logout
               </a>
             </li>
+            {/* <li className='text-white'>
+              <input type='text' className='searchbar' />
+            </li> */}
           </>
         ) : (
           <>

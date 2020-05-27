@@ -34,11 +34,8 @@ class Home extends Component {
           <Loader />
         ) : (
           <div className='container'>
-            <div className='flex'>
-              <p className='lead text-bold mb-1'>
-                {' '}
-                <i className='fab fa-connectdevelop' /> Recently Viewed
-              </p>
+            <div className='flex' style={{ marginTop: '20px' }}>
+              <p className='lead text-bold'> Recently Viewed</p>
               <Link to='/course'>
                 <p className='mb-1 text-bold text-grey'>See More ></p>
               </Link>

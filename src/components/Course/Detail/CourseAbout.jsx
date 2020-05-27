@@ -25,6 +25,10 @@ class CourseAbout extends React.Component {
     this.props.saveEnroll(enroll);
   };
 
+  numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   render() {
     const { course, loggedInUser } = this.props;
     const { enroll } = this.state;
@@ -67,7 +71,7 @@ class CourseAbout extends React.Component {
         <div className='flex my-1'>
           <p>
             <span className='text-bold text-primary'>Price:</span>{' '}
-            {course.price} $
+            {this.numberWithCommas(course.price)} $
           </p>
           <p>
             <span className='text-bold text-primary'>Duration:</span>{' '}

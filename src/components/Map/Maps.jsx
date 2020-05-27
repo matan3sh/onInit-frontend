@@ -1,22 +1,22 @@
 import React from 'react';
 import {
   GoogleMap,
-  useLoadScript,
-  Marker,
-  InfoWindow,
+  // useLoadScript,
+  // Marker,
+  // InfoWindow,
 } from '@react-google-maps/api';
 
 import mapStyle from './mapStyle';
 
-const libraries = ['places'];
+// const libraries = ['places'];
 const mapContainerStyle = {
   width: '20vw',
   height: '25vh',
 };
-const center = {
-  lat: 43.653225,
-  lng: -79.383186,
-};
+// const center = {
+//   lat: 43.653225,
+//   lng: -79.383186,
+// };
 const options = {
   styles: mapStyle,
   disableDefaultUI: true,

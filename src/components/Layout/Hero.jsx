@@ -1,5 +1,5 @@
 import React from 'react';
-import RatingFilter from '../Course/Filter/RatingFilter';
+// import RatingFilter from '../Course/Filter/RatingFilter';
 
 class Hero extends React.Component {
   state = {

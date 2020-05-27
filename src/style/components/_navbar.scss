@@ -27,3 +27,42 @@
   border-bottom: #eceff1 2.5px solid;
   transition: border-bottom 0.3s ease;
 }
+
+.navbar.sticky {
+  padding: 0.7rem 2rem;
+  background-color: $dark-color;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.navbar.sticky ul li a {
+  color: #fff;
+}
+
+.searchbar {
+  position: absolute;
+  left: 800px;
+  width: 20%;
+  top: 6px;
+
+  box-shadow: 0px 6px 10px -8px rgba(0, 0, 0, 0.25);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.9rem;
+  input {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+  span {
+    position: relative;
+    top: -60px;
+    right: -150px;
+    border-radius: 5px;
+  }
+}
+
+.board {
+  width: 100%;
+  height: 55px;
+  box-shadow: 0px 4px 7px -7px rgba(0, 0, 0, 0.75);
+}
