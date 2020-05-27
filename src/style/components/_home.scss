@@ -71,3 +71,43 @@
   top: -80px;
   text-align: left;
 }
+
+.guide-card img {
+  border-radius: 5px;
+  width: 370px;
+  height: 270px;
+}
+
+// Landing
+.landing-home {
+  position: relative;
+  background-blend-mode: saturation;
+  height: 40vh;
+  z-index: 0;
+  background-attachment: fixed !important;
+  background-position: 0px center !important;
+  &-inner {
+    color: #fff;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    a {
+      width: 30%;
+    }
+  }
+}
+
+.dark-overlay-home {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ToastContainer, Zoom } from 'react-toastify';
 import store from './store/store';
 
+import Home from './pages/Home';
 import Navbar from './components/Layout/Navbar';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -25,7 +26,8 @@ function App() {
         <Navbar />
         <ToastContainer draggable={false} transition={Zoom} autoClose={5000} />
         <Switch>
-          <Route exact path='/' component={CourseApp} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/course' component={CourseApp} />
           <Route exact path='/map' component={Maps} />
           <Route exact path='/user/:id' component={UserProfile} />
           <Route exact path='/edit/:id' component={CourseEdit} />
