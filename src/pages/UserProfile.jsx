@@ -12,9 +12,15 @@ import Navbar from '../components/Layout/Navbar';
 import UserCourseList from '../components/User/UserCourseList';
 import UserEnrollList from '../components/User/UserEnrollList';
 import UserEnrollManageList from '../components/User/UserEnrollManageList';
+import { UserProfileEdit } from '../components/User/UserProfileEdit';
 
 class UserProfile extends Component {
-  state = { manageCourses: true, myEnrolls: false, manageEnrolls: false };
+  state = {
+    userProfile: true,
+    manageCourses: false,
+    myEnrolls: false,
+    manageEnrolls: false,
+  };
 
   componentDidMount() {
     setTimeout(() => {
@@ -28,6 +34,7 @@ class UserProfile extends Component {
       manageCourses: true,
       myEnrolls: false,
       manageEnrolls: false,
+      userProfile: false,
     });
   };
 
@@ -36,6 +43,7 @@ class UserProfile extends Component {
       manageCourses: false,
       myEnrolls: true,
       manageEnrolls: false,
+      userProfile: false,
     });
   };
 
@@ -44,6 +52,16 @@ class UserProfile extends Component {
       manageCourses: false,
       myEnrolls: false,
       manageEnrolls: true,
+      userProfile: false,
+    });
+  };
+
+  onUserProfile = () => {
+    this.setState({
+      userProfile: true,
+      manageCourses: false,
+      myEnrolls: false,
+      manageEnrolls: false,
     });
   };
 
@@ -59,7 +77,7 @@ class UserProfile extends Component {
 
   render() {
     const { courses, loggedInUser, enrolls } = this.props;
-    const { manageCourses, manageEnrolls, myEnrolls } = this.state;
+    const { manageCourses, manageEnrolls, myEnrolls, userProfile } = this.state;
     return (
       <section>
         <Navbar bg={'#333'} />
@@ -77,8 +95,11 @@ class UserProfile extends Component {
                 <i className='fas fa-long-arrow-alt-left text-primary'></i> Back
                 To Courses
               </Link>
-              <button className='btn'>
-                <i className='fas fa-user-circle text-primary'></i> Edit Profile
+              <button
+                className={`btn ${userProfile ? 'btn-primary' : ''}`}
+                onClick={this.onUserProfile}
+              >
+                <i className='fas fa-user-circle'></i> Edit Profile
               </button>
               <button
                 className={`btn ${manageCourses ? 'btn-primary' : ''}`}
@@ -114,9 +135,13 @@ class UserProfile extends Component {
                 My Enrolls
               </button>
             </div>
+            {userProfile && (
+              <>
+                <UserProfileEdit loggedInUser={loggedInUser} />
+              </>
+            )}
             {manageCourses && (
               <>
-                <h2 className='my-2'>Manage Courses</h2>
                 {!courses.length ? (
                   <Loader />
                 ) : (
@@ -131,7 +156,6 @@ class UserProfile extends Component {
             )}
             {myEnrolls && (
               <>
-                <h2 className='my-2'>My Enrolls</h2>
                 {!courses.length ? (
                   <Loader />
                 ) : (
@@ -141,7 +165,6 @@ class UserProfile extends Component {
             )}
             {manageEnrolls && (
               <>
-                <h2 className='my-2'>Manage Enrolls</h2>
                 {!courses.length ? (
                   <Loader />
                 ) : (

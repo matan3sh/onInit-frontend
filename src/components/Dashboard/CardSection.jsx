@@ -61,6 +61,7 @@ export const CardSection = ({ loggedInUser, courses, enrolls }) => {
         width: '90%',
         maxWidth: '90%',
         margin: 'auto',
+        borderRadius: '5px',
       },
     },
     header: {

@@ -8,3 +8,18 @@
     background: $light-color;
   }
 }
+
+.edit-user-profile {
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  grid-gap: 1rem;
+}
+
+.edit-user-profile img {
+  width: 200px;
+  border-radius: 15px;
+}
+
+.edit-user-profile input {
+  width: 50% !important;
+}
