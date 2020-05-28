@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../components/Shared/Error';
-import Hero from '../components/Layout/Hero';
+import HomeHero from '../components/Home/HomeHero';
 import { signup } from '../store/actions/authActions';
 
 const validationSchema = Yup.object().shape({
@@ -16,6 +16,7 @@ const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email('Must be a valid email address')
     .required('Must enter a email'),
+  avatar: Yup.string().url('Must be valid URL'),
   password: Yup.string()
     .min(6, 'Must be grater then six characters')
     .required('Must enter a password'),
@@ -28,7 +29,7 @@ const validationSchema = Yup.object().shape({
 const Signup = ({ signup, history }) => {
   return (
     <>
-      <Hero />
+      <HomeHero />
       <section className='form-container'>
         <h1 className='large text-primary'>Sign Up</h1>
         <p className='lead'>
@@ -40,6 +41,7 @@ const Signup = ({ signup, history }) => {
             email: '',
             password: '',
             confirmPassword: '',
+            avatar: '',
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {

@@ -78,6 +78,25 @@ class CourseAbout extends React.Component {
             {course.duration} Hours
           </p>
         </div>
+        <div>
+          <img
+            src={course.addByUser.avatar}
+            alt=''
+            className='bootcamp-user-avatar'
+          />
+          <span>
+            <span className='text-grey'>Added By </span>
+            <span className='text-dark text-bold'>
+              {course.addByUser.username}
+            </span>
+            {/* <a href='/#' className='btn mx-1'>
+              <i className='fas fa-envelope text-light'></i>
+            </a>
+            <a href={course.website} target='blank_target' className='btn mx-1'>
+              <i className='fas fa-globe-americas'></i>
+            </a> */}
+          </span>
+        </div>
         <div className='flex'>
           <div className='course-details-info contact-info-position'>
             <h5 className='text-mid text-primary text-bold'>
@@ -105,25 +124,6 @@ class CourseAbout extends React.Component {
             </p>
           </div>
           <Maps location={course.location} />
-        </div>
-        <div>
-          <img
-            src={course.addByUser.avatar}
-            alt=''
-            className='bootcamp-user-avatar'
-          />
-          <span>
-            <span className='text-grey'>Added By </span>
-            <span className='text-dark text-bold'>
-              {course.addByUser.username}
-            </span>
-            <a href='/#' className='btn mx-1'>
-              <i className='fas fa-envelope text-light'></i>
-            </a>
-            <a href={course.website} target='blank_target' className='btn mx-1'>
-              <i className='fas fa-globe-americas'></i>
-            </a>
-          </span>
         </div>
       </div>
     );

@@ -5,8 +5,9 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Error from '../components/Shared/Error';
 
-import Hero from '../components/Layout/Hero';
+import HomeHero from '../components/Home/HomeHero';
 import { login } from '../store/actions/authActions';
+import Facebook from '../components/User/Facebook';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -16,9 +17,13 @@ const validationSchema = Yup.object().shape({
 });
 
 const Login = ({ login, history }) => {
+  const toCourses = () => {
+    history.push('/');
+  };
+
   return (
     <>
-      <Hero />
+      <HomeHero />
       <section className='form-container'>
         <h1 className='large text-primary'>Login</h1>
         <p className='lead'>
@@ -69,17 +74,23 @@ const Login = ({ login, history }) => {
                 />
                 <Error touched={touched.password} message={errors.password} />
               </div>
-              <button
-                type='submit'
-                className='btn btn-primary'
-                disabled={isSubmitting}
-              >
-                Login
-              </button>
+              <div>
+                <button
+                  type='submit'
+                  className='btn btn-primary mb-1'
+                  disabled={isSubmitting}
+                  style={{ width: '100%' }}
+                >
+                  Login
+                </button>
+                <div className='text-center'>
+                  <Facebook toCourses={toCourses} />
+                </div>
+              </div>
             </form>
           )}
         </Formik>
-        <p className='my-1'>
+        <p className='my-1 text-center'>
           Don't have an account? <Link to='/signup'>Sign Up</Link>
         </p>
       </section>

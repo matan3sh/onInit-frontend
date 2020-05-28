@@ -110,8 +110,8 @@ export const CardSection = ({ loggedInUser, courses, enrolls }) => {
 
   return (
     <div style={container}>
-      {cards.map((card) => (
-        <div className='s-Grid-col ms-sm3 ms-xl3'>
+      {cards.map((card, index) => (
+        <div className='s-Grid-col ms-sm3 ms-xl3' key={index}>
           <Card styles={styles.cardStyles}>
             <Card.Section>
               <Card.Item>

@@ -28,7 +28,7 @@ export class CategoryFilter extends React.Component {
     return (
       <div>
         <div className='form-group text-center'>
-          {this.state.categories.map((category) => {
+          {this.state.categories.map((category, index) => {
             return (
               <div
                 className={`filter btn-light pointer ${
@@ -37,6 +37,7 @@ export class CategoryFilter extends React.Component {
                 onClick={() => {
                   this.onSelect(category);
                 }}
+                key={index}
               >
                 {category}
               </div>

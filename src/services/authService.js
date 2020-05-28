@@ -1,6 +1,7 @@
 import Axios from 'axios';
 
 const login = async (userCredentials) => {
+  if (userCredentials.avatar) return _handleLogin(userCredentials);
   try {
     const res = await Axios.post('/api/auth/login', userCredentials);
     return _handleLogin(res.data);
