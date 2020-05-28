@@ -26,7 +26,7 @@ class Hero extends React.Component {
         >
           <div className='dark-overlay'>
             <div className='landing-inner'>
-              <h1 className='x-large'>It's Time To Make A Change</h1>
+              <h1 className='x-large'>Time To Make a Successful Start</h1>
               <p className='lead'>Let's Start The Journey With Us</p>
               {/* <RatingFilter /> */}
               <div className='search'>

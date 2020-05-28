@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import HomeHero from '../components/Home/HomeHero';
+import { HomeFooter } from '../components/Home/HomeFooter';
 import { HomeGuide } from '../components/Home/HomeGuide';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -47,6 +48,7 @@ class Home extends Component {
             </div>
           </div>
         )}
+        <HomeFooter />
       </section>
     );
   }

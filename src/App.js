@@ -15,6 +15,7 @@ import CourseDetail from './pages/CourseDetail';
 import UserProfile from './pages/UserProfile';
 import { Maps } from './components/Map/Maps';
 import { Footer } from './components/Layout/Footer';
+import Dashboard from './pages/Dashboard';
 
 import './style/style.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,6 +28,7 @@ function App() {
         <ToastContainer draggable={false} transition={Zoom} autoClose={5000} />
         <Switch>
           <Route exact path='/' component={Home} />
+          <Route exact path='/dashboard' component={Dashboard} />
           <Route exact path='/course' component={CourseApp} />
           <Route exact path='/map' component={Maps} />
           <Route exact path='/user/:id' component={UserProfile} />

@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logout } from '../../store/actions/authActions';
 
-const Navbar = ({ loggedInUser, logout }) => {
+const Navbar = ({ loggedInUser, logout, bg }) => {
   window.addEventListener('scroll', function () {
     var navbar = document.querySelector('.navbar');
     navbar.classList.toggle('sticky', window.scrollY > 250);
   });
 
   return (
-    <nav className='navbar'>
+    <nav className='navbar' style={{ backgroundColor: bg }}>
       <h1>
         <NavLink to='/' exact>
           <i className='fas fa-graduation-cap'></i> onInit
@@ -20,6 +20,11 @@ const Navbar = ({ loggedInUser, logout }) => {
         {loggedInUser ? (
           <>
             <li>
+              <img
+                src={loggedInUser.avatar}
+                alt='user-avatar'
+                className='user-avatar'
+              />
               <NavLink
                 to={`/user/${loggedInUser._id}`}
                 exact

@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import { loadCourses } from '../store/actions/courseActions';
 import { loadEnrolls, saveEnroll } from '../store/actions/enrollActions';
 import { toast } from 'react-toastify';
+import { CardSection } from '../components/Dashboard/CardSection';
 
 import { Loader } from '../components/Layout/Loader';
-import HomeHero from '../components/Home/HomeHero';
+import Navbar from '../components/Layout/Navbar';
 import UserCourseList from '../components/User/UserCourseList';
 import UserEnrollList from '../components/User/UserEnrollList';
 import UserEnrollManageList from '../components/User/UserEnrollManageList';
@@ -61,20 +62,21 @@ class UserProfile extends Component {
     const { manageCourses, manageEnrolls, myEnrolls } = this.state;
     return (
       <section>
-        <HomeHero />
+        <Navbar bg={'#333'} />
         {loggedInUser === null ? (
           <h1>You are not authorized</h1>
         ) : (
-          <div className='container'>
-            <Link to='/course' className='btn my-1'>
-              Back To Courses
-            </Link>
-            <h1 className='large text-primary'>User Profile</h1>
-            <p className='lead'>
-              <i className='fas fa-user'></i> Welcome{' '}
-              <span className='text-primary'>{loggedInUser.username}</span>
-            </p>
+          <div className='form-userprofile'>
+            <CardSection
+              courses={courses}
+              loggedInUser={loggedInUser}
+              enrolls={enrolls}
+            />
             <div className='dash-buttons my-1'>
+              <Link to='/course' className='btn'>
+                <i className='fas fa-long-arrow-alt-left text-primary'></i> Back
+                To Courses
+              </Link>
               <button className='btn'>
                 <i className='fas fa-user-circle text-primary'></i> Edit Profile
               </button>
