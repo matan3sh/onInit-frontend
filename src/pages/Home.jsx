@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import HomeHero from '../components/Home/HomeHero';
 import { HomeFooter } from '../components/Home/HomeFooter';
 import { HomeGuide } from '../components/Home/HomeGuide';
+import HomeStatistics from '../components/Home/HomeStatistics';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -45,6 +46,8 @@ class Home extends Component {
               <CourseListHome courses={courses} loggedInUser={loggedInUser} />
               <p className='lead text-bold my-1'> Journey to Success</p>
               <HomeGuide />
+
+              <HomeStatistics />
             </div>
           </div>
         )}

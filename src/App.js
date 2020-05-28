@@ -15,6 +15,7 @@ import CourseDetail from './pages/CourseDetail';
 import UserProfile from './pages/UserProfile';
 import { Maps } from './components/Map/Maps';
 import { Footer } from './components/Layout/Footer';
+import PopChart from './components/Dashboard/PopChart';
 
 import './style/style.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,6 +30,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route exact path='/course' component={CourseApp} />
           <Route exact path='/map' component={Maps} />
+          <Route exact path='/chart' component={PopChart} />
           <Route exact path='/user/:id' component={UserProfile} />
           <Route exact path='/edit/:id' component={CourseEdit} />
           <Route exact path='/add' component={CourseAdd} />

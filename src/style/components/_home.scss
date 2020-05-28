@@ -111,3 +111,9 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+.statistics {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-gap: 1rem;
+}

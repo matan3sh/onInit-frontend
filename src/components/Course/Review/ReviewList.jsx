@@ -1,4 +1,6 @@
 import React from 'react';
+import io from 'socket.io-client';
+
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 
@@ -8,8 +10,17 @@ import { Loader } from '../../Layout/Loader';
 import ReviewPreview from './ReviewPreview';
 import ReviewAdd from './ReviewAdd';
 
+const socket = io('/localhost:3030/');
+
 class ReviewList extends React.Component {
   state = { updatePage: false };
+
+  componentDidMount() {
+    socket.on('edit-review', (course) => {
+      console.log(course);
+      this.props.saveCourse(course);
+    });
+  }
 
   onDelete = (review) => {
     const { course, saveCourse } = this.props;
@@ -41,6 +52,7 @@ class ReviewList extends React.Component {
       draggable: true,
       position: toast.POSITION.TOP_CENTER,
     });
+    socket.emit('send-review', course);
     this.setState(({ updatePage }) => ({ updatePage: !updatePage }));
   };
 
