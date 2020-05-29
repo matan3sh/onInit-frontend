@@ -10,16 +10,16 @@ import { Loader } from '../../Layout/Loader';
 import ReviewPreview from './ReviewPreview';
 import ReviewAdd from './ReviewAdd';
 
-const socket = io('/localhost:3030/');
+// const socket = io('/localhost:3030');
 
 class ReviewList extends React.Component {
   state = { updatePage: false };
 
   componentDidMount() {
-    socket.on('edit-review', (course) => {
-      console.log(course);
-      this.props.saveCourse(course);
-    });
+    // socket.on('edit-review', (course) => {
+    //   console.log(course);
+    //   this.props.saveCourse(course);
+    // });
   }
 
   onDelete = (review) => {
@@ -52,7 +52,7 @@ class ReviewList extends React.Component {
       draggable: true,
       position: toast.POSITION.TOP_CENTER,
     });
-    socket.emit('send-review', course);
+    // socket.emit('update-review', course);
     this.setState(({ updatePage }) => ({ updatePage: !updatePage }));
   };
 

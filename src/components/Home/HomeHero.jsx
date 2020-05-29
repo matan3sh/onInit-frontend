@@ -3,23 +3,16 @@ import React from 'react';
 
 class HomeHero extends React.Component {
   state = {
-    images: [
+    image:
       'https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      'https://images.pexels.com/photos/1252399/pexels-photo-1252399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      'https://images.pexels.com/photos/547116/pexels-photo-547116.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      'https://images.pexels.com/photos/258036/pexels-photo-258036.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    ],
   };
   render() {
-    var bg = this.state.images[
-      Math.floor(Math.random() * this.state.images.length)
-    ];
     return (
       <>
         <section
           className='landing-home'
           style={{
-            background: `url(${bg}) no-repeat center center/cover`,
+            background: `url(${this.state.image}) no-repeat center center/cover`,
           }}
         >
           <div className='dark-overlay-home'>

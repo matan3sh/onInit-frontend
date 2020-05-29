@@ -5,24 +5,21 @@ export default class PopChart extends Component {
   state = {
     options: {
       chart: {
-        height: 450,
-        width: '100%',
-        type: 'bar',
+        // height: 450,
+        // width: '100%',
+        // type: 'bar',
         background: '#f4f4f4',
         foreColor: '#333',
       },
       xaxis: {
         categories: [
           'Coding Academy',
-          'Los Angeles',
-          'Chicago',
-          'Houston',
-          'Philadelphia',
-          'Phoenix',
-          'San Antonio',
-          'San Diego',
-          'Dallas',
-          'San Jose',
+          'Short Courses Online',
+          'Web Training',
+          'SoftUni',
+          'All About STEM',
+          'eLearning',
+          'Delft',
         ],
       },
       plotOptions: {
@@ -30,33 +27,23 @@ export default class PopChart extends Component {
           horizontal: true,
         },
       },
+      fill: {
+        colors: ['#4bc0d9'],
+      },
     },
     series: [
       {
         name: 'Population',
-        data: [
-          8550405,
-          3971883,
-          2720546,
-          2296224,
-          1567442,
-          1563025,
-          1469845,
-          1394928,
-          1300092,
-          1026908,
-        ],
+        data: [256, 183, 175, 155, 132, 89, 77],
       },
     ],
-    fill: {
-      colors: ['#F44336'],
-    },
+
     dataLabels: {
       enabled: false,
     },
 
     title: {
-      text: 'Largest US Cities By Population',
+      text: 'Our Leading Schools',
       align: 'center',
       margin: 20,
       offsetY: 20,

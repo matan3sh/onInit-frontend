@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import io from 'socket.io-client';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -10,6 +11,8 @@ import { toast } from 'react-toastify';
 
 import { makeId } from '../../../services/utils';
 import { loadCourse, saveCourse } from '../../../store/actions/courseActions';
+
+// const socket = io('/localhost:3030');
 
 const validationSchema = Yup.object().shape({
   msg: Yup.string()
@@ -30,6 +33,10 @@ class ReviewAdd extends React.Component {
 
   render() {
     const { course, saveCourse, onUpdateReviews, loggedInUser } = this.props;
+    // socket.on('add-review', (course) => {
+    //   console.log(course);
+    //   this.props.saveCourse(course);
+    // });
     return (
       <div className='grid-1'>
         {this.state.addReview ? (
@@ -65,6 +72,8 @@ class ReviewAdd extends React.Component {
               course.reviews.unshift(review);
               course.rating = this.calcRating(course.reviews).toFixed(1);
               saveCourse(course);
+              // socket.emit('send-review', course);
+
               toast('Review successfully added', {
                 className: 'custom-toast',
                 draggable: true,

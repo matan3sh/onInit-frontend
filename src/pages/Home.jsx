@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Spring } from 'react-spring/renderprops';
 
 import HomeHero from '../components/Home/HomeHero';
 import { HomeFooter } from '../components/Home/HomeFooter';
@@ -28,10 +29,15 @@ class Home extends Component {
 
   render() {
     const { courses, loggedInUser } = this.props;
-
     return (
       <section>
-        <HomeHero />
+        <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
+          {(props) => (
+            <div style={props}>
+              <HomeHero />
+            </div>
+          )}
+        </Spring>
         {!courses.length ? (
           <Loader />
         ) : (
@@ -46,7 +52,6 @@ class Home extends Component {
               <CourseListHome courses={courses} loggedInUser={loggedInUser} />
               <p className='lead text-bold my-1'> Journey to Success</p>
               <HomeGuide />
-
               <HomeStatistics />
             </div>
           </div>
