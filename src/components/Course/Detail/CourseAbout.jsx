@@ -7,9 +7,37 @@ import { Enroll } from '../Enroll/Enroll';
 import { saveEnroll } from '../../../store/actions/enrollActions';
 import { Maps } from '../../Map/Maps';
 import Moment from 'react-moment';
+import * as geolib from 'geolib';
 
 class CourseAbout extends React.Component {
-  state = { enroll: false };
+  state = { enroll: false, distance: null };
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const distance = geolib.convertDistance(
+          geolib.getDistance(
+            {
+              latitude: position.coords.latitude - 0.55,
+              longitude: position.coords.longitude - 0.36,
+            },
+            {
+              latitude: this.props.course.location.lat,
+              longitude: this.props.course.location.lng,
+            }
+          ),
+          'm'
+        );
+        this.setState({ distance });
+        console.log(
+          `You are ${this.state.distance} meters away from ${this.props.course.name}`
+        );
+      },
+      () => {
+        alert('Position could not be determined.');
+      }
+    );
+  }
 
   onEnroll = () => {
     this.setState({ enroll: true });
@@ -64,6 +92,16 @@ class CourseAbout extends React.Component {
             </button>
           )}
         </div>
+        <div className='text-grey'>
+          {this.state.distance !== null ? (
+            <span>
+              <i className='fas fa-street-view'></i>{' '}
+              {this.numberWithCommas(this.state.distance)} km from you
+            </span>
+          ) : (
+            ''
+          )}
+        </div>
         <div className='course-details-description'>
           <h5 className='text-mid'>Description</h5>
           {course.description}
@@ -78,24 +116,26 @@ class CourseAbout extends React.Component {
             {course.duration} Hours
           </p>
         </div>
-        <div>
-          <img
-            src={course.addByUser.avatar}
-            alt=''
-            className='bootcamp-user-avatar'
-          />
-          <span>
-            <span className='text-grey'>Added By </span>
-            <span className='text-dark text-bold'>
-              {course.addByUser.username}
-            </span>
-            {/* <a href='/#' className='btn mx-1'>
+        <div className='flex'>
+          <div>
+            <img
+              src={course.addByUser.avatar}
+              alt=''
+              className='bootcamp-user-avatar'
+            />
+            <span>
+              <span className='text-grey'>Added By </span>
+              <span className='text-dark text-bold'>
+                {course.addByUser.username}
+              </span>
+              {/* <a href='/#' className='btn mx-1'>
               <i className='fas fa-envelope text-light'></i>
             </a>
             <a href={course.website} target='blank_target' className='btn mx-1'>
               <i className='fas fa-globe-americas'></i>
             </a> */}
-          </span>
+            </span>
+          </div>
         </div>
         <div className='flex'>
           <div className='course-details-info contact-info-position'>
