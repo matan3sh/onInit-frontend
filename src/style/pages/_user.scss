@@ -1,12 +1,24 @@
 .table {
   th,
   td {
-    padding: 1rem;
+    padding: 0.5rem;
     text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-radius: 1px;
   }
   th {
-    background: $light-color;
+    background-color: $dark-color;
+    opacity: 0.8;
+    color: $light-color;
   }
+}
+
+tr:hover {
+  cursor: pointer;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 .edit-user-profile {

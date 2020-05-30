@@ -19,6 +19,8 @@ const validationSchema = Yup.object().shape({
     .email('Must be a valid email address')
     .required('Must enter an email'),
   phone: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
+  linkedin: Yup.string().url('Must be valid URL'),
+  facebook: Yup.string().url('Must be valid URL'),
 });
 
 export const Enroll = ({
@@ -48,7 +50,7 @@ export const Enroll = ({
               {loggedInUser.username}
             </span>
           </h1>
-          <div className='my-3' style={{ fontSize: '28px' }}>
+          <div className='my-2' style={{ fontSize: '28px' }}>
             We are glad you chose to register for the course{' '}
             <p className='text-bold'>{course.name}</p> <br />
             <div>
@@ -56,7 +58,7 @@ export const Enroll = ({
               <img className='school-img' src={course.school.img} alt='' />
               <span>{course.school.name}</span>
             </div>
-            <p className='my-3'>
+            <p className='my-2'>
               Please confirm your details and course representatives will be
               back soon{' '}
             </p>
@@ -67,6 +69,8 @@ export const Enroll = ({
                 fullName: '',
                 email: loggedInUser.email,
                 phone: '',
+                linkedin: '',
+                facebook: '',
               }}
               validationSchema={validationSchema}
               onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -78,6 +82,9 @@ export const Enroll = ({
                     fullName: values.fullName,
                     email: values.email,
                     phone: values.phone,
+                    linkedin: values.linkedin,
+                    facebook: values.facebook,
+                    avatar: loggedInUser.avatar,
                   },
                   course: {
                     _id: course._id,
@@ -136,6 +143,40 @@ export const Enroll = ({
                       }
                     />
                     <Error touched={touched.email} message={errors.email} />
+                  </div>
+                  <div className='form-group'>
+                    <input
+                      name='linkedin'
+                      type='text'
+                      placeholder='Linkedin Profile'
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.linkedin}
+                      className={
+                        touched.linkedin && errors.linkedin ? 'has-error' : null
+                      }
+                    />
+                    <Error
+                      touched={touched.linkedin}
+                      message={errors.linkedin}
+                    />
+                  </div>
+                  <div className='form-group'>
+                    <input
+                      name='facebook'
+                      type='text'
+                      placeholder='Facebook Profile'
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.facebook}
+                      className={
+                        touched.facebook && errors.facebook ? 'has-error' : null
+                      }
+                    />
+                    <Error
+                      touched={touched.facebook}
+                      message={errors.facebook}
+                    />
                   </div>
                   <div className='form-group'>
                     <input

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { connect } from 'react-redux';
-
 import { Enroll } from '../Enroll/Enroll';
 import { saveEnroll } from '../../../store/actions/enrollActions';
 import { Maps } from '../../Map/Maps';
@@ -13,6 +11,10 @@ class CourseAbout extends React.Component {
   state = { enroll: false, distance: null };
 
   componentDidMount() {
+    this.getUserDistance();
+  }
+
+  getUserDistance = () => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const distance = geolib.convertDistance(
@@ -37,7 +39,7 @@ class CourseAbout extends React.Component {
         alert('Position could not be determined.');
       }
     );
-  }
+  };
 
   onEnroll = () => {
     this.setState({ enroll: true });
@@ -49,7 +51,6 @@ class CourseAbout extends React.Component {
 
   onSumbitEnroll = (enroll) => {
     this.setState({ enroll: false });
-    console.log(enroll);
     this.props.saveEnroll(enroll);
   };
 
@@ -60,6 +61,7 @@ class CourseAbout extends React.Component {
   render() {
     const { course, loggedInUser } = this.props;
     const { enroll } = this.state;
+
     return (
       <div className='course-details-right'>
         {enroll && (
@@ -128,12 +130,16 @@ class CourseAbout extends React.Component {
               <span className='text-dark text-bold'>
                 {course.addByUser.username}
               </span>
-              {/* <a href='/#' className='btn mx-1'>
-              <i className='fas fa-envelope text-light'></i>
-            </a>
-            <a href={course.website} target='blank_target' className='btn mx-1'>
-              <i className='fas fa-globe-americas'></i>
-            </a> */}
+              <button className='btn mx-1'>
+                <i className='fas fa-envelope text-light'></i>
+              </button>
+              <button
+                href={course.website}
+                target='blank_target'
+                className='btn mx-1'
+              >
+                <i className='fas fa-globe-americas'></i>
+              </button>
             </span>
           </div>
         </div>

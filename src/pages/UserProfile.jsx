@@ -3,16 +3,17 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { loadCourses } from '../store/actions/courseActions';
+import { loadUser } from '../store/actions/userActions';
 import { loadEnrolls, saveEnroll } from '../store/actions/enrollActions';
 import { toast } from 'react-toastify';
 import { CardSection } from '../components/Dashboard/CardSection';
 
 import { Loader } from '../components/Layout/Loader';
 import Navbar from '../components/Layout/Navbar';
-import UserCourseList from '../components/User/UserCourseList';
-import UserEnrollList from '../components/User/UserEnrollList';
-import UserEnrollManageList from '../components/User/UserEnrollManageList';
-import { UserProfileEdit } from '../components/User/UserProfileEdit';
+import UserCourseList from '../components/User/ManageCourse/UserCourseList';
+import UserEnrollList from '../components/User/UserEnroll/UserEnrollList';
+import UserEnrollManageList from '../components/User/ManageEnroll/UserEnrollManageList';
+import UserProfileEdit from '../components/User/UserProfileEdit';
 
 class UserProfile extends Component {
   state = {
@@ -23,9 +24,12 @@ class UserProfile extends Component {
   };
 
   componentDidMount() {
+    const { id } = this.props.match.params;
+
     setTimeout(() => {
       this.props.loadCourses();
       this.props.loadEnrolls();
+      this.props.loadUser(id);
     }, 1000);
   }
 
@@ -76,13 +80,13 @@ class UserProfile extends Component {
   };
 
   render() {
-    const { courses, loggedInUser, enrolls } = this.props;
+    const { courses, loggedInUser, enrolls, user } = this.props;
     const { manageCourses, manageEnrolls, myEnrolls, userProfile } = this.state;
     return (
       <section>
         <Navbar bg={'#333'} />
-        {loggedInUser === null ? (
-          <h1>You are not authorized</h1>
+        {loggedInUser === null || user === null || courses === null ? (
+          <Loader />
         ) : (
           <div className='form-userprofile'>
             <CardSection
@@ -137,7 +141,7 @@ class UserProfile extends Component {
             </div>
             {userProfile && (
               <>
-                <UserProfileEdit loggedInUser={loggedInUser} />
+                <UserProfileEdit user={user} />
               </>
             )}
             {manageCourses && (
@@ -186,12 +190,14 @@ const mapStateToProps = (state) => ({
   courses: state.courseApp.courses,
   loggedInUser: state.auth.loggedInUser,
   enrolls: state.enrolls.enrolls,
+  user: state.users.user,
 });
 
 const mapDispatchToProps = {
   loadCourses,
   loadEnrolls,
   saveEnroll,
+  loadUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
