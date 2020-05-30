@@ -110,6 +110,7 @@ class CourseAdd extends React.Component {
             setSubmitting(true);
             const course = {
               name,
+              createdAt: Date.now(),
               category,
               description,
               addByUser: {},

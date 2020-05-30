@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { loadCourse, saveCourse } from '../../store/actions/courseActions';
+import { loadCourse, updateCourse } from '../../store/actions/courseActions';
 import { Loader } from '../Layout/Loader';
 
 import { Formik } from 'formik';
@@ -148,7 +148,7 @@ class CourseEdit extends React.Component {
                   },
                   images: [firstImg, secondImg, thirdImg, fourthImg],
                 };
-                this.props.saveCourse(course);
+                this.props.updateCourse(course);
                 resetForm();
                 setSubmitting(false);
               }}
@@ -558,7 +558,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   loadCourse,
-  saveCourse,
+  updateCourse,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CourseEdit);

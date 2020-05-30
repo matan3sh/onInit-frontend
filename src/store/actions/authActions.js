@@ -3,7 +3,6 @@ import authService from '../../services/authService';
 export function login(userCredentials) {
   return async (dispatch) => {
     const user = await authService.login(userCredentials);
-    console.log(user);
     dispatch(setUser(user));
   };
 }

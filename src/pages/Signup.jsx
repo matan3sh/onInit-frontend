@@ -16,7 +16,6 @@ const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email('Must be a valid email address')
     .required('Must enter a email'),
-  avatar: Yup.string().url('Must be valid URL'),
   password: Yup.string()
     .min(6, 'Must be grater then six characters')
     .required('Must enter a password'),
@@ -41,11 +40,20 @@ const Signup = ({ signup, history }) => {
             email: '',
             password: '',
             confirmPassword: '',
-            avatar: '',
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
-            signup(values);
+            const { username, email, password } = values;
+            const newUser = {
+              username,
+              email,
+              password,
+              createdAt: Date.now(),
+              avatar:
+                'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png',
+              isAdmin: false,
+            };
+            signup(newUser);
             history.push('/');
           }}
         >

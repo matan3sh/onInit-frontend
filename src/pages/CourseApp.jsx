@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-
 import Hero from '../components/Layout/Hero';
-
 import { connect } from 'react-redux';
 import { loadCourses } from '../store/actions/courseActions';
 import { setUser } from '../store/actions/authActions';
 import authService from '../services/authService';
-
 import { Loader } from '../components/Layout/Loader';
 import { CourseList } from '../components/Course/CourseList';
 import { CategoryFilter } from '../components/Course/Filter/CategoryFilter';

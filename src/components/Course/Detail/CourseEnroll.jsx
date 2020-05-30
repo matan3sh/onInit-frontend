@@ -10,10 +10,10 @@ export const CourseEnroll = ({ enrolls, course }) => {
         </h4>
       )}
       <div className='enrolls-wrapper mb-3'>
-        {enrolls.map((enroll) => {
+        {enrolls.map((enroll, index) => {
           if (enroll.course._id === course._id) {
             return (
-              <div className='enrolls'>
+              <div className='enrolls' key={index}>
                 <img src={enroll.user.avatar} alt='' />
                 <p>{enroll.user.fullName}</p>
                 <a target='_blank' href={enroll.user.linkedin}>

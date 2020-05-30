@@ -1,36 +1,34 @@
 import React from 'react';
-import io from 'socket.io-client';
+import SocketService from '../../../services/SocketService';
 
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 
-import { loadCourse, saveCourse } from '../../../store/actions/courseActions';
+import { loadCourse, updateCourse } from '../../../store/actions/courseActions';
 import { Loader } from '../../Layout/Loader';
 
 import ReviewPreview from './ReviewPreview';
 import ReviewAdd from './ReviewAdd';
 
-// const socket = io('/localhost:3030');
-
 class ReviewList extends React.Component {
   state = { updatePage: false };
 
   componentDidMount() {
-    // socket.on('edit-review', (course) => {
-    //   console.log(course);
-    //   this.props.saveCourse(course);
-    // });
+    SocketService.setup();
+    SocketService.on('edit-review', (course) =>
+      this.props.updateCourse(course)
+    );
   }
 
   onDelete = (review) => {
-    const { course, saveCourse } = this.props;
+    const { course, updateCourse } = this.props;
     const updatedCoursReviews = course.reviews.filter(
       (currReview) => review._id !== currReview._id
     );
     course.reviews = updatedCoursReviews;
     if (!course.reviews.length) course.rating = 0;
     else course.rating = this.calcRating(course.reviews).toFixed(1);
-    saveCourse(course);
+    updateCourse(course);
     toast('Review successfully deleted', {
       className: 'custom-toast',
       draggable: true,
@@ -39,20 +37,20 @@ class ReviewList extends React.Component {
     this.setState(({ updatePage }) => ({ updatePage: !updatePage }));
   };
 
-  onEdit = (review) => {
-    const { course, saveCourse } = this.props;
+  onEdit = async (review) => {
+    const { course, updateCourse } = this.props;
     const updatedCoursReviews = course.reviews.map((currReview) =>
       review._id === currReview._id ? review : currReview
     );
     course.reviews = updatedCoursReviews;
     course.rating = this.calcRating(course.reviews).toFixed(1);
-    saveCourse(course);
+    SocketService.emit('update-review', course);
+    updateCourse(course);
     toast('Review successfully updated', {
       className: 'custom-toast',
       draggable: true,
       position: toast.POSITION.TOP_CENTER,
     });
-    // socket.emit('update-review', course);
     this.setState(({ updatePage }) => ({ updatePage: !updatePage }));
   };
 
@@ -119,7 +117,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   loadCourse,
-  saveCourse,
+  updateCourse,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewList);

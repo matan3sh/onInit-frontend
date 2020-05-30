@@ -17,11 +17,22 @@ export function loadCourse(id) {
 }
 
 export function saveCourse(course) {
-  const type = course._id ? 'UPDATE_COURSE' : 'ADD_COURSE';
   return (dispatch) => {
     courseService
-      .save(course)
-      .then((savedCourse) => dispatch({ type, payload: savedCourse }));
+      .add(course)
+      .then((addedCourse) =>
+        dispatch({ type: 'ADD_COURSE', payload: addedCourse })
+      );
+  };
+}
+
+export function updateCourse(course) {
+  return (dispatch) => {
+    courseService
+      .update(course)
+      .then((updatedCourse) =>
+        dispatch({ type: 'UPDATE_COURSE', payload: updatedCourse })
+      );
   };
 }
 

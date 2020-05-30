@@ -1,26 +1,66 @@
 import userService from '../../services/userService';
 
 export function loadUsers() {
-  return (dispatch) => {
-    userService
-      .query()
-      .then((users) => dispatch({ type: 'SET_USERS', payload: users }));
+  return async (dispatch) => {
+    try {
+      const users = await userService.getUsers();
+      dispatch(setUsers(users));
+    } catch (err) {
+      console.log('Error in Loading Users', err);
+    }
   };
 }
 
 export function loadUser(id) {
-  return (dispatch) => {
-    userService
-      .getById(id)
-      .then((user) => dispatch({ type: 'SET_USER', payload: user }));
+  return async (dispatch) => {
+    try {
+      const user = await userService.getById(id);
+      console.log(user);
+      dispatch(setUser(user));
+    } catch (err) {
+      console.log('Error in Loading Users', err);
+    }
   };
 }
 
 export function saveUser(user) {
-  const type = user._id ? 'UPDATE_USER' : 'ADD_USER';
-  return (dispatch) => {
-    userService
-      .save(user)
-      .then((savedUser) => dispatch({ type, payload: savedUser }));
+  return async (dispatch) => {
+    try {
+      const updatedUser = await userService.update(user);
+      dispatch(setUser(updatedUser));
+    } catch (err) {
+      console.log('Error in Loading Users', err);
+    }
+  };
+}
+
+export function removeUser(userId) {
+  return async (dispatch) => {
+    try {
+      await userService.remove(userId);
+      dispatch(_removeUser(userId));
+    } catch (err) {
+      console.log('Error in remove User', err);
+    }
+  };
+}
+
+export function setUser(user) {
+  return {
+    type: 'SET_USER',
+    payload: user,
+  };
+}
+function setUsers(users) {
+  return {
+    type: 'SET_USERS',
+    payload: users,
+  };
+}
+
+function _removeUser(userId) {
+  return {
+    type: 'USER_REMOVE',
+    userId,
   };
 }

@@ -1,50 +1,28 @@
-import axios from 'axios';
-
-const BASE_URL = '/api/enroll';
-var gEnrolls = [];
+import HttpService from './HttpService';
 
 export default {
-  query,
-  save,
-  remove,
+  getEnrolls,
   getById,
+  remove,
+  update,
+  add,
 };
 
-function query() {
-  return axios
-    .get(BASE_URL)
-    .then((res) => res.data)
-    .then((enrolls) => {
-      gEnrolls = enrolls;
-      return enrolls;
-    });
+function getEnrolls() {
+  return HttpService.get('enroll');
 }
 
-function save(enroll) {
-  console.log(enroll);
-  var prm;
-  if (enroll._id) prm = axios.put(`${BASE_URL}/${enroll._id}`, enroll);
-  else prm = axios.post(BASE_URL, enroll);
-  return prm
-    .then((res) => res.data)
-    .then((savedEnroll) => {
-      const idx = _getIdxById(savedEnroll._id);
-      gEnrolls[idx] = savedEnroll;
-      return savedEnroll;
-    });
+function getById(enrollId) {
+  return HttpService.get(`enroll/${enrollId}`);
+}
+function remove(enrollId) {
+  return HttpService.delete(`enroll/${enrollId}`);
 }
 
-function remove(id) {
-  return axios.delete(`${BASE_URL}/${id}`).then(() => {
-    const idx = _getIdxById(id);
-    gEnrolls.splice(idx, 1);
-  });
+function update(enroll) {
+  return HttpService.put(`enroll/${enroll._id}`, enroll);
 }
 
-function getById(id) {
-  return axios.get(`${BASE_URL}/${id}`).then((res) => res.data);
-}
-
-function _getIdxById(id) {
-  return gEnrolls.findIndex((enroll) => enroll._id === id);
+function add(enroll) {
+  return HttpService.post(`enroll`, enroll);
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import io from 'socket.io-client';
+import SocketService from '../../../services/SocketService';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -10,7 +10,7 @@ import { FaStar } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 import { makeId } from '../../../services/utils';
-import { loadCourse, saveCourse } from '../../../store/actions/courseActions';
+import { loadCourse, updateCourse } from '../../../store/actions/courseActions';
 
 // const socket = io('/localhost:3030');
 
@@ -22,6 +22,11 @@ const validationSchema = Yup.object().shape({
 });
 
 class ReviewAdd extends React.Component {
+  componentDidMount() {
+    SocketService.setup();
+    SocketService.on('add-review', (course) => this.props.updateCourse(course));
+  }
+
   state = { addReview: false, rating: 1 };
 
   calcRating = (reviews) => {
@@ -32,7 +37,7 @@ class ReviewAdd extends React.Component {
   };
 
   render() {
-    const { course, saveCourse, onUpdateReviews, loggedInUser } = this.props;
+    const { course, updateCourse, onUpdateReviews, loggedInUser } = this.props;
     // socket.on('add-review', (course) => {
     //   console.log(course);
     //   this.props.saveCourse(course);
@@ -71,8 +76,8 @@ class ReviewAdd extends React.Component {
               if (!course.reviews) course.reviews = [];
               course.reviews.unshift(review);
               course.rating = this.calcRating(course.reviews).toFixed(1);
-              saveCourse(course);
-              // socket.emit('send-review', course);
+              updateCourse(course);
+              SocketService.emit('send-review', course);
 
               toast('Review successfully added', {
                 className: 'custom-toast',
@@ -169,7 +174,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   loadCourse,
-  saveCourse,
+  updateCourse,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewAdd);

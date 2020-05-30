@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import { loadCourses } from '../store/actions/courseActions';
 import { loadUser } from '../store/actions/userActions';
 import { loadEnrolls, saveEnroll } from '../store/actions/enrollActions';
 import { toast } from 'react-toastify';
 import { CardSection } from '../components/Dashboard/CardSection';
-
 import { Loader } from '../components/Layout/Loader';
 import Navbar from '../components/Layout/Navbar';
 import UserCourseList from '../components/User/ManageCourse/UserCourseList';
@@ -25,7 +23,6 @@ class UserProfile extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-
     setTimeout(() => {
       this.props.loadCourses();
       this.props.loadEnrolls();

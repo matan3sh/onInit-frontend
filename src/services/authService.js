@@ -1,35 +1,21 @@
-import Axios from 'axios';
+import HttpService from './HttpService';
 
-const login = async (userCredentials) => {
-  if (userCredentials.avatar) return _handleLogin(userCredentials);
-  try {
-    const res = await Axios.post('/api/auth/login', userCredentials);
-    return _handleLogin(res.data);
-  } catch (err) {
-    console.log('Invalid credentials');
-    throw err;
-  }
-};
-
-const signup = async (userCredentials) => {
-  try {
-    const res = await Axios.post('/api/auth/signup', userCredentials);
-    return _handleLogin(res.data);
-  } catch (err) {
-    console.log('Cannot signup right now, try again later');
-    throw err;
-  }
-};
-
-const logout = async () => {
-  try {
-    await Axios.post('/api/auth/logout');
-    sessionStorage.clear();
-  } catch (err) {
-    console.log('Cannot logout now, try again later');
-    throw err;
-  }
-};
+async function login(userCred) {
+  const user = await HttpService.post('auth/login', userCred);
+  return _handleLogin(user);
+}
+async function signup(userCred) {
+  const user = await HttpService.post('auth/signup', userCred);
+  return _handleLogin(user);
+}
+async function logout() {
+  await HttpService.post('auth/logout');
+  sessionStorage.clear();
+}
+function _handleLogin(user) {
+  sessionStorage.setItem('user', JSON.stringify(user));
+  return user;
+}
 
 const getLoggedInUser = () => {
   return JSON.parse(sessionStorage.getItem('user'));
@@ -37,12 +23,7 @@ const getLoggedInUser = () => {
 
 export default {
   login,
-  signup,
   logout,
+  signup,
   getLoggedInUser,
-};
-
-const _handleLogin = (user) => {
-  sessionStorage.setItem('user', JSON.stringify(user));
-  return user;
 };
