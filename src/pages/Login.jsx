@@ -25,7 +25,7 @@ const Login = ({ login, history }) => {
     <>
       <HomeHero />
       <section className='form-container'>
-        <h1 className='large text-primary'>Login</h1>
+        <h1 className='large text-dark'>Login</h1>
         <p className='lead'>
           <i className='fas fa-user'></i> Sign into your account
         </p>
@@ -77,7 +77,7 @@ const Login = ({ login, history }) => {
               <div>
                 <button
                   type='submit'
-                  className='btn btn-primary mb-1'
+                  className='btn btn-dark mb-1'
                   disabled={isSubmitting}
                   style={{ width: '100%' }}
                 >

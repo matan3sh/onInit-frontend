@@ -17,6 +17,9 @@ class ReviewList extends React.Component {
     SocketService.on('add-review', () =>
       this.props.loadCourse(this.props.course._id)
     );
+    SocketService.on('edit-review', () =>
+      this.props.loadCourse(this.props.course._id)
+    );
   }
 
   onDelete = (review) => {
@@ -43,7 +46,6 @@ class ReviewList extends React.Component {
     );
     course.reviews = updatedCoursReviews;
     course.rating = this.calcRating(course.reviews).toFixed(1);
-    SocketService.emit('update-review', course);
     updateCourse(course);
     toast('Review successfully updated', {
       className: 'custom-toast',
@@ -51,6 +53,7 @@ class ReviewList extends React.Component {
       position: toast.POSITION.TOP_CENTER,
     });
     this.setState(({ updatePage }) => ({ updatePage: !updatePage }));
+    SocketService.emit('send-review', course);
   };
 
   onUpdateReviews = () => {

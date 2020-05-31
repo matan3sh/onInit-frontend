@@ -66,7 +66,6 @@ class ReviewAdd extends React.Component {
               course.reviews.unshift(review);
               course.rating = this.calcRating(course.reviews).toFixed(1);
               updateCourse(course);
-              SocketService.emit('send-review', course);
 
               toast('Review successfully added', {
                 className: 'custom-toast',
@@ -74,6 +73,7 @@ class ReviewAdd extends React.Component {
                 position: toast.POSITION.TOP_CENTER,
               });
               this.setState({ addReview: false, rating: 1 });
+              SocketService.emit('send-review', course);
               onUpdateReviews();
               resetForm();
             }}

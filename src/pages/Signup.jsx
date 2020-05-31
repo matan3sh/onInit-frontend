@@ -30,7 +30,7 @@ const Signup = ({ signup, history }) => {
     <>
       <HomeHero />
       <section className='form-container'>
-        <h1 className='large text-primary'>Sign Up</h1>
+        <h1 className='large text-dark'>Sign Up</h1>
         <p className='lead'>
           <i className='fas fa-user'></i> Create Your Account
         </p>
@@ -128,7 +128,7 @@ const Signup = ({ signup, history }) => {
               </div>
               <button
                 type='submit'
-                className='btn btn-primary'
+                className='btn btn-dark'
                 disabled={isSubmitting}
               >
                 Signup
