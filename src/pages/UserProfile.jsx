@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loadCourses } from '../store/actions/courseActions';
 import { loadUser } from '../store/actions/userActions';
-import { loadEnrolls, saveEnroll } from '../store/actions/enrollActions';
+import { loadEnrolls, updateEnroll } from '../store/actions/enrollActions';
 import { toast } from 'react-toastify';
 import { CardSection } from '../components/Dashboard/CardSection';
 import { Loader } from '../components/Layout/Loader';
+import SocketService from '../services/SocketService';
 import Navbar from '../components/Layout/Navbar';
 import UserCourseList from '../components/User/ManageCourse/UserCourseList';
 import UserEnrollList from '../components/User/UserEnroll/UserEnrollList';
@@ -68,12 +69,13 @@ class UserProfile extends Component {
 
   onConfirmEnroll = (enroll) => {
     let updatedEnroll = { ...enroll, isConfirm: true };
-    this.props.saveEnroll(updatedEnroll);
+    this.props.updateEnroll(updatedEnroll);
     toast('Enroll successfully confirmed', {
       className: 'custom-toast',
       draggable: true,
       position: toast.POSITION.TOP_CENTER,
     });
+    SocketService.emit('confirm', updatedEnroll);
   };
 
   render() {
@@ -91,7 +93,7 @@ class UserProfile extends Component {
               loggedInUser={loggedInUser}
               enrolls={enrolls}
             />
-            <div className='dash-buttons my-1'>
+            <div className='dash-buttons'>
               <Link to='/course' className='btn-dash'>
                 <i className='fas fa-long-arrow-alt-left text-primary'></i> Back
                 To Courses
@@ -103,7 +105,9 @@ class UserProfile extends Component {
                 <i className='fas fa-user-circle'></i> Edit Profile
               </button>
               <button
-                className={`btn-dash ${manageCourses ? 'btn-dash-primary' : ''}`}
+                className={`btn-dash ${
+                  manageCourses ? 'btn-dash-primary' : ''
+                }`}
                 onClick={this.onManageCourses}
               >
                 <i
@@ -114,7 +118,9 @@ class UserProfile extends Component {
                 Manage Courses
               </button>
               <button
-                className={`btn-dash ${manageEnrolls ? 'btn-dash-primary' : ''}`}
+                className={`btn-dash ${
+                  manageEnrolls ? 'btn-dash-primary' : ''
+                }`}
                 onClick={this.onManageEnrolls}
               >
                 <i
@@ -193,7 +199,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   loadCourses,
   loadEnrolls,
-  saveEnroll,
+  updateEnroll,
   loadUser,
 };
 

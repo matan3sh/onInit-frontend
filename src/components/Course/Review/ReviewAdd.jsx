@@ -12,8 +12,6 @@ import { toast } from 'react-toastify';
 import { makeId } from '../../../services/utils';
 import { loadCourse, updateCourse } from '../../../store/actions/courseActions';
 
-// const socket = io('/localhost:3030');
-
 const validationSchema = Yup.object().shape({
   msg: Yup.string()
     .min(3, 'Must be more then 3 characters')
@@ -22,11 +20,6 @@ const validationSchema = Yup.object().shape({
 });
 
 class ReviewAdd extends React.Component {
-  componentDidMount() {
-    SocketService.setup();
-    SocketService.on('add-review', (course) => this.props.updateCourse(course));
-  }
-
   state = { addReview: false, rating: 1 };
 
   calcRating = (reviews) => {
@@ -38,10 +31,6 @@ class ReviewAdd extends React.Component {
 
   render() {
     const { course, updateCourse, onUpdateReviews, loggedInUser } = this.props;
-    // socket.on('add-review', (course) => {
-    //   console.log(course);
-    //   this.props.saveCourse(course);
-    // });
     return (
       <div className='grid-1'>
         {this.state.addReview ? (

@@ -16,10 +16,18 @@ export const CourseEnroll = ({ enrolls, course }) => {
               <div className='enrolls' key={index}>
                 <img src={enroll.user.avatar} alt='' />
                 <p>{enroll.user.fullName}</p>
-                <a target='_blank' href={enroll.user.linkedin}>
+                <a
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href={enroll.user.linkedin}
+                >
                   <i className='fab fa-linkedin fa-1x' />
                 </a>
-                <a target='_blank' href={enroll.user.facebook}>
+                <a
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href={enroll.user.facebook}
+                >
                   <i className='fab fa-facebook-square fa-1x' />
                 </a>
                 <a

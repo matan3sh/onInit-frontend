@@ -36,6 +36,12 @@ export function updateCourse(course) {
   };
 }
 
+export function clearCourse() {
+  return (dispatch) => {
+    dispatch({ type: 'CLEAR_COURSE' });
+  };
+}
+
 export function setLocation(location) {
   return (dispatch) => {
     dispatch({ type: 'SET_LOCATION', payload: location });

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { loadCourse } from '../store/actions/courseActions';
+import { loadCourse, clearCourse } from '../store/actions/courseActions';
 import { loadEnrolls } from '../store/actions/enrollActions';
 import { Loader } from '../components/Layout/Loader';
 import HeroDetail from '../components/Layout/HeroDetail';
@@ -13,6 +13,7 @@ import CourseAbout from '../components/Course/Detail/CourseAbout';
 import { CourseSchool } from '../components/Course/Detail/CourseSchool';
 import { CourseGallery } from '../components/Course/Detail/CourseGallery';
 import ReviewList from '../components/Course/Review/ReviewList';
+import SocketService from '../services/SocketService';
 
 class CourseDetail extends Component {
   componentDidMount() {
@@ -21,6 +22,11 @@ class CourseDetail extends Component {
       this.props.loadCourse(id);
       this.props.loadEnrolls();
     }, 500);
+    SocketService.on('confirm-enroll', () => this.props.loadEnrolls());
+  }
+
+  componentWillUnmount() {
+    this.props.clearCourse();
   }
 
   render() {
@@ -64,6 +70,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   loadCourse,
   loadEnrolls,
+  clearCourse,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CourseDetail);

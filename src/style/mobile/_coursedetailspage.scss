@@ -1,388 +1,378 @@
 @media (min-width: 1135px) {
-    .left-side-details {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+  .left-side-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-    .right-side-details {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+  .right-side-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 
 @media (min-width: 620px) and (max-width: 1134px) {
-    .course-details-grid {
-        display: flex;
-        flex-direction: column;
-    }
+  .course-details-grid {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .flex-evenly {
-        justify-content: space-evenly;
-    }
+  .flex-evenly {
+    justify-content: space-evenly;
+  }
 
-    .map-style div:first-child {
-        width: 15rem !important;
-    }
+  .map-style div:first-child {
+    width: 15rem !important;
+  }
 
-    .school-grid {
-        margin-top: 2rem;
-    }
+  .school-grid {
+    margin-top: 2rem;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 619px) {
-    .landing-detail {
-        height: 30vh;
-    };
+  .landing-detail {
+    height: 30vh;
+  }
 
-    .course-details-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .course-details-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .flex-evenly {
-        flex-direction: column;
-        align-items: center;
-    }
+  .flex-evenly {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .contact-info-position {
-        top: 0;
-        margin-right: 0;
-        text-align: center;
-    }
+  .contact-info-position {
+    top: 0;
+    margin-right: 0;
+    text-align: center;
+  }
 
-    .map-style div:first-child {
-        width: 15rem !important;
-    }
+  .map-style div:first-child {
+    width: 15rem !important;
+  }
 
-    // .map-title {
-    //     top: 0;
-    //     left: 0;
-    //     padding: 10px;
-    //     text-align: center;
-    // }
+  // .map-title {
+  //     top: 0;
+  //     left: 0;
+  //     padding: 10px;
+  //     text-align: center;
+  // }
 
-    .school-grid {
-        display: flex;
-        margin-top: 13rem;
-        flex-direction: column;
-        align-items: center;
-    }
+  .school-grid {
+    display: flex;
+    margin-top: 13rem;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .grid-card-review {
-        grid-template-columns: 0.5fr 1fr;
-    }
+  .grid-card-review {
+    grid-template-columns: 0.5fr 1fr;
+  }
 }
-
 
 @media (min-width: 538px) and (max-width: 599px) {
-    .landing-detail {
-        height: 25vh;
-    };
+  .landing-detail {
+    height: 25vh;
+  }
 
-    .course-details-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .course-details-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .flex-evenly {
-        flex-direction: column;
-        align-items: center;
-    }
+  .flex-evenly {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .contact-info-position {
-        top: 0;
-        margin-right: 0;
-        text-align: center;
-    }
+  .contact-info-position {
+    top: 0;
+    margin-right: 0;
+    text-align: center;
+  }
 
-    .map-style div:first-child {
-        width: 15rem !important;
-    }
+  .map-style div:first-child {
+    width: 15rem !important;
+  }
 
-    // .map-title {
-    //     top: 0;
-    //     left: 0;
-    //     padding: 10px;
-    //     text-align: center;
-    // }
+  // .map-title {
+  //     top: 0;
+  //     left: 0;
+  //     padding: 10px;
+  //     text-align: center;
+  // }
 
-    .school-grid {
-        display: flex;
-        margin-top: 12rem;
-        flex-direction: column;
-        align-items: center;
-    }
+  .school-grid {
+    display: flex;
+    margin-top: 12rem;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .grid-card-review {
-        grid-template-columns: 0.5fr 1fr;
-    }
+  .grid-card-review {
+    grid-template-columns: 0.5fr 1fr;
+  }
 }
-
 
 @media (min-width: 514px) and( max-width: 537px) {
-    .landing-detail {
-        height: 25vh;
-    };
+  .landing-detail {
+    height: 25vh;
+  }
 
-    .benefit-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  .benefit-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    .course-details-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .course-details-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .flex-evenly {
-        flex-direction: column;
-        align-items: center;
-    }
+  .flex-evenly {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .contact-info-position {
-        top: 0;
-        margin-right: 0;
-        text-align: center;
-    }
+  .contact-info-position {
+    top: 0;
+    margin-right: 0;
+    text-align: center;
+  }
 
-    .map-style div:first-child {
-        width: 15rem !important;
-    }
+  .map-style div:first-child {
+    width: 15rem !important;
+  }
 
-    .school-grid {
-        display: flex;
-        margin-top: 13rem;
-        flex-direction: column;
-        align-items: center;
-    }
+  .school-grid {
+    display: flex;
+    margin-top: 13rem;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .grid-card-review {
-        grid-template-columns: 0.5fr 1fr;
-    }
+  .grid-card-review {
+    grid-template-columns: 0.5fr 1fr;
+  }
 }
-
 
 @media (min-width: 482px) and (max-width: 513px) {
+  .landing-detail {
+    height: 25vh;
+  }
 
-    .landing-detail {
-        height: 25vh;
-    };
+  .benefit-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    .benefit-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  .course-details-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .course-details-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .flex-evenly {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .flex-evenly {
-        flex-direction: column;
-        align-items: center;
-    }
+  .course-details-right-title {
+    font-size: 20px !important;
+  }
 
-    .course-details-right-title {
-        font-size: 20px !important;
-    }
+  .contact-info-position {
+    top: 0;
+    margin-right: 0;
+    text-align: center;
+  }
 
-    .contact-info-position {
-        top: 0;
-        margin-right: 0;
-        text-align: center;
-    }
+  .map-style div:first-child {
+    width: 15rem !important;
+  }
 
-    .map-style div:first-child {
-        width: 15rem !important;
-    }
+  .school-grid {
+    display: flex;
+    margin-top: 17rem;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .school-grid {
-        display: flex;
-        margin-top: 17rem;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .grid-card-review {
-        grid-template-columns: 0.5fr 1fr;
-    }
+  .grid-card-review {
+    grid-template-columns: 0.5fr 1fr;
+  }
 }
-
 
 @media (min-width: 454px) and (max-width: 481px) {
+  .landing-detail {
+    height: 25vh;
+  }
 
-    .landing-detail {
-        height: 25vh;
-    };
+  .benefit-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    .benefit-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  .course-details-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .course-details-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .flex-evenly {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .flex-evenly {
-        flex-direction: column;
-        align-items: center;
-    }
+  .course-details-right-title {
+    font-size: 20px !important;
+  }
 
-    .course-details-right-title {
-        font-size: 20px !important;
-    }
+  .added-by {
+    width: 22rem;
+    margin: auto;
+  }
 
-    .added-by {
-        width: 22rem;
-        margin: auto;
-    }
+  .contact-info-position {
+    top: 0;
+    margin-right: 0;
+    text-align: center;
+  }
 
-    .contact-info-position {
-        top: 0;
-        margin-right: 0;
-        text-align: center;
-    }
+  .map-style div:first-child {
+    width: 15rem !important;
+  }
 
-    .map-style div:first-child {
-        width: 15rem !important;
-    }
+  .school-grid {
+    display: flex;
+    margin-top: 17rem;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .school-grid {
-        display: flex;
-        margin-top: 17rem;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .grid-card-review {
-        grid-template-columns: 0.5fr 1fr;
-    }
+  .grid-card-review {
+    grid-template-columns: 0.5fr 1fr;
+  }
 }
-
 
 @media (min-width: 402px) and (max-width: 453px) {
+  .landing-detail {
+    height: 20vh;
+  }
 
-    .landing-detail {
-        height: 20vh;
-    };
+  .benefit-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    .benefit-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  .course-details-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .course-details-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .flex-evenly {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .flex-evenly {
-        flex-direction: column;
-        align-items: center;
-    }
+  .course-details-right-title {
+    font-size: 20px !important;
+  }
 
-    .course-details-right-title {
-        font-size: 20px !important;
-    }
+  .added-by {
+    width: 22rem;
+    margin: auto;
+  }
 
-    .added-by {
-        width: 22rem;
-        margin: auto;
-    }
+  .contact-info-position {
+    top: 0;
+    margin-right: 0;
+    text-align: center;
+  }
 
-    .contact-info-position {
-        top: 0;
-        margin-right: 0;
-        text-align: center;
-    }
+  .map-style div:first-child {
+    width: 15rem !important;
+  }
 
-    .map-style div:first-child {
-        width: 15rem !important;
-    }
+  .school-grid {
+    display: flex;
+    margin-top: 17rem;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .school-grid {
-        display: flex;
-        margin-top: 17rem;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .grid-card-review {
-        grid-template-columns: 0.5fr 1fr;
-    }
+  .grid-card-review {
+    grid-template-columns: 0.5fr 1fr;
+  }
 }
 
-
 @media (max-width: 401px) {
+  .landing-detail {
+    height: 20vh;
+  }
 
-    .landing-detail {
-        height: 20vh;
-    };
+  .benefit-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    .benefit-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  .course-details-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .course-details-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .flex-evenly {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .flex-evenly {
-        flex-direction: column;
-        align-items: center;
-    }
+  .course-details-right-title {
+    font-size: 20px !important;
+  }
 
-    .course-details-right-title {
-        font-size: 20px !important;
-    }
+  .course-details-info {
+    width: 20rem;
+    margin: auto;
+  }
 
-    .course-details-info {
-        width: 20rem;
-        margin: auto;
-    }
+  .added-by {
+    width: 22rem;
+    margin: auto;
+  }
 
-    .added-by {
-        width: 22rem;
-        margin: auto;
-    }
+  .contact-info-position {
+    top: 0;
+    margin-right: 0;
+    text-align: center;
+  }
 
-    .contact-info-position {
-        top: 0;
-        margin-right: 0;
-        text-align: center;
-    }
+  .map-style div:first-child {
+    width: 15rem !important;
+  }
 
-    .map-style div:first-child {
-        width: 15rem !important;
-    }
+  .school-grid {
+    display: flex;
+    margin-top: 16rem;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .school-grid {
-        display: flex;
-        margin-top: 16rem;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .grid-card-review {
-        grid-template-columns: 0.5fr 1fr;
-    }
+  .grid-card-review {
+    grid-template-columns: 0.5fr 1fr;
+  }
 }

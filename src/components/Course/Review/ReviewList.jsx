@@ -14,9 +14,8 @@ class ReviewList extends React.Component {
   state = { updatePage: false };
 
   componentDidMount() {
-    SocketService.setup();
-    SocketService.on('edit-review', (course) =>
-      this.props.updateCourse(course)
+    SocketService.on('add-review', () =>
+      this.props.loadCourse(this.props.course._id)
     );
   }
 

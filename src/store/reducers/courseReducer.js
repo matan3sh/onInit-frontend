@@ -2,7 +2,7 @@ const initialState = {
   courses: [],
   course: null,
   location: null,
-  name: null
+  name: null,
 };
 
 export default function courseReducer(state = initialState, action) {
@@ -28,6 +28,11 @@ export default function courseReducer(state = initialState, action) {
         courses: state.courses.map((course) =>
           course._id === action.payload._id ? action.payload : course
         ),
+      };
+    case 'CLEAR_COURSE':
+      return {
+        ...state,
+        course: null,
       };
     case 'SET_LOCATION':
       return {

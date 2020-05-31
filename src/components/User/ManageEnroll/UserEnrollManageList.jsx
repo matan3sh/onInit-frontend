@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 
 import { UserEnrollManagePreview } from './UserEnrollManagePreview';
 
-const UserEnrollManageList = ({ enrolls, loggedInUser, onConfirmEnroll }) => {
+const UserEnrollManageList = ({ enrolls, user, onConfirmEnroll }) => {
   return (
     <>
-      {loggedInUser === null ? (
+      {user === null ? (
         <h1>You are not Authorized</h1>
       ) : (
         <table className='table'>
           <thead>
             <tr>
               <th>Course Name</th>
-              <th className='hide-sm'>User Full Name</th>
+              <th className='hide-sm'>Full Name</th>
               <th className='hide-sm'>Email</th>
               <th className='hide-sm'>Phone</th>
               <th className='hide-sm'></th>
@@ -21,7 +21,7 @@ const UserEnrollManageList = ({ enrolls, loggedInUser, onConfirmEnroll }) => {
           </thead>
           <tbody>
             {enrolls.map((enroll) =>
-              enroll.ownedUserId === loggedInUser._id && !enroll.isConfirm ? (
+              enroll.ownedUserId === user._id && !enroll.isConfirm ? (
                 <UserEnrollManagePreview
                   key={enroll._id}
                   enroll={enroll}
@@ -40,7 +40,7 @@ const UserEnrollManageList = ({ enrolls, loggedInUser, onConfirmEnroll }) => {
 
 const mapStateToProps = (state) => {
   return {
-    loggedInUser: state.auth.loggedInUser,
+    user: state.users.user,
   };
 };
 

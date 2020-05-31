@@ -58,6 +58,10 @@ class CourseAbout extends React.Component {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
+  kmWithPoint = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  };
+
   render() {
     const { course, loggedInUser } = this.props;
     const { enroll } = this.state;
@@ -98,7 +102,7 @@ class CourseAbout extends React.Component {
           {this.state.distance !== null ? (
             <span>
               <i className='fas fa-street-view'></i>{' '}
-              {this.numberWithCommas(this.state.distance)} km from you
+              {this.kmWithPoint(this.state.distance)} km from you
             </span>
           ) : (
             ''
@@ -110,8 +114,8 @@ class CourseAbout extends React.Component {
         </div>
         <div className='flex my-1 flex-evenly'>
           <p>
-            <span className='text-bold text-primary'>Price:</span>{' '}
-            ${this.numberWithCommas(course.price)}
+            <span className='text-bold text-primary'>Price:</span> $
+            {this.numberWithCommas(course.price)}
           </p>
           <p>
             <span className='text-bold text-primary'>Duration:</span>{' '}

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ToastContainer, Zoom } from 'react-toastify';
 import store from './store/store';
+import SocketService from './services/SocketService';
+import { ToastContainer, Zoom } from 'react-toastify';
 
 import Home from './pages/Home';
 import Navbar from './components/Layout/Navbar';
@@ -18,26 +19,37 @@ import { Footer } from './components/Layout/Footer';
 import './style/style.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
-  return (
-    <Provider store={store}>
-      <Router>
-        <Navbar />
-        <ToastContainer draggable={false} transition={Zoom} autoClose={5000} />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/course' component={CourseApp} />
-          <Route exact path='/user/:id' component={UserProfile} />
-          <Route exact path='/edit/:id' component={CourseEdit} />
-          <Route exact path='/add' component={CourseAdd} />
-          <Route exact path='/signup' component={Signup} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/:id' component={CourseDetail} />
-        </Switch>
-        <Footer />
-      </Router>
-    </Provider>
-  );
+class App extends React.Component {
+  componentDidMount() {
+    SocketService.setup();
+    console.log('Sockets');
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <Router>
+          <Navbar />
+          <ToastContainer
+            draggable={false}
+            transition={Zoom}
+            autoClose={5000}
+          />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/course' component={CourseApp} />
+            <Route exact path='/user/:id' component={UserProfile} />
+            <Route exact path='/edit/:id' component={CourseEdit} />
+            <Route exact path='/add' component={CourseAdd} />
+            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/:id' component={CourseDetail} />
+          </Switch>
+          <Footer />
+        </Router>
+      </Provider>
+    );
+  }
 }
 
 export default App;
