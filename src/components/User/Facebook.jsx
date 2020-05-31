@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { login } from '../../store/actions/authActions';
+import { signup } from '../../store/actions/authActions';
 
 import FacebookLogin from 'react-facebook-login';
 
@@ -19,8 +19,11 @@ class Facebook extends Component {
       password: 'facebook',
       username: response.name,
       avatar: response.picture.data.url,
+      createdAt: Date.now(),
+      isAdmin: false,
     };
-    this.props.login(credentials);
+    console.log(response);
+    this.props.signup(credentials);
     this.props.toCourses();
   };
 
@@ -61,6 +64,6 @@ class Facebook extends Component {
   }
 }
 
-const mapDispatchToProps = { login };
+const mapDispatchToProps = { signup };
 
 export default connect(null, mapDispatchToProps)(Facebook);

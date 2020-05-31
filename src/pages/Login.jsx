@@ -32,7 +32,7 @@ const Login = ({ login, history }) => {
         <Formik
           initialValues={{ email: '', password: '' }}
           validationSchema={validationSchema}
-          onSubmit={(values, { setSubmitting, resetForm }) => {
+          onSubmit={(values, { setSubmitting }) => {
             setSubmitting(true);
             login(values);
             history.push('/');
