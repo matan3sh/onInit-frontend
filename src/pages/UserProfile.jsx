@@ -92,18 +92,18 @@ class UserProfile extends Component {
               enrolls={enrolls}
             />
             <div className='dash-buttons my-1'>
-              <Link to='/course' className='btn'>
+              <Link to='/course' className='btn-dash'>
                 <i className='fas fa-long-arrow-alt-left text-primary'></i> Back
                 To Courses
               </Link>
               <button
-                className={`btn ${userProfile ? 'btn-primary' : ''}`}
+                className={`btn-dash ${userProfile ? 'btn-dash-primary' : ''}`}
                 onClick={this.onUserProfile}
               >
                 <i className='fas fa-user-circle'></i> Edit Profile
               </button>
               <button
-                className={`btn ${manageCourses ? 'btn-primary' : ''}`}
+                className={`btn-dash ${manageCourses ? 'btn-dash-primary' : ''}`}
                 onClick={this.onManageCourses}
               >
                 <i
@@ -114,7 +114,7 @@ class UserProfile extends Component {
                 Manage Courses
               </button>
               <button
-                className={`btn ${manageEnrolls ? 'btn-primary' : ''}`}
+                className={`btn-dash ${manageEnrolls ? 'btn-dash-primary' : ''}`}
                 onClick={this.onManageEnrolls}
               >
                 <i
@@ -125,7 +125,7 @@ class UserProfile extends Component {
                 Manage Enrolls
               </button>
               <button
-                className={`btn ${myEnrolls ? 'btn-primary' : ''}`}
+                className={`btn-dash ${myEnrolls ? 'btn-dash-primary' : ''}`}
                 onClick={this.onMyEnrolls}
               >
                 <i

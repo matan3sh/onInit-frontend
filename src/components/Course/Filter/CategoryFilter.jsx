@@ -27,11 +27,11 @@ export class CategoryFilter extends React.Component {
   render() {
     return (
       <div>
-        <div className='form-group text-center'>
+        <div className='form-group text-center filter-ctgs'>
           {this.state.categories.map((category, index) => {
             return (
               <div
-                className={`filter btn-light pointer ${
+                className={`filter btn-light pointer filter-ctg-btn ${
                   this.state.currCategory === category ? 'bg-primary' : ''
                 }`}
                 onClick={() => {

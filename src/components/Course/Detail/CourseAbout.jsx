@@ -63,7 +63,7 @@ class CourseAbout extends React.Component {
     const { enroll } = this.state;
 
     return (
-      <div className='course-details-right'>
+      <div className='course-details-right right-side-details'>
         {enroll && (
           <Enroll
             enroll={enroll}
@@ -73,7 +73,7 @@ class CourseAbout extends React.Component {
             onSumbitEnroll={this.onSumbitEnroll}
           />
         )}
-        <div className='flex'>
+        <div className='flex flex-evenly'>
           <h3 className='course-details-right-title'>
             Next Course{' '}
             <span className='text-primary'>
@@ -108,17 +108,17 @@ class CourseAbout extends React.Component {
           <h5 className='text-mid'>Description</h5>
           {course.description}
         </div>
-        <div className='flex my-1'>
+        <div className='flex my-1 flex-evenly'>
           <p>
             <span className='text-bold text-primary'>Price:</span>{' '}
-            {this.numberWithCommas(course.price)} $
+            ${this.numberWithCommas(course.price)}
           </p>
           <p>
             <span className='text-bold text-primary'>Duration:</span>{' '}
             {course.duration} Hours
           </p>
         </div>
-        <div className='flex'>
+        <div className='flex added-by'>
           <div>
             <img
               src={course.addByUser.avatar}
@@ -143,7 +143,7 @@ class CourseAbout extends React.Component {
             </span>
           </div>
         </div>
-        <div className='flex'>
+        <div className='flex flex-evenly'>
           <div className='course-details-info contact-info-position'>
             <h5 className='text-mid text-primary text-bold'>
               Contact Information

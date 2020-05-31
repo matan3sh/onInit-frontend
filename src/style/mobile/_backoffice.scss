@@ -1,0 +1,245 @@
+
+@media (min-width: 920px) and (max-width: 953px) {
+    .dash-cards {
+        flex-direction: column;
+        align-items: center;
+        width: 45rem;
+    }
+}
+
+
+@media (min-width: 781px) and (max-width: 919px) {
+    .dash-cards {
+        flex-direction: column;
+        align-items: center;
+        width: 44rem;
+    }
+
+    .ms-sm3 {
+        width: 30%;
+    }
+
+    .dash-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 44rem;
+    }
+
+    .btn-dash {
+        padding: 0.4rem 0.2rem !important;
+        margin: 0.5rem
+    }
+}
+
+
+@media (min-width: 659px) and (max-width: 780px) {
+    .dash-cards {
+        flex-direction: column;
+        align-items: center;
+        width: 36rem;
+    }
+
+    .ms-sm3 {
+        width: 37%;
+    }
+
+    .dash-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 33rem;
+    }
+
+    .btn-dash {
+        padding: 0.4rem 0.2rem !important;
+        margin: 0.5rem
+    }
+
+    .edit-user-profile input {
+        // width: 60% !important;
+    }
+}
+
+
+@media (min-width: 651px) and (max-width: 658px) {
+    .dash-cards {
+        flex-direction: column;
+        align-items: center;
+        width: 30rem;
+    }
+
+    .ms-sm3 {
+        width: 44%;
+    }
+
+    .dash-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 33rem;
+    }
+
+    .btn-dash {
+        padding: 0.4rem 0.2rem !important;
+        margin: 0.5rem
+    }
+
+    .edit-user-profile input {
+        // width: 60% !important;
+    }
+
+}
+
+
+@media (min-width: 601px) and (max-width: 650px) {
+    .dash-cards {
+        flex-direction: column;
+        align-items: center;
+        width: 16rem;
+    }
+
+    .ms-sm3 {
+        width: 84%;
+    }
+
+    .dash-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 23rem;
+    }
+
+    .btn-dash {
+        padding: 0.4rem 0.2rem !important;
+        margin: 0.5rem
+    }
+
+    .edit-user-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-user-profile input {
+        width: 100% !important;
+    }
+}
+
+
+@media (min-width: 452px) and (max-width: 600px) {
+    .dash-cards {
+        flex-direction: column;
+        align-items: center;
+        width: 16rem;
+    }
+
+    .ms-sm3 {
+        width: 84%;
+    }
+
+    .dash-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 23rem;
+    }
+
+    .btn-dash {
+        padding: 0.4rem 0.2rem !important;
+        margin: 0.5rem
+    }
+
+    .edit-user-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-user-profile input {
+        width: 100% !important;
+    }
+
+    .table {
+        width: 23rem;
+    }
+}
+
+
+@media (min-width: 421px) and (max-width: 451px) {
+    .dash-cards {
+        flex-direction: column;
+        align-items: center;
+        width: 16rem;
+    }
+
+    .ms-sm3 {
+        width: 84%;
+    }
+
+    .dash-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 21rem;
+    }
+
+    .btn-dash {
+        padding: 0.4rem 0.2rem !important;
+        margin: 0.5rem
+    }
+
+    .edit-user-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-user-profile input {
+        width: 100% !important;
+    }
+
+    .table {
+        width: 20rem;
+    }
+}
+
+
+@media (max-width: 420px) {
+    .dash-cards {
+        flex-direction: column;
+        align-items: center;
+        width: 16rem;
+    }
+
+    .ms-sm3 {
+        width: 84%;
+    }
+
+    .dash-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 18rem;
+    }
+
+    .btn-dash {
+        padding: 0.4rem 0.2rem !important;
+        margin: 0.5rem
+    }
+
+    .edit-user-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-user-profile input {
+        width: 100% !important;
+    }
+
+    .table {
+        width: 18rem;
+        font-size: 0.7rem;
+    }
+}

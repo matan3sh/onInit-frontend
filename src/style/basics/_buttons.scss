@@ -39,3 +39,26 @@
     color: #fff;
   }
 }
+
+.btn-dash {
+  display: inline-block;
+  background: $light-color;
+  color: #333;
+  border-radius: 8px;
+  padding: 0.4rem 1.3rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  outline: none;
+  transition: all 0.2s ease-in;
+  &.btn-dash-primary {
+    @include set-background($primary-color);
+    &:hover {
+      background: lighten($primary-color, 5%);
+    }
+  }
+  &:hover {
+    background: lighten($dark-color, 20%);
+    color: #fff;
+  }
+}

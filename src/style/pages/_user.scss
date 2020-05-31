@@ -25,6 +25,7 @@ tr:nth-child(even) {
   display: grid;
   grid-template-columns: 0.3fr 1fr;
   grid-gap: 1rem;
+  margin-top: 0.4rem;
 }
 
 .edit-user-profile img {

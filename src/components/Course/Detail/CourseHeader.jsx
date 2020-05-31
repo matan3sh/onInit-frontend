@@ -18,7 +18,7 @@ export const CourseHeader = ({ course }) => {
       )}
       <p>{course.category}</p>
 
-      <div className='my-1'>
+      <div className='my-1 benefit-tabs'>
         {course.benefits.housing && (
           <span className='badge bg-dark'>Housing</span>
         )}

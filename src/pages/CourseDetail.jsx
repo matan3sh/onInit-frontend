@@ -37,7 +37,7 @@ class CourseDetail extends Component {
                 Back To Courses
               </Link>
               <div className='course-details-grid'>
-                <div className='my-1'>
+                <div className='my-1 left-side-details'>
                   <CourseHeader course={course} />
                   <CourseGallery course={course} />
                 </div>

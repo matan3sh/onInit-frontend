@@ -39,12 +39,14 @@ export const Maps = ({ location }) => {
           🏫
         </span>
       </h1>
+      <div className='map-style'>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={11}
         center={{ lat: location.lat, lng: location.lng }}
         options={options}
       ></GoogleMap>
+      </div>
     </div>
   );
 };

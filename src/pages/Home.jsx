@@ -41,7 +41,7 @@ class Home extends Component {
         {!courses.length ? (
           <Loader />
         ) : (
-          <div className='container'>
+          <div className='container-home'>
             <div className='flex' style={{ marginTop: '20px' }}>
               <p className='lead text-bold'> Recently Viewed</p>
               <Link to='/course'>
@@ -50,7 +50,7 @@ class Home extends Component {
             </div>
             <div className='grid-1'>
               <CourseListHome courses={courses} loggedInUser={loggedInUser} />
-              <p className='lead text-bold my-1'> Journey to Success</p>
+              <p className='lead text-bold my-1 g-card-header'> Journey to Success</p>
               <HomeGuide />
               <HomeStatistics />
             </div>

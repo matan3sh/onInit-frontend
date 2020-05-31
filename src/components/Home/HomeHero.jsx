@@ -23,7 +23,7 @@ class HomeHero extends React.Component {
           </div>
         </section>
         <div className='board'>
-          <div className='flex-center'>
+          <div className='flex-center-board-img'>
             <p>
               <img
                 src='https://www.coding-academy.org/images/ca-logo@2x.png'

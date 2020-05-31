@@ -43,7 +43,9 @@ export const CardSection = ({ loggedInUser, courses, enrolls }) => {
   const container = {
     display: 'flex',
     justifyContent: 'center',
-    margin: '7vh 0',
+    flexWrap: 'wrap',
+    margin: '19vh auto',
+    
   };
   const icon = {
     fontSize: 24,
@@ -60,7 +62,7 @@ export const CardSection = ({ loggedInUser, courses, enrolls }) => {
         borderTop: '5px solid #6457a6',
         width: '90%',
         maxWidth: '90%',
-        margin: 'auto',
+        margin: '1rem auto',
         borderRadius: '5px',
       },
     },
@@ -109,7 +111,7 @@ export const CardSection = ({ loggedInUser, courses, enrolls }) => {
   ];
 
   return (
-    <div style={container}>
+    <div  className='dash-cards' style={container}>
       {cards.map((card, index) => (
         <div className='s-Grid-col ms-sm3 ms-xl3' key={index}>
           <Card styles={styles.cardStyles}>

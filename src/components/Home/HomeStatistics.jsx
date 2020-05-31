@@ -5,10 +5,10 @@ export default class HomeStatistics extends Component {
   render() {
     return (
       <div className='statistics my-5'>
-        <div>
+        <div className='stat-chart'>
           <PopChart />
         </div>
-        <div>
+        <div className='stat-desc'>
           <p className='lead text-bold' style={{ margintTop: '1rem' }}>
             {' '}
             Best Schools In The Market

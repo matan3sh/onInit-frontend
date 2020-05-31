@@ -1,0 +1,74 @@
+@media screen and (max-width: 1245px) {
+    .filter-ctgs {
+        display: flex;
+        justify-content: space-around;
+        
+    }
+    .filter-ctg-btn{
+       
+    }
+}
+
+@media (min-width: 1161px) and (max-width: 1176px) {
+    .filter-ctgs {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .filter-ctg-btn {
+        margin-top: 0.5rem;
+    }
+}
+
+@media (min-width: 891px) and (max-width: 1160px) {
+    .courses-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .filter-ctgs {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .filter-ctg-btn {
+        margin-top: 0.5rem;
+    }
+}
+
+
+@media (min-width: 622px) and (max-width: 890px) {
+    .filter-ctgs {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .filter-ctg-btn {
+        margin-top: 0.5rem;
+    }
+
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 621px) {
+    .filter-ctgs {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .filter-ctg-btn {
+        margin-top: 0.5rem;
+    }
+
+    .courses-grid {
+        grid-template-columns: repeat(1, 1fr
+        );
+    }
+
+}
