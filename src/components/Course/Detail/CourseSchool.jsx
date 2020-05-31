@@ -9,11 +9,10 @@ export const CourseSchool = ({ course: { school } }) => {
       <div>
         <h1 className='text-dark'>
           <span className='text-dark'>
-            Source:
             <span className='text-primary'> {school.name}</span>
           </span>
         </h1>
-        <h5 className='text-grey'>{school.established} - Current</h5>
+        <h5 className='text-grey'>{school.established} - Present</h5>
         <p>{school.description}</p>
       </div>
     </div>

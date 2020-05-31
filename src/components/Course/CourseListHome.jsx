@@ -12,8 +12,8 @@ const settings = {
   slidesToShow: 4,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 2500,
-  responsive : [
+  autoplaySpeed: 4000,
+  responsive: [
     {
       breakpoint: 1226,
       settings: {
@@ -24,33 +24,33 @@ const settings = {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2500,
-        }
-    },  
+      },
+    },
     {
-       breakpoint: 865,
-       settings: {
-          dots: false,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          autoplay: true,
-          autoplaySpeed: 2500,
-          }
+      breakpoint: 865,
+      settings: {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2500,
+      },
     },
     {
       breakpoint: 600,
       settings: {
-         dots: false,
-         infinite: true,
-         speed: 500,
-         slidesToShow: 1,
-         slidesToScroll: 1,
-         autoplay: true,
-         autoplaySpeed: 2500,
-         }
-    }  
-  ]
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2500,
+      },
+    },
+  ],
 };
 
 export const CourseListHome = ({ courses, loggedInUser }) => {

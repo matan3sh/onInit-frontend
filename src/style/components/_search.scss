@@ -1,11 +1,15 @@
 // Search box
 .search {
-  display: grid;
-  grid-template-columns: 1fr;
+  // display: grid;
+  // grid-template-columns: 1fr;
+  display: flex;
+  left: -60px;
+  position: relative;
+
   z-index: 1;
   // width: 20%;
   input[type='text'] {
-    width: 110%;
+    width: 150%;
     padding: 1rem;
     font-size: 1.2rem;
     border: 1px solid #ccc;
@@ -16,7 +20,7 @@
     position: relative;
     top: -57px;
     // right: -150px;
-    right: -115px;
+    right: -200px;
     border-radius: 5px;
   }
 }
@@ -31,4 +35,11 @@
     width: 100%;
     display: block;
   }
+}
+
+.popular span {
+  border: #ccc 1px dotted;
+  margin-left: 5px;
+  font-size: 14px;
+  padding: 2px 5px;
 }

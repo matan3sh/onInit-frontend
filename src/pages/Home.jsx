@@ -50,7 +50,10 @@ class Home extends Component {
             </div>
             <div className='grid-1'>
               <CourseListHome courses={courses} loggedInUser={loggedInUser} />
-              <p className='lead text-bold my-1 g-card-header'> Journey to Success</p>
+              <p className='lead text-bold my-1 g-card-header'>
+                {' '}
+                Journey to Success
+              </p>
               <HomeGuide />
               <HomeStatistics />
             </div>

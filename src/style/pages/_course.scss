@@ -88,7 +88,7 @@
 
 .about-school-img {
   display: flex;
-  margin: 30px 0;
+  margin: 20px;
   width: 100%;
   width: 150px;
 }
@@ -102,6 +102,7 @@
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-gap: 0;
+  margin-bottom: 2rem;
 }
 
 .enrolls {

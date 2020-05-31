@@ -5,11 +5,11 @@ export const CourseEnroll = ({ enrolls, course }) => {
   return (
     <>
       {check.length > 0 && (
-        <h4 className='text-bold' style={{ margin: '20px 1rem' }}>
-          Already Registered:{' '}
+        <h4 className='text-bold' style={{ margin: '20px 3.2rem' }}>
+          Registered{' '}
         </h4>
       )}
-      <div className='enrolls-wrapper mb-3'>
+      <div className='enrolls-wrapper mb-3 mx-2'>
         {enrolls.map((enroll, index) => {
           if (enroll.course._id === course._id) {
             return (
@@ -42,7 +42,7 @@ export const CourseEnroll = ({ enrolls, course }) => {
                 </a>
                 <p>
                   {enroll.isConfirm ? (
-                    <span className='badge bg-primary'>Confirm</span>
+                    <span className='badge bg-primary'>Confirmed</span>
                   ) : (
                     <span className='badge bg-light'>Pending</span>
                   )}

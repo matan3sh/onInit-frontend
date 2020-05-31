@@ -33,6 +33,11 @@ const Navbar = ({ loggedInUser, logout, bg }) => {
                 Hello, {loggedInUser.username}
               </NavLink>
             </li>
+            <li>
+              <NavLink to='/course' exact activeClassName='nav-active'>
+                Courses
+              </NavLink>
+            </li>
             <li className='text-white'>
               <a href='/#' className='pointer' onClick={() => logout()}>
                 Logout
@@ -44,6 +49,11 @@ const Navbar = ({ loggedInUser, logout, bg }) => {
           </>
         ) : (
           <>
+            <li>
+              <NavLink to='/course' exact activeClassName='nav-active'>
+                Courses
+              </NavLink>
+            </li>
             <li>
               <NavLink to='/signup' exact activeClassName='nav-active'>
                 Signup

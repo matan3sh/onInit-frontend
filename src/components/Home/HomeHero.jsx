@@ -1,5 +1,6 @@
 import React from 'react';
 // import RatingFilter from '../Course/Filter/RatingFilter';
+import NameFilter from '../Course/Filter/NameFilter';
 
 class HomeHero extends React.Component {
   state = {
@@ -19,11 +20,20 @@ class HomeHero extends React.Component {
             <div className='landing-home-inner'>
               <h1 className='x-large'>It's Time To Make A Change</h1>
               <p className='lead'>Let's Start The Journey With Us</p>
+              <NameFilter />
+              <div className='flex popular'>
+                <div>Pupolar:</div>
+                <span>Full Stack Web Developer</span>
+                <span>Chefs</span>
+                <span>Managment</span>
+                <span>E Commerce</span>
+              </div>
             </div>
           </div>
         </section>
         <div className='board'>
           <div className='flex-center-board-img'>
+            {/* <h2>Explore Our Leading Schools</h2>
             <p>
               <img
                 src='https://www.coding-academy.org/images/ca-logo@2x.png'
@@ -65,7 +75,7 @@ class HomeHero extends React.Component {
                 src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTKnIIInOMdrzqsQ7IB86S6hkhCDooPfjs5-jQ_mKDZbOWmZBQM&usqp=CAU'
                 alt=''
               />
-            </p>
+            </p> */}
           </div>
         </div>
       </>
