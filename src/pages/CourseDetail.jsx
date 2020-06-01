@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Moment from 'react-moment';
-
 import { loadCourse, clearCourse } from '../store/actions/courseActions';
 import { loadEnrolls } from '../store/actions/enrollActions';
 import { Loader } from '../components/Layout/Loader';
 import HeroDetail from '../components/Layout/HeroDetail';
-
 import { CourseHeader } from '../components/Course/Detail/CourseHeader';
 import { CourseEnroll } from '../components/Course/Detail/CourseEnroll';
 import CourseAbout from '../components/Course/Detail/CourseAbout';
@@ -58,33 +55,6 @@ class CourseDetail extends Component {
                 <CourseAbout course={course} />
               </div>
               <div className='course-enrolls-info'>
-                <div>
-                  <div className='info-details'>
-                    <h5 className='text-mid text-primary text-bold'>
-                      Contact Information
-                    </h5>
-
-                    <p>
-                      <i className='fas fa-map-marker-alt'></i>{' '}
-                      {course.location.address}
-                    </p>
-                    <p>
-                      {' '}
-                      <i className='fas fa-envelope'></i> {course.email}
-                    </p>
-                    <p>
-                      {' '}
-                      <i className='fas fa-phone-square'></i> {course.phone}
-                    </p>
-                    <p>
-                      {' '}
-                      <i className='fas fa-hourglass-start'></i> Added at{' '}
-                      <Moment className='text-bold text-grey' format='LL'>
-                        {course.createdAt}
-                      </Moment>
-                    </p>
-                  </div>
-                </div>
                 <CourseEnroll course={course} enrolls={enrolls} />
               </div>
               <CourseSchool course={course} />
