@@ -22,6 +22,15 @@ class ReviewList extends React.Component {
     );
   }
 
+  componentWillUnmount() {
+    // SocketService.off('add-review', () =>
+    //   this.props.loadCourse(this.props.course._id)
+    // );
+    // SocketService.off('edit-review', () =>
+    //   this.props.loadCourse(this.props.course._id)
+    // );
+  }
+
   onDelete = (review) => {
     const { course, updateCourse } = this.props;
     const updatedCoursReviews = course.reviews.filter(
@@ -57,7 +66,10 @@ class ReviewList extends React.Component {
   };
 
   onUpdateReviews = () => {
-    this.setState(({ updatePage }) => ({ updatePage: !updatePage }));
+    this.setState(
+      ({ updatePage }) => ({ updatePage: !updatePage }),
+      () => this.props.loadCourse(this.props.course._id)
+    );
   };
 
   calcRating = (reviews) => {

@@ -45,6 +45,12 @@ export function removeUser(userId) {
   };
 }
 
+export function clearUser() {
+  return (dispatch) => {
+    dispatch({ type: 'CLEAR_USER' });
+  };
+}
+
 export function setUser(user) {
   return {
     type: 'SET_USER',

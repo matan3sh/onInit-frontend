@@ -1,6 +1,7 @@
 import courseService from '../../services/courseService';
 
 export function loadCourses(filterBy) {
+  console.log(filterBy);
   return (dispatch) => {
     courseService
       .query(filterBy)
@@ -42,14 +43,20 @@ export function clearCourse() {
   };
 }
 
-export function setLocation(location) {
+export function clearCourses() {
   return (dispatch) => {
-    dispatch({ type: 'SET_LOCATION', payload: location });
+    dispatch({ type: 'CLEAR_COURSES' });
   };
 }
 
-export function setName(name) {
+export function setFilterBy(filterBy) {
   return (dispatch) => {
-    dispatch({ type: 'SET_NAME', payload: name });
+    dispatch({ type: 'SET_FILTER', payload: filterBy });
+  };
+}
+
+export function clearFilterBy(filterBy) {
+  return (dispatch) => {
+    dispatch({ type: 'CLEAR_FILTER' });
   };
 }

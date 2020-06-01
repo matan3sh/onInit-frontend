@@ -1,0 +1,326 @@
+.user-profile-wrapper {
+  display: grid;
+  grid-template-columns: 0.3fr 2fr;
+  grid-gap: 1rem;
+}
+
+.user-left {
+  display: block;
+}
+
+.user-left img {
+  border-radius: 40px;
+  width: 150px;
+}
+
+.user-left i {
+  margin: 10px 5px;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+}
+
+.facebook-color {
+  color: #4267b2;
+}
+
+.linkedin-color {
+  color: #2867b2;
+}
+
+.profile-details {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+// Chat
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background-color: #ccc;
+  border: #ccc 1px dotted;
+  border-radius: 10px;
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #ffffff;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .outer-container {
+    height: 100%;
+  }
+
+  .inner-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 1200px) {
+  .inner-container {
+    width: 60%;
+  }
+}
+
+// InfoBar
+.info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $primary-color;
+  border-radius: 4px 4px 0 0;
+  height: 60px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.left-inner-container {
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+  color: white;
+  border-radius: 10px;
+}
+
+.right-inner-container {
+  display: flex;
+  flex: 0.5;
+  justify-content: flex-end;
+  margin-right: 5%;
+  border-radius: 10px;
+}
+
+.online-icon {
+  margin-right: 5%;
+  width: 1%;
+}
+
+// Input
+.form-input {
+  display: flex;
+  border-top: 2px solid #d3d3d3;
+  border-radius: 10px;
+}
+
+.form-input input {
+  border: none;
+  border-radius: 0;
+  padding: 1%;
+  width: 80%;
+  font-size: 1.2em;
+  border-radius: 10px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.send-button {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: $primary-color;
+  padding: 20px;
+  display: inline-block;
+  border: none;
+  width: 20%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+// Messages
+.messages {
+  padding: 0 0;
+  overflow: auto;
+  flex: auto;
+}
+
+.messageBox {
+  background: #f3f3f3;
+  border-radius: 20px;
+  padding: 5px 20px;
+  color: white;
+  display: inline-block;
+  max-width: 100%;
+  margin: 0.5rem 0;
+}
+
+.messageText {
+  width: 100%;
+  letter-spacing: 0;
+  float: left;
+  font-size: 1.1em;
+  word-wrap: break-word;
+}
+
+.messageText img {
+  vertical-align: middle;
+}
+
+.messageContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 5%;
+  margin-top: 10px;
+}
+
+.sentText {
+  display: flex;
+  position: relative;
+  left: -10px;
+  align-items: center;
+  font-family: Helvetica;
+  color: #828282;
+  letter-spacing: 0.2px;
+  font-size: 18px;
+}
+
+.pl-10 {
+  padding-left: 2px;
+}
+
+.pr-10 {
+  padding-right: 2px;
+}
+
+.justifyStart {
+  justify-content: flex-start;
+}
+
+.justifyEnd {
+  justify-content: flex-end;
+}
+
+.colorWhite {
+  color: white;
+}
+
+.colorDark {
+  color: $dark-color;
+}
+
+.backgroundBlue {
+  background: $primary-color;
+}
+
+.backgroundLight {
+  background: #f3f3f3;
+}
+
+.message-buble {
+  display: grid;
+  grid-template-columns: 0.2fr 2fr;
+  grid-gap: 0.5rem;
+}
+
+.message-buble img {
+  width: 40px;
+  border-radius: 20px;
+  position: relative;
+  top: 10px;
+  left: -10pxpx;
+  margin-right: 10px;
+}
+
+// Message
+.messageBox {
+  background: #f3f3f3;
+  border-radius: 20px;
+  padding: 5px 20px;
+  color: white;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.messageText {
+  width: 100%;
+  letter-spacing: 0;
+  float: left;
+  font-size: 1.1em;
+  word-wrap: break-word;
+}
+
+.messageText img {
+  vertical-align: middle;
+}
+
+.messageContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 2%;
+  margin-top: 3px;
+}
+
+.sentText {
+  display: flex;
+  align-items: center;
+  font-family: Helvetica;
+  color: #828282;
+  letter-spacing: 0.3px;
+}
+
+.pl-10 {
+  padding-left: 10px;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.justifyStart {
+  justify-content: flex-start;
+}
+
+.justifyEnd {
+  justify-content: flex-end;
+}
+
+.colorWhite {
+  color: white;
+}
+
+.colorDark {
+  color: #353535;
+}
+
+.backgroundBlue {
+  background: $primary-color;
+}
+
+.backgroundLight {
+  background: $light-color;
+}
+
+.sent-at {
+  color: $dark-color;
+  font-size: 10px;
+  position: relative;
+  top: -5px;
+}
+
+.sent-at-white {
+  color: #fff !important;
+  font-size: 10px;
+  position: relative;
+  top: -5px;
+  left: -8px;
+}

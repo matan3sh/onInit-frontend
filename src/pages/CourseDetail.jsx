@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 
 import { loadCourse, clearCourse } from '../store/actions/courseActions';
 import { loadEnrolls } from '../store/actions/enrollActions';
@@ -22,11 +23,14 @@ class CourseDetail extends Component {
       this.props.loadCourse(id);
       this.props.loadEnrolls();
     }, 500);
+    SocketService.setup();
+
     SocketService.on('confirm-enroll', () => this.props.loadEnrolls());
   }
 
   componentWillUnmount() {
     this.props.clearCourse();
+    SocketService.off('confirm-enroll', () => this.props.loadEnrolls());
   }
 
   render() {
@@ -39,7 +43,11 @@ class CourseDetail extends Component {
           <>
             <HeroDetail course={course} />
             <section className='container'>
-              <Link to='/course' className='btn my-1'>
+              <Link
+                to='/course'
+                className='btn mx-3'
+                style={{ marginTop: '1rem' }}
+              >
                 Back To Courses
               </Link>
               <div className='course-details-grid'>
@@ -49,7 +57,36 @@ class CourseDetail extends Component {
                 </div>
                 <CourseAbout course={course} />
               </div>
-              <CourseEnroll course={course} enrolls={enrolls} />
+              <div className='course-enrolls-info'>
+                <div>
+                  <div className='info-details'>
+                    <h5 className='text-mid text-primary text-bold'>
+                      Contact Information
+                    </h5>
+
+                    <p>
+                      <i className='fas fa-map-marker-alt'></i>{' '}
+                      {course.location.address}
+                    </p>
+                    <p>
+                      {' '}
+                      <i className='fas fa-envelope'></i> {course.email}
+                    </p>
+                    <p>
+                      {' '}
+                      <i className='fas fa-phone-square'></i> {course.phone}
+                    </p>
+                    <p>
+                      {' '}
+                      <i className='fas fa-hourglass-start'></i> Added at{' '}
+                      <Moment className='text-bold text-grey' format='LL'>
+                        {course.createdAt}
+                      </Moment>
+                    </p>
+                  </div>
+                </div>
+                <CourseEnroll course={course} enrolls={enrolls} />
+              </div>
               <CourseSchool course={course} />
               <ReviewList />
             </section>

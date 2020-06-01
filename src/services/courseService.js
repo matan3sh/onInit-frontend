@@ -8,8 +8,10 @@ export default {
   getById,
 };
 
-function query() {
-  return HttpService.get('course');
+function query(filterBy) {
+  var queryStr = `?name=${filterBy.name}&location=${filterBy.location}&category=${filterBy.category}`;
+
+  return HttpService.get(`course${queryStr}`);
 }
 
 function getById(id) {

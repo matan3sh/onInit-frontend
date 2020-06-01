@@ -10,8 +10,9 @@ import mapStyle from './mapStyle';
 
 // const libraries = ['places'];
 const mapContainerStyle = {
-  width: '20vw',
-  height: '30vh',
+  width: '32vw',
+  height: '28vh',
+  borderRadius: '10px',
 };
 // const center = {
 //   lat: 43.653225,
@@ -40,12 +41,12 @@ export const Maps = ({ location }) => {
         </span>
       </h1>
       <div className='map-style'>
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        zoom={11}
-        center={{ lat: location.lat, lng: location.lng }}
-        options={options}
-      ></GoogleMap>
+        <GoogleMap
+          mapContainerStyle={mapContainerStyle}
+          zoom={11}
+          center={{ lat: location.lat, lng: location.lng }}
+          options={options}
+        ></GoogleMap>
       </div>
     </div>
   );

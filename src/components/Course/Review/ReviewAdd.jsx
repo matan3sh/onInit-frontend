@@ -143,7 +143,7 @@ class ReviewAdd extends React.Component {
           </Formik>
         ) : (
           <button
-            className='btn'
+            className='btn mx-3'
             onClick={() => this.setState({ addReview: true })}
           >
             Add Review

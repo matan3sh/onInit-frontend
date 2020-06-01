@@ -1,23 +1,30 @@
 import React from 'react';
 import { Spring } from 'react-spring/renderprops';
-
-// import RatingFilter from '../Course/Filter/RatingFilter';
+import { connect } from 'react-redux';
+import { setFilterBy, loadCourses } from '../../store/actions/courseActions';
 
 class Hero extends React.Component {
   state = {
-    images: [
-      // 'https://images.pexels.com/photos/1230302/pexels-photo-1230302.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      'https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      // 'https://images.pexels.com/photos/1252399/pexels-photo-1252399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      'https://images.pexels.com/photos/547116/pexels-photo-547116.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      // 'https://images.pexels.com/photos/258036/pexels-photo-258036.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      // 'https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    ],
+    location: '',
+    image:
+      'https://images.unsplash.com/photo-1523287562758-66c7fc58967f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
   };
+
+  handleChange = (ev) => {
+    let { name, value } = ev.target;
+    this.setState({ [name]: value });
+  };
+
+  onSubmit = async (e) => {
+    e.preventDefault();
+    await this.props.setFilterBy({
+      ...this.props.filterBy,
+      location: this.state.location,
+    });
+    this.props.loadCourses(this.props.filterBy);
+  };
+
   render() {
-    var bg = this.state.images[
-      Math.floor(Math.random() * this.state.images.length)
-    ];
     return (
       <Spring from={{ opacity: 0 }} to={{ opacity: 1 }}>
         {(props) => (
@@ -25,23 +32,22 @@ class Hero extends React.Component {
             <section
               className='landing'
               style={{
-                background: `url(${bg}) no-repeat center center/cover`,
+                background: `url(${this.state.image}) no-repeat center center/cover`,
               }}
             >
               <div className='dark-overlay'>
                 <div className='landing-inner'>
                   <h1 className='x-large'>Time To Make a Successful Start</h1>
                   <p className='lead'>Let's Start The Journey With Us</p>
-                  {/* <RatingFilter /> */}
                   <div className='search'>
-                    <form>
+                    <form onSubmit={this.onSubmit}>
                       <div className='form-group'>
                         <input
                           type='text'
                           name='location'
                           placeholder='Enter City'
-                          // value={this.state.location}
-                          // onChange={this.onChange}
+                          value={this.state.location}
+                          onChange={this.handleChange}
                         />
                       </div>
                       <span className='pointer'>
@@ -73,4 +79,13 @@ class Hero extends React.Component {
   }
 }
 
-export default Hero;
+const mapStateToProps = (state) => ({
+  filterBy: state.courseApp.filterBy,
+});
+
+const mapDispatchToProps = {
+  setFilterBy,
+  loadCourses,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hero);

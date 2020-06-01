@@ -1,8 +1,7 @@
 const initialState = {
   courses: [],
   course: null,
-  location: null,
-  name: null,
+  filterBy: { name: '', location: '', category: '' },
 };
 
 export default function courseReducer(state = initialState, action) {
@@ -34,15 +33,20 @@ export default function courseReducer(state = initialState, action) {
         ...state,
         course: null,
       };
-    case 'SET_LOCATION':
+    case 'CLEAR_COURSES':
       return {
         ...state,
-        location: action.payload,
+        courses: [],
       };
-    case 'SET_NAME':
+    case 'SET_FILTER':
       return {
         ...state,
-        name: action.payload,
+        filterBy: action.payload,
+      };
+    case 'CLEAR_FILTER':
+      return {
+        ...state,
+        filterBy: { name: '', location: '', category: '' },
       };
     default:
       return state;

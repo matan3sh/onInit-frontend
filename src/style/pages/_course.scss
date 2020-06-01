@@ -15,7 +15,7 @@
   padding: 0;
   margin: 0 0.5rem;
   border-radius: 5px;
-  width: 70px;
+  width: 55px;
   height: 45px;
 }
 
@@ -82,6 +82,7 @@
   grid-template-columns: 0.2fr 1fr;
   grid-gap: 0.5rem;
   padding: 1rem;
+  margin-left: 15px;
   // border: #ccc 1px dotted;
   border-radius: 5px;
 }
@@ -101,27 +102,32 @@
 .enrolls-wrapper {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-gap: 0;
-  margin-bottom: 2rem;
+  grid-gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .enrolls {
+  float: left;
   text-align: center;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  // margin: auto;
+  margin-left: 10px;
   border: #ccc 1px dotted;
-  padding: 0.6rem;
+  padding: 1rem;
+  min-width: 100px;
+  min-height: 120px;
   border-radius: 15px;
 }
 
 .enrolls img {
-  width: 55px;
+  min-width: 50px;
+  max-height: 60px;
 }
 
 .enrolls p,
 .enrolls span {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bolder;
 }
 
@@ -137,4 +143,31 @@
   background: var(--light-color);
   color: #333;
   border-radius: 5px;
+}
+
+.in-details {
+  display: flex;
+}
+
+.in-details .duration {
+  padding: 0 1rem;
+}
+
+.course-enrolls-info {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+  grid-gap: 0rem;
+  margin-left: 3.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.registered-title {
+  margin-left: 65px;
+  margin-bottom: 5rem;
+}
+
+.info-details {
+  margin-top: 20px;
+  margin-left: 5px;
 }

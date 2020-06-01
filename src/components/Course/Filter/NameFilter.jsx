@@ -28,7 +28,7 @@ export default class NameFilter extends Component {
             />
           </div>
           <div className='form-group'>
-            <span className='pointer'>
+            <span className='pointer' type='submit'>
               <i className='fas fa-search fa-2x' style={{ color: '#ccc' }}></i>
             </span>
           </div>

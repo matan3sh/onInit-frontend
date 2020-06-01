@@ -23,8 +23,8 @@ class Home extends Component {
     if (loggedInUser) setUser(loggedInUser);
 
     setTimeout(() => {
-      this.props.loadCourses();
-    }, 1000);
+      this.props.loadCourses(this.props.filterBy);
+    }, 500);
   }
 
   render() {
@@ -67,6 +67,7 @@ class Home extends Component {
 
 const mapStateToProps = (state) => ({
   courses: state.courseApp.courses,
+  filterBy: state.courseApp.filterBy,
   loggedInUser: state.auth.loggedInUser,
 });
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Enroll } from '../Enroll/Enroll';
 import { saveEnroll } from '../../../store/actions/enrollActions';
+import { saveUser } from '../../../store/actions/userActions';
 import { Maps } from '../../Map/Maps';
 import Moment from 'react-moment';
 import * as geolib from 'geolib';
@@ -51,7 +52,14 @@ class CourseAbout extends React.Component {
 
   onSumbitEnroll = (enroll) => {
     this.setState({ enroll: false });
+    const user = {
+      ...this.props.loggedInUser,
+      fullName: enroll.user.fullName,
+      linkedin: enroll.user.linkedin,
+      facebook: enroll.user.facebook,
+    };
     this.props.saveEnroll(enroll);
+    this.props.saveUser(user);
   };
 
   numberWithCommas = (x) => {
@@ -59,7 +67,10 @@ class CourseAbout extends React.Component {
   };
 
   kmWithPoint = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return x
+      .toString()
+      .slice(0, 4)
+      .replace(/\B(?=(\d{2})+(?!\d))/g, '.');
   };
 
   render() {
@@ -112,12 +123,12 @@ class CourseAbout extends React.Component {
           <h5 className='text-mid'>Description</h5>
           {course.description}
         </div>
-        <div className='flex my-1 flex-evenly'>
+        <div className='in-details my-1 flex-evenly'>
           <p>
             <span className='text-bold text-primary'>Price:</span> $
             {this.numberWithCommas(course.price)}
           </p>
-          <p>
+          <p className='duration'>
             <span className='text-bold text-primary'>Duration:</span>{' '}
             {course.duration} Hours
           </p>
@@ -134,9 +145,11 @@ class CourseAbout extends React.Component {
               <span className='text-dark text-bold'>
                 {course.addByUser.username}
               </span>
-              <button className='btn mx-1'>
-                <i className='fas fa-envelope text-light'></i>
-              </button>
+              <Link to={`profile/${course.addByUser._id}`}>
+                <button className='btn mx-1'>
+                  <i className='fas fa-envelope text-light'></i>
+                </button>
+              </Link>
               <button
                 href={course.website}
                 target='blank_target'
@@ -148,31 +161,6 @@ class CourseAbout extends React.Component {
           </div>
         </div>
         <div className='flex flex-evenly'>
-          <div className='course-details-info contact-info-position'>
-            <h5 className='text-mid text-primary text-bold'>
-              Contact Information
-            </h5>
-
-            <p>
-              <i className='fas fa-map-marker-alt'></i>{' '}
-              {course.location.address}
-            </p>
-            <p>
-              {' '}
-              <i className='fas fa-envelope'></i> {course.email}
-            </p>
-            <p>
-              {' '}
-              <i className='fas fa-phone-square'></i> {course.phone}
-            </p>
-            <p>
-              {' '}
-              <i className='fas fa-hourglass-start'></i> Added at{' '}
-              <Moment className='text-bold text-grey' format='LL'>
-                {course.createdAt}
-              </Moment>
-            </p>
-          </div>
           <Maps location={course.location} />
         </div>
       </div>
@@ -188,6 +176,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   saveEnroll,
+  saveUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CourseAbout);

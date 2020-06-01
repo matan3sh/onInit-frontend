@@ -27,6 +27,11 @@ export default function userReducer(state = initialState, action) {
           user._id === action.payload._id ? action.payload : user
         ),
       };
+    case 'CLEAR_USER':
+      return {
+        ...state,
+        user: null,
+      };
     default:
       return state;
   }

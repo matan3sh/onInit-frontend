@@ -3,7 +3,7 @@ import React from 'react';
 export class CategoryFilter extends React.Component {
   state = {
     categories: [
-      'All',
+      '',
       'Data',
       'Design',
       'Programming',
@@ -18,10 +18,8 @@ export class CategoryFilter extends React.Component {
   };
 
   onSelect = (category) => {
-    this.setState(
-      { currCategory: category },
-      this.props.onFilterByCategory(category)
-    );
+    this.setState({ currCategory: category });
+    this.props.onFilterByCategory(category);
   };
 
   render() {
@@ -39,7 +37,7 @@ export class CategoryFilter extends React.Component {
                 }}
                 key={index}
               >
-                {category}
+                {category === '' ? 'All' : category}
               </div>
             );
           })}
