@@ -15,11 +15,16 @@ export const CourseEnroll = ({ enrolls, course }) => {
               <Link to={`profile/${enroll.user._id}`} key={index}>
                 <div className='enrolls'>
                   <img src={enroll.user.avatar} alt='' />
-                  <p>{enroll.user.fullName}</p>
+                  <p className='text-grey-dark'>{enroll.user.fullName}</p>
+                  {enroll.isConfirm ? (
+                    <div className='isconfirmed text-bold'>Confirmed</div>
+                  ) : (
+                    <div className='isconfirmed text-grey'>Pending</div>
+                  )}
                 </div>
               </Link>
             );
-          } else return <div></div>;
+          } else return <div key={index}></div>;
         })}
       </div>
     </div>

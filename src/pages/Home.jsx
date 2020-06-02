@@ -38,7 +38,7 @@ class Home extends Component {
             </div>
           )}
         </Spring>
-        {!courses.length ? (
+        {courses === null ? (
           <Loader />
         ) : (
           <div className='container-home'>

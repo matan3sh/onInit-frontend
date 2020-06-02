@@ -41,7 +41,7 @@ class CourseApp extends Component {
     return (
       <section>
         <Hero />
-        {!courses.length ? (
+        {courses === null ? (
           <Loader />
         ) : (
           <div className='container'>
@@ -50,6 +50,12 @@ class CourseApp extends Component {
               courses
             </p>
             <CategoryFilter onFilterByCategory={this.onFilterByCategory} />
+            {!courses.length && (
+              <div className='flex-center text-grey'>
+                Unfortunately we do not have any courses in this category,
+                please try again later
+              </div>
+            )}
             <div className='grid-1'>
               <CourseList courses={courses} loggedInUser={loggedInUser} />
             </div>

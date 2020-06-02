@@ -1,7 +1,6 @@
 import courseService from '../../services/courseService';
 
 export function loadCourses(filterBy) {
-  console.log(filterBy);
   return (dispatch) => {
     courseService
       .query(filterBy)

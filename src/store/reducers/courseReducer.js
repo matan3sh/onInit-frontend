@@ -1,5 +1,5 @@
 const initialState = {
-  courses: [],
+  courses: null,
   course: null,
   filterBy: { name: '', location: '', category: '' },
 };
