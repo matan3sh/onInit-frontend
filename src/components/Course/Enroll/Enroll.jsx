@@ -34,12 +34,8 @@ export const Enroll = ({
     <Modal
       isOpen={enroll}
       onRequestClose={() => onClose()}
-      style={{
-        overlay: {},
-        content: {
-          padding: '5px',
-        },
-      }}
+      className={'modal'}
+      overlayClassName={'overlay'}
     >
       <div className='form-enroll'>
         <div className='block-center'>
@@ -50,7 +46,7 @@ export const Enroll = ({
               {loggedInUser.username}
             </span>
           </h1>
-          <div className='my-2' style={{ fontSize: '28px' }}>
+          <div className='my-1' style={{ fontSize: '22px' }}>
             We are glad you chose to register for the course{' '}
             <p className='text-bold'>{course.name}</p> <br />
             <div>
@@ -58,7 +54,7 @@ export const Enroll = ({
               <img className='school-img' src={course.school.img} alt='' />
               <span>{course.school.name}</span>
             </div>
-            <p className='my-2'>
+            <p className='my-2 text-mid'>
               Please confirm your details and course representatives will be
               back soon{' '}
             </p>
@@ -194,7 +190,7 @@ export const Enroll = ({
                   </div>
 
                   <div className='form-group'>
-                    <button className='btn' onClick={() => onClose()}>
+                    <button className='btn btn-dark' onClick={() => onClose()}>
                       Close
                     </button>
                     <button
