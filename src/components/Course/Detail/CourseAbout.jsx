@@ -134,7 +134,7 @@ class CourseAbout extends React.Component {
           </p>
         </div>
         <div className='flex added-by'>
-          <div>
+          <div className='by-user'>
             <img
               src={course.addByUser.avatar}
               alt=''
@@ -160,7 +160,7 @@ class CourseAbout extends React.Component {
             </span>
           </div>
         </div>
-        <div className='flex flex-evenly'>
+        <div className='flex flex-evenly map-flex'>
           <Maps location={course.location} />
         </div>
       </div>

@@ -42,7 +42,7 @@ class CourseDetail extends Component {
             <section className='container'>
               <Link
                 to='/course'
-                className='btn mx-3'
+                className='btn mx-3 btn-back'
                 style={{ marginTop: '1rem' }}
               >
                 Back To Courses

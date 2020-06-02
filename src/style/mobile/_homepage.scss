@@ -315,11 +315,17 @@
     }
 
     .x-large {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .lead {
         font-size: 1rem;
+    }
+
+    .popular {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     .course-card {

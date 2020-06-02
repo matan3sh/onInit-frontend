@@ -122,12 +122,12 @@
   // display: grid;
   // grid-template-columns: 1fr;
   display: flex;
-  left: -100px;
+  left: -2px;
   position: relative;
   z-index: 1;
   // width: 20%;
   input[type='text'] {
-    width: 200%;
+    width: 114%;
     padding: 1rem;
     font-size: 1.2rem;
     border: 1px solid #ccc;
@@ -137,7 +137,7 @@
 
   span {
     position: relative;
-    right: -180px;
+    right: 8px;
     background-color: #fff;
   }
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const CourseEnroll = ({ enrolls, course }) => {
   const check = enrolls.filter((enroll) => enroll.course._id === course._id);
   return (
-    <div className=''>
+    <div className='registered-enrolls'>
       {check.length > 0 && (
         <span className='text-bold registered-title'>Registered </span>
       )}

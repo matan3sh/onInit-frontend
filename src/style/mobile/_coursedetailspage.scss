@@ -1,4 +1,57 @@
-@media (min-width: 1135px) {
+@media (min-width: 1301px) {
+  .left-side-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .course-details-header {
+  }
+
+  .map-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .flex-evenly {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1300px) {
+  .left-side-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .course-details-header {
+    width: 520px;
+    margin: auto;
+    margin-top: 0;
+  }
+  .btn-back {
+    margin: auto;
+  }
+
+  .map-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flex-evenly {
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1135px) and (max-width: 1299px) {
+  .course-details-header {
+    width: 520px;
+    margin: auto;
+    margin-top: 0;
+  }
+
   .left-side-details {
     display: flex;
     flex-direction: column;
@@ -10,24 +63,107 @@
     flex-direction: column;
     justify-content: space-between;
   }
+
+  .map-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flex-evenly {
+    justify-content: space-between;
+  }
 }
 
-@media (min-width: 620px) and (max-width: 1134px) {
+@media (min-width: 935px) and (max-width: 1134px) {
   .course-details-grid {
     display: flex;
     flex-direction: column;
   }
 
-  .flex-evenly {
-    justify-content: space-evenly;
+  .course-details-header {
+    width: 520px;
+    margin-left: 0;
+    // margin-top: 0;
   }
 
-  .map-style div:first-child {
-    width: 15rem !important;
+  .gallery-body {
+    margin-top: 1rem;
+  }
+
+  .flex-evenly {
+    justify-content: space-between;
+  }
+
+  .course-enrolls-info {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .registered-enrolls {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .school-grid {
     margin-top: 2rem;
+  }
+}
+
+
+@media (min-width: 620px) and (max-width: 934px) {
+
+
+  .course-details-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // .right-side-details {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-between;
+  // }
+
+  .course-details-header {
+    width: 520px;
+    margin-left: 0;
+    // margin-top: 0;
+  }
+
+  .gallery-body {
+    margin-top: 1rem;
+  }
+
+  .flex-evenly {
+    justify-content: space-between;
+  }
+
+  .map-style div:first-child {
+    // width: 15rem !important;
+  }
+
+  .course-enrolls-info {
+    margin-left: 0;
+    margin-top: 6rem;
+  }
+
+  .registered-enrolls {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .enrolls-wrapper {
+    // display: flex;
+    // align-items: center;
+    // flex-wrap: wrap;
+  }
+
+  .school-grid {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -42,6 +178,10 @@
     align-items: center;
   }
 
+  .gallery-body {
+    margin-top: 1rem;
+  }
+
   .flex-evenly {
     flex-direction: column;
     align-items: center;
@@ -54,7 +194,7 @@
   }
 
   .map-style div:first-child {
-    width: 15rem !important;
+    // width: 15rem !important;
   }
 
   // .map-title {
@@ -64,9 +204,23 @@
   //     text-align: center;
   // }
 
+  .course-enrolls-info {
+    margin-right: 0;
+    margin-top: 12rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .registered-enrolls {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 3.2rem;
+  }
+
   .school-grid {
     display: flex;
-    margin-top: 13rem;
+    margin-top: 5rem;
     flex-direction: column;
     align-items: center;
   }
@@ -76,9 +230,17 @@
   }
 }
 
-@media (min-width: 538px) and (max-width: 599px) {
+@media (min-width: 547px) and (max-width: 599px) {
   .landing-detail {
     height: 25vh;
+  }
+
+  .btn-back {
+    margin-left: -23px;
+  }
+
+  .course-details-header {
+    width: 500px;
   }
 
   .course-details-grid {
@@ -87,6 +249,14 @@
     align-items: center;
   }
 
+  .gallery-body {
+    margin-top: 1rem;
+  }
+
+  .gallery-wrapper {
+    max-width: 500px;
+  }
+
   .flex-evenly {
     flex-direction: column;
     align-items: center;
@@ -109,9 +279,39 @@
   //     text-align: center;
   // }
 
+  .course-enrolls-info {
+    margin-right: 0;
+    width: 28rem;
+    margin: 11rem auto 5rem;
+    // margin-left: 1.8rem;
+    // margin-top: 5rem;
+    display: grid;
+    // flex-wrap: wrap;
+    // justify-content: center;
+  }
+
+  .enrolls {
+    margin-top: 0.5rem;
+  }
+
+  .registered-enrolls {
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin-left: 3.2rem;
+  }
+
+  .enrolls-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 0.3fr);
+    margin-top: 20px;
+    grid-template-rows: repeat(3, 0.3fr);
+    align-items: center;
+    margin-right: 0;
+  }
+
   .school-grid {
     display: flex;
-    margin-top: 12rem;
+    // margin-top: 6rem;
     flex-direction: column;
     align-items: center;
   }
@@ -121,9 +321,13 @@
   }
 }
 
-@media (min-width: 514px) and( max-width: 537px) {
+@media (min-width: 514px) and( max-width: 546px) {
   .landing-detail {
     height: 25vh;
+  }
+
+  .btn-back {
+    margin-left: -20px;
   }
 
   .benefit-tabs {
@@ -138,6 +342,18 @@
     align-items: center;
   }
 
+  .gallery-body {
+    margin-top: 1rem;
+  }
+
+  .course-details-header {
+    width: 480px;
+  }
+
+  .gallery-wrapper {
+    width: 480px;
+  }
+
   .flex-evenly {
     flex-direction: column;
     align-items: center;
@@ -149,13 +365,47 @@
     text-align: center;
   }
 
+  .added-by {
+    width: 28rem;
+  }
+
   .map-style div:first-child {
     width: 15rem !important;
   }
 
+  .course-enrolls-info {
+    margin-right: 0;
+    width: 28rem;
+    margin: 13rem auto 5rem;
+    // margin-left: 1.8rem;
+    // margin-top: 5rem;
+    display: grid;
+    // flex-wrap: wrap;
+    // justify-content: center;
+  }
+
+  .enrolls {
+    margin-top: 0.5rem;
+  }
+
+  .registered-enrolls {
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin-left: 3.2rem;
+  }
+
+  .enrolls-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 0.3fr);
+    margin-top: 20px;
+    grid-template-rows: repeat(3, 0.3fr);
+    align-items: center;
+    margin-right: 0;
+  }
+
   .school-grid {
     display: flex;
-    margin-top: 13rem;
+    // margin-top: 13rem;
     flex-direction: column;
     align-items: center;
   }
@@ -170,10 +420,26 @@
     height: 25vh;
   }
 
+  .btn-back {
+    margin-left: -23px;
+  }
+
   .benefit-tabs {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .course-details-header {
+    width: 450px;
+  }
+
+  .gallery-wrapper {
+    width: 450px;
+  }
+
+  .gallery-body {
+    margin-top: 1rem;
   }
 
   .course-details-grid {
@@ -201,9 +467,48 @@
     width: 15rem !important;
   }
 
+  .added-by {
+    width: 28rem;
+  }
+
+  .map-style div:first-child {
+    width: 15rem !important;
+  }
+
+  .course-enrolls-info {
+    margin-right: 0;
+    width: 22rem;
+    margin: 13rem auto 5rem;
+    // margin-left: 1.8rem;
+    // margin-top: 5rem;
+    display: grid;
+    // flex-wrap: wrap;
+    // justify-content: center;
+  }
+
+  .enrolls {
+    margin-top: 0.5rem;
+  }
+
+  .registered-enrolls {
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin-left: 3.2rem;
+  }
+
+  .enrolls-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 0.3fr);
+    margin-top: 20px;
+    grid-template-rows: repeat(3, 0.3fr);
+    align-items: center;
+    margin-right: 0;
+  }
+
+
   .school-grid {
     display: flex;
-    margin-top: 17rem;
+    margin-top: 5rem;
     flex-direction: column;
     align-items: center;
   }
@@ -218,6 +523,11 @@
     height: 25vh;
   }
 
+  .btn-back {
+    margin-left: -23px;
+  }
+
+
   .benefit-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -228,6 +538,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .course-details-header {
+    width: 430px;
+  }
+
+  .gallery-wrapper {
+    width: 430px;
+  }
+
+  .gallery-body {
+    margin-top: 1rem;
   }
 
   .flex-evenly {
@@ -244,6 +566,13 @@
     margin: auto;
   }
 
+  .by-user {
+    display: flex;
+    align-items: baseline;
+    width: 18rem;
+    margin: auto;
+  }
+
   .contact-info-position {
     top: 0;
     margin-right: 0;
@@ -254,9 +583,40 @@
     width: 15rem !important;
   }
 
+  .course-enrolls-info {
+    margin-right: 0;
+    width: 22rem;
+    margin: 18rem auto 4rem;
+    // margin-left: 1.8rem;
+    // margin-top: 5rem;
+    display: grid;
+    // flex-wrap: wrap;
+    // justify-content: center;
+  }
+
+  .enrolls {
+    margin-top: 0.5rem;
+  }
+
+  .registered-enrolls {
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin-left: 3.2rem;
+  }
+
+  .enrolls-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 0.3fr);
+    margin-top: 20px;
+    grid-template-rows: repeat(3, 0.3fr);
+    align-items: center;
+    margin-right: 0;
+  }
+
+
   .school-grid {
     display: flex;
-    margin-top: 17rem;
+    // margin-top: 17rem;
     flex-direction: column;
     align-items: center;
   }
@@ -271,6 +631,10 @@
     height: 20vh;
   }
 
+  .btn-back {
+    margin-left: -23px;
+  }
+
   .benefit-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -281,6 +645,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .course-details-header {
+    width: 380px;
+  }
+
+  .gallery-wrapper {
+    width: 380px;
+  }
+
+  .gallery-body {
+    margin-top: 1rem;
   }
 
   .flex-evenly {
@@ -303,13 +679,52 @@
     text-align: center;
   }
 
+  .by-user {
+    display: flex;
+    align-items: baseline;
+    width: 18rem;
+    margin: auto;
+  }
+
   .map-style div:first-child {
     width: 15rem !important;
   }
 
+  .course-enrolls-info {
+    margin-right: 0;
+    width: 19rem;
+    margin: 16rem auto 6rem;
+    // margin-left: 1.8rem;
+    // margin-top: 5rem;
+    display: grid;
+    // flex-wrap: wrap;
+    // justify-content: center;
+  }
+
+  .enrolls {
+    margin-top: 0.5rem;
+  }
+
+  .registered-enrolls {
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin-left: 3.2rem;
+  }
+
+  .enrolls-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 0.3fr);
+    margin-top: 20px;
+    grid-template-rows: repeat(4, 0.3fr);
+    justify-content: center;
+    // align-items: center;
+    margin-right: 0;
+    width: 18rem;
+  }
+
   .school-grid {
     display: flex;
-    margin-top: 17rem;
+    // margin-top: 17rem;
     flex-direction: column;
     align-items: center;
   }
@@ -324,6 +739,10 @@
     height: 20vh;
   }
 
+  .btn-back {
+    margin-left: -23px;
+  }
+
   .benefit-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -334,6 +753,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .course-details-header {
+    width: 330px;
+  }
+
+  .gallery-wrapper {
+    width: 330px;
+  }
+
+  .gallery-body {
+    margin-top: 1rem;
   }
 
   .flex-evenly {
@@ -361,13 +792,52 @@
     text-align: center;
   }
 
+  .by-user {
+    display: flex;
+    align-items: baseline;
+    width: 18rem;
+    margin: auto;
+  }
+
   .map-style div:first-child {
     width: 15rem !important;
   }
 
+  .course-enrolls-info {
+    margin-right: 0;
+    width: 19rem;
+    margin: 15rem auto 6rem;
+    // margin-left: 1.8rem;
+    // margin-top: 5rem;
+    display: grid;
+    // flex-wrap: wrap;
+    // justify-content: center;
+  }
+
+  .enrolls {
+    margin-top: 0.5rem;
+  }
+
+  .registered-enrolls {
+    // display: flex;
+    // flex-wrap: wrap;
+    // margin-left: 3.2rem;
+  }
+
+  .enrolls-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 0.3fr);
+    margin-top: 20px;
+    grid-template-rows: repeat(4, 0.3fr);
+    justify-content: center;
+    // align-items: center;
+    margin-right: 0;
+    width: 18rem;
+  }
+
   .school-grid {
     display: flex;
-    margin-top: 16rem;
+    // margin-top: 16rem;
     flex-direction: column;
     align-items: center;
   }
@@ -376,3 +846,4 @@
     grid-template-columns: 0.5fr 1fr;
   }
 }
+
